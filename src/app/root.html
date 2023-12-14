@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tags For Seo + Page Optimization -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Themes Industry">
+    <!-- description -->
+    <meta name="description" content="Webshop for sport stuff, with fun products!!">
+    <!-- keywords -->
+    <meta name="keywords" content="mysterieshirt sport sportstuff">
+    <!-- Page Title -->
+    <title>sportEye</title>
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon-16x16.png">
+    <!-- Bundle -->
+
+</head>
+
+<body>
+
+    <!--START PAGE LOADER-->
+    <div id="loader">
+        <div class="loader center-block">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+        </div>
+    </div>
+    <!--END PAGE LOADER-->
+
+    <!--START MODEL WINDOW LOADER-->
+    <div id="model-loader" class="center-block">
+        <div class="loader center-block">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+        </div>
+    </div>
+    <!--END MODEL WINDOW LOADER-->
+    <div class="main">
+        <div class="body-overlay" data-value="dismis"></div>
+        <header>
+            <div class="container container-setting">
+                <div class="row justify-content-center">
+                    <!-- START HEADER NAV   -->
+                    <nav class="navbar navbar-expand navbar-light bg-light">
+                        <h1 id="title" class="brand-logo mr-3"> <a href="/">SportEye</a> </h1>
+                        <div id="ball" class="hidden">
+                            <img src="../assets/img/bal.png" width="70px" height="50px">
+                        </div>
+                        <div id="goal" class="hidden">
+                            <img src="../assets/img/goalleft.png" width="100px" height="50px">
+                        </div>
+
+                        <div class="menu-icon" id="menuButton">
+                            <div id="openMenu"><i class="fa fa-bars" aria-hidden="true" ></i></div>
+                        </div>
+                        <div id="winkelkar" *ngIf="isLoggedIn" (click)="goCheckout()"><i class="lni-cart">
+                            <span>{{this.orders.length}}</span></i></div>
+                        <div class="menu-hidden" id="menuItems">
+                            <ul>
+                                <li><span *ngIf="giveAuthorityString('ROBIN')" (click)="fetchShirts()">fetch
+                                        shirts</span></li>
+                                <li><span *ngIf="giveAuthorityString('ROBIN')" (click)="fetchClubs()">fetch
+                                        clubs</span></li>
+                                <li><a *ngIf="!isLoggedIn" href="/login">Login</a></li>
+                                <li><a *ngIf="!isLoggedIn" href="/register">Registreer</a></li>
+                                <li><span (click)="goAboutUs()">Over ons</span></li>
+                                <li><span (click)="goVoorwaarden()">Voorwaarden</span></li>
+                                <li><span (click)="toggleChat()">Chat met ons</span></li>
+                                <li *ngIf="isLoggedIn" (click)="wijzigProfiel()">Wijzig profiel</li>
+                                <li *ngIf="isLoggedIn" (click)="seeOrders()">Bestellingsgeschiedenis</li>
+                                <li *ngIf="isLoggedIn" (click)="logout()">Uitloggen</li>
+                            </ul>
+                        </div>
+                        <div class="collapse navbar-collapse transparent-nav" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav ml-auto header-nav">
+                                <li class="nav-item main_item_menu dropdown dmenu d-none d-md-block">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop2"
+                                        data-toggle="dropdown">
+                                        EUR
+                                    </a>
+                                    <div class="dropdown-menu main_item_menu_sub sm-menu">
+                                        <a class="dropdown-item" href="#"><img src="../assets/img/flags/eur.png"
+                                                alt="flag_eur">EUR</a>
+                                    </div>
+                                </li>
+
+                                <li *ngIf="!isLoggedIn"
+                                    class="nav-item main_item_menu dropdown dmenu d-none d-md-block">
+                                    <a class="nav-link dropdown-toggle" id="navbardrop3" data-toggle="dropdown">
+                                        ACCOUNT
+                                    </a>
+                                    <div class="dropdown-menu main_item_menu_sub sm-menu">
+                                        <a class="dropdown-item" href="/login">Login</a>
+                                        <a class="dropdown-item" href="/register">Registreer</a>
+                                    </div>
+                                </li>
+                                <li *ngIf="isLoggedIn" class="nav-item main_item_menu dropdown dmenu d-none d-md-block">
+                                    <a class="nav-link dropdown-toggle" id="navbardrop3" data-toggle="dropdown">
+                                        {{this.currentUser.email}}
+                                    </a>
+                                    <div class="dropdown-menu main_item_menu_sub sm-menu">
+                                        <button class="dropdown-item" (click)="wijzigProfiel()">Wijzig profiel</button>
+                                        <button class="dropdown-item"
+                                            (click)="seeOrders()">Bestellingsgeschiedenis</button>
+                                        <button class="dropdown-item" (click)="logout()">Uitloggen</button>
+                                    </div>
+                                </li>
+                                <li *ngIf="isLoggedIn" class="nav-item main_item_menu dropdown dmenu d-none d-md-block">
+                                    <i class="fa fa-random" aria-hidden="true"><span
+                                            class="badge badge-custom-setting">{{changeTokens}}</span></i>
+                                </li>
+                                <li *ngIf="isLoggedIn" class="nav-item main_item_menu dropdown dmenu d-none d-md-block">
+                                    <i class="fa fa-eye" aria-hidden="true"><span
+                                            class="badge badge-custom-setting">{{cheatTokens}}</span></i>
+                                </li>
+                                <li *ngIf="isLoggedIn" class="nav-item main_item_menu dropdown dmenu d-none d-md-block">
+                                    <a href="#" class="nav-link" data-toggle="dropdown">
+                                        <i class="lni-cart"> <span
+                                                class="badge badge-custom-setting">{{this.orders.length}}</span></i>
+                                    </a>
+                                    <div class="dropdown-menu sm-menu mini-cart">
+                                        <div class="mini-cart-header">
+                                            <h4>Winkelkar</h4>
+                                        </div>
+                                        <div class="mini-cart-body">
+                                            <div *ngFor="let order of orders" class="inner-card">
+                                                <div class="media">
+                                                    <div class="img-holder ml-1 mr-2">
+                                                        <img src={{order.product.imageLoc}} class="align-self-center"
+                                                            alt="cartitem">
+                                                    </div>
+                                                    <div class="media-body mt-auto mb-auto">
+                                                        <h5 class="name">{{order.product.name}} </h5>
+                                                        <p *ngIf="order.product.productType.toString() != 'TOKEN'"
+                                                            class="category">{{order.product.category}}
+                                                            {{order.size.replace("_", "")}}
+                                                        </p>
+                                                        <p class="price"><span> € {{order.product.price}} </span>(x
+                                                            {{order.number}}) <a href="#"> <i
+                                                                    (click)="removeOrder(order)"
+                                                                    class="fa fa-trash dustbin"></i></a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mini-cart-footer">
+                                            <div class="subtotal">
+                                                <span class="total-title">Totaal: </span>
+                                                <span class="total-price">
+                                                    <span class="Price-amount">
+                                                        € {{this.getProductsPrice()}}
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            <div class="actions">
+                                                <button class="btn btn-medium rounded-pill" (click)="deleteAllOrders()"
+                                                    [disabled]="orders.length == 0"><i
+                                                        class="fa fa-trash dustbin"></i></button>
+                                                <button [disabled]="orders.length == 0" type="button"
+                                                    (click)="goCheckout()"
+                                                    class="btn view-cart button-right btn-medium btn-gradient rounded-pill">Check out</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </nav>
+                    <!-- END HEADER NAV   -->
+                </div>
+            </div>
+        </header>
+        <router-outlet>
+
+        </router-outlet>
+        <!--START SIDEBAR SECTION -->
+        <div class="sidebar-section">
+            <div class="spans">
+                <span *ngIf="giveAuthorityString('ROBIN')" (click)="fetchShirts()"><i>fetch shirts</i></span>
+                <span *ngIf="giveAuthorityString('ROBIN')" (click)="fetchClubs()"><i>fetch clubs</i></span>
+                <span class="white"><i>SportEye</i></span>
+                <span (click)="goAboutUs()"><i class="fa fa-info-circle" data-hover="Over ons" aria-hidden="true">
+                    </i></span>
+                <span (click)="goVoorwaarden()"><i class="fa fa-gavel" data-hover="Voorwaarden" aria-hidden="true">
+                    </i></span>
+                <span (click)="toggleChat()"><i class="fa fa-comment" data-hover="Chat met ons"
+                        aria-hidden="true"></i></span>
+            </div>
+            <ul class="social-icons">
+                <li><a href="#." class="facebook_bg_hvr2 wow slideInLeft" data-wow-duration="2.1s"><i
+                            class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                <li><a href="#." class="instagram_bg_hvr2 wow slideInRight" data-wow-duration="2.1s"><i
+                            class="fab fa-instagram" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+        <!--END SIDEBAR SECTION -->
+
+        <!--START OVERLAY MENU -->
+        <div class="side-menu-nav">
+            <h1 class="sidenav-bg-text">SportEye</h1>
+            <div class="side-footer">
+                <ul class="social-icons-simple">
+                    <li><a href="#." class="facebook_bg_hvr2 wow fadeInUp"><i class="fab fa-facebook-f"
+                                aria-hidden="true"></i></a></li>
+                    <li><a href="#." class="twitter_bg_hvr2 wow fadeInDown"><i class="fab fa-twitter"
+                                aria-hidden="true"></i></a> </li>
+                    <li><a href="#." class="linkdin_bg_hvr2 wow fadeInUp"><i class="fab fa-linkedin-in"
+                                aria-hidden="true"></i></a></li>
+                    <li><a href="#." class="instagram_bg_hvr2 wow fadeInDown"><i class="fab fa-instagram"
+                                aria-hidden="true"></i></a></li>
+                </ul>
+                <p class="whitecolor text-center w-100 wow fadeInDown">&copy; 2023 SportEye. </p>
+            </div>
+        </div>
+        <!-- End OVERLAY Menu -->
+    </div>
+    <!--END MAIN-->
+    <!--LOAD MODEL WINDOW-->
+    <div id="modal-data"></div>
+    <!--END LOAD MODEL WINDOW-->
+
+</body>
+
+</html>

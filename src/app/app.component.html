@@ -1,0 +1,117 @@
+
+
+<!--START MAIN-->
+
+
+    <!--START PRODUCT SECTION -->
+    <div class="product-section">
+        <!--START HEADER -->
+        <!--END HEADER -->
+        <p class="floating-message" *ngIf="this.message != ''">{{this.message}}</p>
+        <div class="row inner-product-sec">
+            <div class="left-area">
+                <p class="d-none d-lg-block">© 2023 SportEye</p>
+            </div>
+            <div class="right-area">
+                <div id="particles"></div>
+                <div class="container container-setting">
+                    <div class="row text-center">
+                        <!--  START PRODUCT SLIDER  -->
+                        <div class="col-sm-12 col-md-8 col-lg-12 box1 text-center order-2">
+                            <div class="ribbon">
+                                <div class="wrap">
+                                    <span class="ribbon6">€ 65.00</span>
+                                </div>
+                            </div>
+                            <!-- Swiper-->
+                            <div class="swiper-container" id="product-slider" style="overflow: hidden;">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <a onclick="slide_window('model-window1');" style="cursor: pointer"><img src="../assets/img/mysterieshirt3.jpg" alt="featured product 1"></a>
+                                    </div>
+                                </div>
+                                <!-- Add Pagination -->
+                            </div>
+                            <div class="swiper-dots"></div>
+                        </div>
+                        <!--  END PRODUCT SLIDER  -->
+
+                        <div class="col-sm-12 featured_title d-sm-block d-md-block d-lg-none order-1">
+                            <h4 class="text-center text-lg-left"><span>online sport</span> winkel</h4>
+                            <h2 class="featured_description">Het shoppen van sportkleren leuker maken!!</h2>
+                            <!--<div class="button-1 rounded-pill">
+                                <a [routerLink]='["/shop"]' class="rounded-pill">Toon meer producten </a>
+                            </div>-->
+                        </div>
+                    </div>
+
+                    <div class="featured_products">
+                        
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-3"></div>
+                            <div class="col-12 col-lg-9 offset-lg-3 detail-area">
+                                <div class="row">
+                                    <div class="col-12 featured_title d-none d-lg-block">
+                                        <h4 class="text-center text-md-left"><span>online sport</span> winkel</h4>
+                                        <p class="">Het shoppen van sportkleren leuker maken!! (voorlopig enkel voetbalshirts)</p>
+                                        <div class="button-1 rounded-pill">
+                                            <a [routerLink]='["/about"]' class="rounded-pill">Meer uitleg over ons + de  aangeboden producten </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 featured_items wow fadeIn" data-wow-duration="2s">
+                                        <div class="featured-items owl-carousel owl-theme">
+                                            <div *ngFor="let product of products" class="item pr-2">
+                                                <a (click)="openDialog(product)">
+                                                    <div class="img-holder">
+                                                        <img src={{product.imageLoc}} alt="items">
+                                                        <div class="plus"><i class="lni-plus"></i></div>
+                                                    </div>
+                                                </a>
+                                                <p class="text-center product-body">{{product.name}}</p>
+                                                <p class="text-center product-price">€ {{product.price}}</p>
+                                            </div>
+                                        
+                                        </div>
+                                    </div>
+                                    <!--  START FOOTER AREA -->
+                                    <div class="col-12 featured_footer">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <p class="text-center text-md-left">De aangeboden producten bieden een nieuwe online winkelervaring.</p>
+                                            </div>
+                                            <div class="col-12 text-center text-lg-left">
+                                                <div class="row">
+                                                    <div class="terms col-sm-12 col-md-4  col-lg-4">
+                                                        <h4>Gratis verzending</h4>
+                                                        <p>Kan 1-5 weken duren voor aankomst</p>
+                                                    </div>
+                                                    <div class="terms col-sm-12  col-md-4 col-lg-4">
+                                                        <h4>Veilige betaling </h4>
+                                                        <p>100% veilige betaling</p>
+                                                    </div>
+                                                    <div class="terms col-sm-12 col-md-4  col-lg-4">
+                                                        <h4>Geen terugzending mogelijk</h4>
+                                                        <p>Snelle communicatie via info@sporteye.be</p>
+                                                    </div>
+                                                    <div class="col-md-12 d-block d-lg-none">
+                                                        <p>© 2023 SportEye.  </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--  END FOOTER AREA -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--START PRODUCT SECTION -->
+
+    
+

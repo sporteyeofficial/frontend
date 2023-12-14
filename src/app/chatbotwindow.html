@@ -1,0 +1,23 @@
+<div class="" id="model-window2">
+    <div class="model-window-body">
+        <div class="close-window">
+            <i (click)="onNoClick()" class="lni-close"></i>
+        </div>
+        <div class="chat-container">
+            <div class="chat-window">
+                <ul class="messages">
+                    <li *ngFor="let message of messages" [ngClass]="{'self': message.author === 'user', 'bot': message.author === 'bot'}">
+                        {{ message.content }}
+                    </li>
+                </ul>
+                <div class="chat-input">
+                    <input type="text" [(ngModel)]="inputMessage" (keyup.enter)="sendMessage()"
+                        placeholder="Typ uw bericht...">
+                    <button [disabled]="this.messages.length > 3" (click)="sendMessage()">Verzend</button>
+                    
+                </div>
+                <p *ngIf="this.messages.length > 3" class="error">Het is momenteel maar mogelijk om 2 vragen te stellen in één chatbox.</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,211 @@
+<div *ngIf="docBreedte >= 992" class="product-section">
+    <!--START HEADER -->
+
+    <!--END HEADER -->
+    <div class="row inner-product-sec">
+        <div class="left-area">
+            <div id="particles2"></div>
+            <div class="orders">
+                <h2>Orders</h2>
+                <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true"
+                    (pageChange)="handlePageChange($event)"></pagination-controls>
+                <div (click)="changeOrderGroup(o)" class="lijst-item btn btn-light" *ngFor="let o of orderGroups | paginate : {
+                    itemsPerPage: pageSize,
+                    currentPage: page,
+                    totalItems: count
+                  }; index as i">
+                    <span class="lijst-itemtext">Bestelling {{orderGroups.length - ((page * pageSize)) + (pageSize - i) }} </span>
+                    <span class="lijst-itemtext">besteld op {{o.startDate | date : "dd-MM-YY HH:mm:ss"}}</span>
+                </div>
+
+            </div>
+            <p class="d-none d-lg-block">© 2023 SportEye</p>
+        </div>
+        <div class="right-area" *ngIf="this.orderGroups.length == 0">
+            <div id="particles"></div>
+            <h3>Er zijn nog geen bestellingen geplaatst</h3>
+        </div>
+        <div class="right-area" *ngIf="this.orderGroups.length > 0">
+            <div id="particles"></div>
+            <div class="order">
+                <div class="container container-setting">
+                    <div class="row">
+                        <div *ngIf="checkOrder()" class="col-12 col-lg-8 order-2 order-lg-2">
+
+                            <h2>Bestelling: {{orderGroup.startDate | date : "dd-MM-yyyy HH:mm:ss"}}</h2>
+                            <p class="">Status: {{orderGroup.status}} </p>
+                            <div class="centerD green">
+                                <span><i *ngIf="changeTokens > 0" class="fa fa-random" aria-hidden="true"><span
+                                            class="el">+{{changeTokens}}</span></i></span>
+                                <span><i *ngIf="cheatTokens > 0" class="fa fa-eye" aria-hidden="true"><span
+                                            class="el">+{{cheatTokens}}</span></i></span>
+                            </div>
+                            <div class="products" *ngIf="getShirtOrdersIndexes().length > 1">
+                                <p class="">Aangekochte mysterieproducten: </p>
+                                <span *ngFor="let i of getShirtOrdersIndexes()">
+                                    <button
+                                        (click)="changeOrderOfGroup(i)">{{orderGroup.orders[i].productName}}</button>
+                                </span>
+                            </div>
+
+
+                            <p> {{order.productName}}
+                            </p>
+
+                            <div *ngIf="order.productEnum != 'TOKEN'" class="mysterie-shirts">
+                                <div class="mysterie-shirt card" *ngFor="let mshirt of pickedShirts">
+                                    <div class="header">
+                                        <div class="hover">
+                                            <i *ngIf="!mshirt.changeClosed" class="fa fa-random "
+                                                data-hover="Klik hier om change token te gebruiken" aria-hidden="true"
+                                                (click)="changeShirt(mshirt.id, orderGroup.id)"></i>
+                                            <i *ngIf="mshirt.changeClosed" class="fa fa-random "
+                                                data-hover="Kan shirt niet meer veranderen" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="red">
+                                            <span *ngIf="order.changeUsed > 0"><i class="fa fa-random"
+                                                    aria-hidden="true"><span
+                                                        class="el">-{{order.changeUsed}}</span></i></span>
+                                            <span *ngIf="order.cheatUsed > 0"><i class="fa fa-eye"
+                                                    aria-hidden="true"><span
+                                                        class="el">-{{order.cheatUsed}}</span></i></span>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="!mshirt.shirtIsShown">
+                                        <p>Shirt wordt niet getoond</p>
+                                        <button class="btn btn-dark"
+                                            (click)="showShirt(mshirt.id, orderGroup.id)">gebruik een
+                                            cheat token om shirt te zien</button>
+                                    </div>
+                                    <div *ngIf="mshirt.shirtIsShown">
+                                        <button *ngIf="mshirt.pickedShirt == null" class="centerbutton btn btn-light"
+                                            (click)="openDialog(mshirt, orderGroup.id)">Klik hier om shirts te
+                                            zien</button>
+
+                                        <div *ngIf="mshirt.pickedShirt != null">
+                                            <div class="shirt-item">
+                                                <h3>Club: </h3>
+                                                <div>
+                                                    <p>{{mshirt.pickedShirt.clubName}} </p>
+                                                    <img width="40%" height="35%" src={{mshirt.pickedShirt.clubImg}}>
+                                                </div>
+                                                <h3>Shirt: </h3>
+                                                <div>
+                                                    <p>{{mshirt.pickedShirt.name.replace(mshirt.pickedShirt.clubName,"")}}:
+                                                        {{mshirt.pickedShirt.season}} </p>
+                                                    <img width="60%" height="60%" src={{mshirt.pickedShirt.shirtImg}}>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="changedShirt" *ngIf="beforeChangeShirts.length > 0">
+                                    <p>Het laatst gewijzigd <span *ngIf="beforeChangeShirts.length == 1">shirt
+                                            is:</span><span *ngIf="beforeChangeShirts.length > 1">shirts zijn</span></p>
+                                    <div *ngFor="let shirt of beforeChangeShirts">
+                                        <img src={{shirt.shirtImg}}>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="docBreedte < 992" class="product-section-mobile">
+    <div class="mobile-header">
+        <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true"
+            (pageChange)="handlePageChange($event)"></pagination-controls>
+        <div (click)="changeOrderGroup(o)" *ngFor="let o of orderGroups | paginate : {
+                        itemsPerPage: pageSize,
+                        currentPage: page,
+                        totalItems: count
+                    }; index as i">
+            <button>{{(page-1)*pageSize + i + 1}} besteld op {{o.startDate | date : "dd-MM-YY HH:mm:ss"}} </button>
+        </div>
+    </div>
+    <div *ngIf="this.orderGroups.length > 0">
+        <div class="container container-setting">
+            <div class="row">
+                <div *ngIf="checkOrder()" class="col-12 col-lg-8 order-2 order-lg-2">
+                    <h2>Bestelling: {{orderGroup.startDate | date : "dd-MM-yyyy HH:mm:ss"}}</h2>
+                    <p class="">Status: {{orderGroup.status}} </p>
+                    <div class="centerD green">
+                        <span><i *ngIf="changeTokens > 0" class="fa fa-random" aria-hidden="true"><span
+                                    class="el">+{{changeTokens}}</span></i></span>
+                        <span><i *ngIf="cheatTokens > 0" class="fa fa-eye" aria-hidden="true"><span
+                                    class="el">+{{cheatTokens}}</span></i></span>
+                    </div>
+                    <div class="products" *ngIf="getShirtOrdersIndexes().length > 1">
+                        <p class="">Aangekochte mysterieproducten: </p>
+                        <span *ngFor="let i of getShirtOrdersIndexes()">
+                            <button (click)="changeOrderOfGroup(i)">{{orderGroup.orders[i].productName}}</button>
+                        </span>
+                    </div>
+
+
+                    <p> {{order.productName}}
+                    </p>
+
+                    <div *ngIf="order.productEnum != 'TOKEN'" class="mysterie-shirts">
+                        <div class="mysterie-shirt card" *ngFor="let mshirt of pickedShirts">
+                            <div class="header">
+                                <div class="hover">
+                                    <i *ngIf="!mshirt.changeClosed" class="fa fa-random "
+                                        data-hover="Klik hier om change token te gebruiken" aria-hidden="true"
+                                        (click)="changeShirt(mshirt.id, orderGroup.id)"></i>
+                                    <i *ngIf="mshirt.changeClosed" class="fa fa-random "
+                                        data-hover="Kan shirt niet meer veranderen" aria-hidden="true"></i>
+                                </div>
+                                <div class="red">
+                                    <span *ngIf="order.changeUsed > 0"><i class="fa fa-random" aria-hidden="true"><span
+                                                class="el">-{{order.changeUsed}}</span></i></span>
+                                    <span *ngIf="order.cheatUsed > 0"><i class="fa fa-eye" aria-hidden="true"><span
+                                                class="el">-{{order.cheatUsed}}</span></i></span>
+                                </div>
+                            </div>
+                            <div *ngIf="!mshirt.shirtIsShown">
+                                <p>Shirt wordt niet getoond</p>
+                                <button class="btn btn-dark" (click)="showShirt(mshirt.id, orderGroup.id)">gebruik
+                                    een
+                                    cheat token om shirt te zien</button>
+                            </div>
+                            <div *ngIf="mshirt.shirtIsShown">
+                                <button *ngIf="mshirt.pickedShirt == null" class="centerbutton btn btn-light"
+                                    (click)="openDialog(mshirt, orderGroup.id)">Klik hier om shirts te
+                                    zien</button>
+
+                                <div *ngIf="mshirt.pickedShirt != null">
+                                    <div class="shirt-item">
+                                        <h3>Club: </h3>
+                                        <div>
+                                            <p>{{mshirt.pickedShirt.clubName}} </p>
+                                            <img width="40%" height="35%" src={{mshirt.pickedShirt.clubImg}}>
+                                        </div>
+                                        <h3>Shirt: </h3>
+                                        <div>
+                                            <p>{{mshirt.pickedShirt.name.replace(mshirt.pickedShirt.clubName,"")}}:
+                                                {{mshirt.pickedShirt.season}} </p>
+                                            <img width="60%" height="60%" src={{mshirt.pickedShirt.shirtImg}}>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="changedShirt" *ngIf="beforeChangeShirts.length > 0">
+                            <p>Het laatst gewijzigd <span *ngIf="beforeChangeShirts.length == 1">shirt
+                                    is:</span><span *ngIf="beforeChangeShirts.length > 1">shirts zijn</span></p>
+                            <div *ngFor="let shirt of beforeChangeShirts">
+                                <img src={{shirt.shirtImg}}>
+                            </div>
+                        </div>
+                        <p class="d-none d-lg-block">© 2023 SportEye</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
