@@ -39,7 +39,8 @@ import { ChatBotComponent } from "./chatbotwindow";
 
   toggleChat(): void {
     const dialogRef = this.dialog.open(ChatBotComponent, {
-      width: '',
+      width: 'max-content',
+      height: 'max-content',
       data: {  }
     });
     console.log("dialog is opened");
@@ -69,8 +70,7 @@ import { ChatBotComponent } from "./chatbotwindow";
 
   wijzigProfiel() {
     const dialogRef = this.dialog.open(WijzigProfielComponent, {
-      height: '',
-      width: '',
+      panelClass: 'dialogclass',
       data: {}
     });
     console.log("dialog is opened");

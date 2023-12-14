@@ -119,7 +119,8 @@ export class OrderComponent implements OnInit {
 
   openDialog(mysterieShirt: MysterieShirt, groepId: number): void {
     const dialogRef = this.dialog.open(Window2Component, {
-      width: '',
+      width: 'max-content',
+      height: 'max-content',
       data: { p: mysterieShirt, o: groepId, g: this.id }
     });
     console.log("dialog is opened");
@@ -156,7 +157,8 @@ export class OrderComponent implements OnInit {
 
   showShirt(mysterieShirtId: number, groepId: number) {
     const dialogRef = this.dialog.open(Window3Component, {
-      width: '',
+      width: 'max-content',
+      height: 'max-content',
       data: { p: mysterieShirtId, g: groepId, s: "show", o:this.id }
     });
     console.log("dialog is opened");

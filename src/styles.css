@@ -4796,6 +4796,13 @@ body .menu-visible {
     z-index: 1111111111;
 }
 
+.dialogclass {
+    height: 90%;
+    width: max-content;
+    border-radius: 10px;
+    background: lightcyan;
+}
+
 nav i {
     color: black !important;
 }

@@ -41,7 +41,7 @@ export class HomeComponent {
   openDialog(product: Product): void {
     if (this.currentUser != null) {
       const dialogRef = this.dialog.open(Window1Component, {
-        width: '',
+        panelClass: 'dialogclass',
         data: { p: product, products: this.products }
       });
       console.log("dialog is opened");
