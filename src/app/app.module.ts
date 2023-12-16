@@ -22,7 +22,7 @@ import { VeranderWachtwoordComponent } from './veranderWachtwoordModal';
 import { PasswordComponent } from './html/password';
 import { AlgVoorwaardenComponent } from './html/algvoorwaarden';
 import { ChatBotComponent } from './chatbotwindow';
-import { APP_BASE_HREF, CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { APP_BASE_HREF, CommonModule} from '@angular/common';
 import { ShopcartComponent } from './html/shop-cart';
 
 @NgModule({
