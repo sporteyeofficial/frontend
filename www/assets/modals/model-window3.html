@@ -1,0 +1,14 @@
+<div>
+    <div class="model-window-body">
+        <div class="close-window">
+            <i (click)="onNoClick()" class="lni-close"></i>
+        </div>
+        <div class="container model-content">
+            <div class="row">
+                <p class="col-12">Ben je zeker dat je een <span *ngIf="soort == 'change'"> change</span> <span *ngIf="soort == 'show'"> cheat</span> token wilt gebruiken? </p>
+                <button class="btn btn-success col-6" (click)="confirmBox()">Bevestig</button>
+                <button class="btn btn-danger col-6" (click)="onNoClick()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

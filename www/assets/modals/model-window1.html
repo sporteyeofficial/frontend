@@ -1,0 +1,124 @@
+<div>
+    <div class="model-window-body">
+        <div class="close-window">
+            <i (click)="onNoClick()" class="lni-close"></i>
+        </div>
+        <div class="container model-content">
+            <div class="row">
+
+
+                <div class="col-12 model-head-title text-center">
+                    <div class="model-title mt-3">
+                        <h1>{{product.name}}</h1>
+                    </div>
+                </div>
+
+
+                <div class="col-10 offset-1 image-display-section">
+                    <div class="price-tag"><span class="price-tag-amount">€ {{this.product.price}}</span></div>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <!--<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src={{product.imageLoc}} class="d-block w-50 centerbutton">
+                            </div>
+                            <!--<div class="carousel-item">
+                                <img src="../assets/img/m6.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../assets/img/m6.jpg" class="d-block w-100" alt="...">
+                            </div>-->
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-12 col-md-10 offset-md-1 project-description">
+
+                    <div class="text-center text-md-left">
+                        <p class="text-center">{{product.description}}</p>
+                    </div>
+
+
+                    <div class="product-type">
+                        <div class="row">
+                            <p>Twijfel je over welke shirtgrootte je moet kopen? <a href="/about#shirt">klik hier</a></p>
+                            <div *ngIf="!product.name.includes('token') "
+                                class="col-12 col-md-4 text-center text-md-left" mat-form-field>
+                                <!--                                <h4><span>Sizes</span></h4>-->
+                                <select id="size" class="input-group" #size (change)="onSelected(size.value)" required>
+                                    <option class="input-control" ngDefaultControl selected disabled hidden>Sizes
+                                    </option>
+                                    <option *ngFor="let name of enumKeys; index as i" [value]="this.enumKeys[i]">
+                                        {{this.enumKeys[i].replace("_","")}} </option>
+                                </select>
+
+                            </div>
+
+                            <div *ngIf="!product.name.includes('token')"
+                                class="col-12 col-md-4 product-availability text-center text-md-center" >
+                                <p class="pt-1"><i class="fa fa-check"></i> In Stock</p>
+                            </div>
+
+                            <div class="col-12 col-md-4 text-center text-lg-left input_plus_mins">
+
+                                <div class="qty"mat-form-field>
+                                    <span id="minus" class="minus bg-dark"><i class="lni-minus"></i></span>
+                                    <input type="number" id="instocknumber" class="count" name="qty" value="1" required
+                                        [formControl]="number">
+                                    <span id="plus" class="plus bg-dark"><i class="lni-plus"></i></span>
+                                </div>
+
+                            </div>
+                            <div>
+                                <h3 class="text-center">Aanbevolen producten om bij te bestellen</h3>
+                                <div class="row">
+                                    <div *ngIf="product.productType.toString() != 'TOKEN'"
+                                        class="col-12 col-md-6 text-center input_plus_mins">
+                                        <p>Voeg change tokens toe om de toegewezen truitjes te veranderen. </p>
+                                        <p>(10 euro)</p>
+                                        <img src="../assets/img/changeToken.jpg" width="40%" height="50%">
+                                        <div class="qty" mat-form-field>
+                                            <span class="minus bg-dark"><i (click)="min(2)"
+                                                    class="lni-minus"></i></span>
+                                            <input type="numberChangeTokens" id="instocknumber2" class="count"
+                                                name="qtyChangeToken" value="0" required
+                                                [formControl]="numberChangeTokens">
+                                            <span class="plus bg-dark"><i (click)="plus(2)" class="lni-plus"></i></span>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="product.productType.toString() == 'RANDOMSHIRT'"
+                                        class="col-12 col-md-6 text-center input_plus_mins">
+                                        <p>Voeg cheat token toe om de toegewezen truitjes te bekijken. </p>
+                                        <p>(5 euro)</p>
+                                        <img src = "../assets/img/cheatToken.jpg" width="40%" height="50%">
+                                        <div class="qty" mat-form-field>
+                                            <span class="minus bg-dark"><i (click)="min(3)"
+                                                    class="lni-minus"></i></span>
+                                            <input type="numberCheatTokens" id="instocknumber3" class="count"
+                                                name="qtyCheatToken" value="0" required
+                                                [formControl]="numberCheatTokens">
+                                            <span class="plus bg-dark"><i (click)="plus(3)" class="lni-plus"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center model-head-button">
+                                    <div class="model-title">
+                                        <button [disabled]="this.selected == false && product.productType.toString() != 'TOKEN'" type="button" (click)="addProductToShoppingCart(product)"
+                                            class="btn btn-prev btn-rounded">ADD TO CART</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
