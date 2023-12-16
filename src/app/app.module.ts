@@ -52,7 +52,7 @@ import { ShopcartComponent } from './html/shop-cart';
     BrowserAnimationsModule,
     NgxPaginationModule
   ],
-  providers: [httpInterceptorProviders, { provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
