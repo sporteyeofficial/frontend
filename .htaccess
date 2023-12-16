@@ -1,0 +1,8 @@
+RewriteEngine On
+# Als een bestand of map bestaat, gebruik het direct
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+
+# Anders, stuur door naar index.html
+RewriteRule ^ index.html

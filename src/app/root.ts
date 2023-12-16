@@ -81,7 +81,7 @@ import { ChatBotComponent } from "./chatbotwindow";
   }
 
   goAboutUs() {
-    this.router.navigateByUrl('/about').then(() => {
+    this.router.navigate(['about']).then(() => {
       window.location.reload();
     });
   }
