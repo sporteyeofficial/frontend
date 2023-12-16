@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { backend } from "src/environments";
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
@@ -10,7 +11,7 @@ const httpOptions = {
     providedIn: 'root'
   })
   export class ProductService {
-    private apiUrl = 'http://localhost:8080/api';
+    private apiUrl = backend.url;
 
   
     constructor(private http: HttpClient) { }

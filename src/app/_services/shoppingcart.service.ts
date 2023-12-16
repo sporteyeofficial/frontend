@@ -4,6 +4,7 @@ import { Product } from "../model/product";
 import { Order } from "../model/order";
 import { Observable } from "rxjs";
 import { Cookie } from 'ng2-cookies/ng2-cookies';
+import { backend } from "src/environments";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json'}),
@@ -15,7 +16,7 @@ const httpOptions = {
   })
   export class ShoppingcartService {
     public orders: Order[]=[];
-    private apiUrl = 'http://localhost:8080/api';
+    private apiUrl = backend.url;
 
     constructor(private http: HttpClient) {
 
