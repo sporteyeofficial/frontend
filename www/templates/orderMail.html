@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css" rel="stylesheet">
+        body {
+            background-color: #a0c9a9;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .white {
+            background-color: white;
+            border: 1px green dotted;
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        h3 {
+            color: white;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0; 
+            margin: 0; 
+        }
+
+
+        li {
+            left: 5%;
+        }
+    
+    </style>
+</head>
+<body>
+    <img src="https://sporteye.be/assets/img/sporteye1">
+    <h1> Bestellingsbevestiging SportEye <h1>
+    <h3>Danku <span th:text="${name}" style="text-align: center"></span>, voor je bestelling bij SportEye</h3>
+    <div class="white">
+   <p> De totale prijs is <span th:text="${price}" style="text-align: center"></span> euro:</p>
+   
+   <ul>
+        <li th:if="${orderLijst.empty}">
+                <a colspan="2"> Geen orders gekocht </a>
+        </li>
+            <li th:each="order : ${orderLijst}">
+                <a><img src="${order.product.imageLoc}"><span th:text="${order.product.name}"></span>  x<span th:text="${order.number}"></span> <span th:if="${order.product.productType != 'TOKEN'}">localhost:4200/check/<span th:text="${order.orderGroup.id}"></span>/order/<span th:text="${order.id}"></span></span></a>
+            </li>
+    </ul>
+    </div>
+    <p>Met vriendelijke groeten,</p>
+    <p>Het SportEye team</p>
+    <div class="under"></div>
+</body>
+</html>
