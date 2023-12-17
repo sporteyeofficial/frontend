@@ -22,7 +22,7 @@ import { VeranderWachtwoordComponent } from './veranderWachtwoordModal';
 import { PasswordComponent } from './html/password';
 import { AlgVoorwaardenComponent } from './html/algvoorwaarden';
 import { ChatBotComponent } from './chatbotwindow';
-import { CommonModule} from '@angular/common';
+import { APP_BASE_HREF, CommonModule} from '@angular/common';
 import { ShopcartComponent } from './html/shop-cart';
 
 @NgModule({
@@ -52,7 +52,7 @@ import { ShopcartComponent } from './html/shop-cart';
     BrowserAnimationsModule,
     NgxPaginationModule
   ],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders, {provide: APP_BASE_HREF, useValue: '/index.html'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
