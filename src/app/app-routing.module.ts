@@ -16,7 +16,7 @@ const routes: Routes = [{path: '', component: HomeComponent},{path: 'about', com
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes) ],
+  imports: [RouterModule.forRoot(routes, {useHash: true}) ],
   exports: [RouterModule],
 
 })
