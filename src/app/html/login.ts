@@ -52,7 +52,7 @@ import { VeranderWachtwoordComponent } from "../veranderWachtwoordModal";
             this.isLoginFailed = false;
             this.isLoggedIn = true;
             this.roles = this.storageService.getUser().roles;
-            this.router.navigate(['home']).then(() => {
+            this.router.navigate(['']).then(() => {
               window.location.reload();
             });
           },
