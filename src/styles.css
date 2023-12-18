@@ -5951,6 +5951,9 @@ nav i {
         overflow-y: scroll;
         overflow-x: hidden;
     }
+    #openMenu {
+        display: none;
+    }
 
     #winkelkar {
         display: none;
