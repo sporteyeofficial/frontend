@@ -64,7 +64,7 @@ import { StorageService } from '../_services/storage.service';
             this.storageService.saveUser(data);
             this.isSuccessful = true;
             this.isSignUpFailed = false;
-            this.router.navigate(['home']).then(() => {
+            this.router.navigate(['']).then(() => {
               window.location.reload();
             });
           },
