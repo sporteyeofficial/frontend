@@ -1,5 +1,5 @@
 export const backend = {
-    url: "http://sports-eye.be/api"
+    url: "http://sports-eye.be:14384/api"
 }
 
 export const frontend = {
