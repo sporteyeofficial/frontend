@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../model/user';
 import { Login } from '../model/login';
 import { Observable } from 'rxjs/internal/Observable';
-import { backend, frontend } from 'src/environments';
+import { backend } from 'src/environments';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,7 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserServiceService {
-  private apiUrl = frontend.url;
+  private apiUrl = backend.url;
 
   constructor(private http: HttpClient) { }
 

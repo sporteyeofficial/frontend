@@ -3,7 +3,7 @@ import { UserServiceService } from './user-service.service';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Club } from '../model/club';
-import { backend, frontend } from 'src/environments';
+import { backend } from 'src/environments';
 
 const USER_KEY = 'auth-user';
 const httpOptions = {
@@ -14,7 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class StorageService {
-  private apiUrl = frontend.url;
+  private apiUrl = backend.url;
   constructor(private userService: UserServiceService, private http: HttpClient) { }
 
   clean(): void {
