@@ -3,8 +3,7 @@ import { Injectable } from "@angular/core";
 import { Product } from "../model/product";
 import { Order } from "../model/order";
 import { Observable } from "rxjs";
-import { Cookie } from 'ng2-cookies/ng2-cookies';
-import { backend } from "src/environments";
+import { frontend } from "../../environments";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json'}),
@@ -16,7 +15,7 @@ const httpOptions = {
   })
   export class ShoppingcartService {
     public orders: Order[]=[];
-    private apiUrl = backend.url;
+    private apiUrl = frontend.url;
 
     constructor(private http: HttpClient) {
 

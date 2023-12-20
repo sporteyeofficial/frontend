@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { backend } from "src/environments";
+import { frontend } from "../../environments";
 
 
 const httpOptions = {
@@ -12,7 +12,7 @@ const httpOptions = {
     providedIn: 'root'
   })
   export class ChatgptService {
-    private apiUrl = backend.url;
+    private apiUrl = frontend.url;
 
     constructor(private http: HttpClient) { }
 
