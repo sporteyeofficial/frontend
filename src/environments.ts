@@ -1,7 +1,7 @@
 export const backend = {
-    url: "https://sporteye-backend-987b3e5bb000.herokuapp.com/api"
+    url: "http://sports-eye.be/api"
 }
 
 export const frontend = {
-    url: "https://sports-eye.be/api"
+    url: "https://sports-eye.be"
 }
