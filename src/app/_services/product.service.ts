@@ -12,7 +12,7 @@ const httpOptions = {
     providedIn: 'root'
   })
   export class ProductService {
-    private apiUrl = "https://sporteye-backend-987b3e5bb000.herokuapp.com/api";
+    private apiUrl = backend.url;
 
   
     constructor(private http: HttpClient) { }
