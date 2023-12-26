@@ -63,6 +63,7 @@ export class HomeComponent {
 
       ).subscribe({
         next: data => {
+          console.log("test")
           for (let d in data) {
             let product = new Product(data[d].id, data[d].categorie, data[d].name, data[d].price, data[d].description, data[d].imageLoc, data[d].numberOfShirts, data[d].productType);
             this.products.push(product);
@@ -70,7 +71,7 @@ export class HomeComponent {
         },
         error: err => {
           this.errorMessage = err.error.message;
-
+          console.log("test")
         }
       });
     }
