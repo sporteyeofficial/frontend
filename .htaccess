@@ -1,14 +1,11 @@
 # URL Rewrite Rules
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    # Als een bestand of map bestaat, gebruik het direct
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+    RewriteRule ^ - [L]
 
-    # Omleiden van www naar non-www (of omgekeerd)
-    #RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-    #RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
-
-    # Herleid alle niet-bestaande bestanden naar index.html
-    # Handig voor Single Page Applications (SPA's) zoals Angular
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^ index.html [L]
+    # Anders, stuur door naar index.html
+    RewriteRule ^ index.html
 </IfModule>
