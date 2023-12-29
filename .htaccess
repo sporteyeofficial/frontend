@@ -1,0 +1,14 @@
+# URL Rewrite Rules
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Omleiden van www naar non-www (of omgekeerd)
+    #RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    #RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
+
+    # Herleid alle niet-bestaande bestanden naar index.html
+    # Handig voor Single Page Applications (SPA's) zoals Angular
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [L]
+</IfModule>
