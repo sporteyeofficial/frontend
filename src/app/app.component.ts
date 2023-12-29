@@ -35,7 +35,6 @@ export class HomeComponent {
   }
 
   ngOnInit(): void {
-    console.log("load products");
     this.getProducts();
     console.log("products loaded");
   }
