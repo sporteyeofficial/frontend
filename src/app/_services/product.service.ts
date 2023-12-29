@@ -4,9 +4,9 @@ import { Observable } from "rxjs";
 import { backend } from "src/environments";
 
 const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json'}
-    )
-  };
+  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json'}),
+  withCredentials: true
+};
 
 @Injectable({
     providedIn: 'root'
@@ -22,11 +22,11 @@ const httpOptions = {
     }
 
     fetchShirts() : Observable<any> {
-      return this.http.get(`${this.apiUrl}/user/shirts`, { withCredentials: true });
+      return this.http.get(`${this.apiUrl}/user/shirts`, httpOptions);
     }
 
     fetchClubs() : Observable<any> {
-      return this.http.get(`${this.apiUrl}/user/clubs`, { withCredentials: true });
+      return this.http.get(`${this.apiUrl}/user/clubs`, httpOptions);
     }
 
     profielClubs() : Observable<any> {

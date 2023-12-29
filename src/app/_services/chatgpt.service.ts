@@ -5,8 +5,9 @@ import { backend } from "src/environments";
 
 
 const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json'}),
+  withCredentials: true
+};
 
 @Injectable({
     providedIn: 'root'
