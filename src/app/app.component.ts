@@ -8,6 +8,7 @@ import { ShoppingcartService } from './_services/shoppingcart.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Window1Component } from './modelwindow1';
 import { StorageService } from './_services/storage.service';
+import { backend } from 'src/environments';
 
 
 
@@ -59,6 +60,7 @@ export class HomeComponent {
   }
 
   getProducts(): void {
+    console.log(backend.url)
     if (this.products.length == 0) {
       this.productService.getProducts(
 
