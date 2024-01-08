@@ -18,6 +18,7 @@ const httpOptions = {
     constructor(private http: HttpClient) { }
 
     getProducts() : Observable<any>{
+        console.log("test")
         return this.http.get(`${this.apiUrl}/auth/product`, httpOptions);
     }
 
