@@ -22,8 +22,9 @@ import { VeranderWachtwoordComponent } from './veranderWachtwoordModal';
 import { PasswordComponent } from './html/password';
 import { AlgVoorwaardenComponent } from './html/algvoorwaarden';
 import { ChatBotComponent } from './chatbotwindow';
-import { APP_BASE_HREF, CommonModule, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { APP_BASE_HREF, CommonModule, HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { ShopcartComponent } from './html/shop-cart';
+import { provideRouter, withHashLocation } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { ShopcartComponent } from './html/shop-cart';
     BrowserAnimationsModule,
     NgxPaginationModule
   ],
-  providers: [httpInterceptorProviders, { provide: LocationStrategy, useClass: PathLocationStrategy }],
+  providers: [httpInterceptorProviders, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
