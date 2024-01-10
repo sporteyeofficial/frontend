@@ -19,6 +19,7 @@ const httpOptions = {
 
     getProducts() : Observable<any>{
         console.log("test")
+        console.log(`${this.apiUrl}`)
         return this.http.get(`${this.apiUrl}/auth/product`, httpOptions);
     }
 
