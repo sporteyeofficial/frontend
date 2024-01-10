@@ -5104,8 +5104,8 @@ nav i {
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
     body {
-        overflow-y: scroll !important;
-        overflow-x: hidden !important;
+        overflow-y: hidden !important;
+        overflow-x: scroll !important;
     }
 
     .main .product-section .navbar .brand-logo img {
@@ -5950,9 +5950,6 @@ nav i {
     body {
         overflow-y: scroll;
         overflow-x: hidden;
-    }
-    #openMenu {
-        display: none;
     }
 
     #winkelkar {

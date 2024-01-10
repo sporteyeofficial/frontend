@@ -39,8 +39,8 @@ import { ChatBotComponent } from "./chatbotwindow";
 
   toggleChat(): void {
     const dialogRef = this.dialog.open(ChatBotComponent, {
-      width: '70%',
-      height: '70%',
+      width: 'max-content',
+      height: 'max-content',
       data: {  }
     });
     console.log("dialog is opened");

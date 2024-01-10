@@ -8,7 +8,6 @@ import { ShoppingcartService } from './_services/shoppingcart.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Window1Component } from './modelwindow1';
 import { StorageService } from './_services/storage.service';
-import { backend } from 'src/environments';
 
 
 
@@ -37,14 +36,12 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.getProducts();
-    console.log("products loaded");
   }
 
   openDialog(product: Product): void {
     if (this.currentUser != null) {
       const dialogRef = this.dialog.open(Window1Component, {
-        width: 'max-content',
-        height: '80%',
+        panelClass: 'dialogclass',
         data: { p: product, products: this.products }
       });
       console.log("dialog is opened");
@@ -60,13 +57,11 @@ export class HomeComponent {
   }
 
   getProducts(): void {
-    console.log(backend.url)
     if (this.products.length == 0) {
       this.productService.getProducts(
 
       ).subscribe({
         next: data => {
-          console.log("test")
           for (let d in data) {
             let product = new Product(data[d].id, data[d].categorie, data[d].name, data[d].price, data[d].description, data[d].imageLoc, data[d].numberOfShirts, data[d].productType);
             this.products.push(product);
@@ -74,7 +69,7 @@ export class HomeComponent {
         },
         error: err => {
           this.errorMessage = err.error.message;
-          console.log("test")
+
         }
       });
     }

@@ -11,12 +11,12 @@ import { AlgVoorwaardenComponent } from './html/algvoorwaarden';
 import { ShopcartComponent } from './html/shop-cart';
 
 
-const routes: Routes = [{path: '', component: HomeComponent},{path: 'about', component: AboutUsComponent},
+const routes: Routes = [{ path: '',   redirectTo: '/home', pathMatch: 'full' }, {path: 'home', component: HomeComponent},{path: 'about', component: AboutUsComponent},
 {path: 'register', component: RegisterComponent},{path: 'login', component: LoginComponent}, {path: 'check/:groupid/order/:id', component: OrderComponent}, {path: 'passwordChange', component: PasswordComponent}, {path: 'policy', component: AlgVoorwaardenComponent}, {path: 'shopCart', component: ShopcartComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true}) ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 
 })

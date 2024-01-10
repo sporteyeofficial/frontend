@@ -4,9 +4,8 @@ import { Observable } from "rxjs";
 import { backend } from "src/environments";
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json'}),
-  withCredentials: true
-};
+    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+  };
 
 @Injectable({
     providedIn: 'root'
@@ -18,9 +17,7 @@ const httpOptions = {
     constructor(private http: HttpClient) { }
 
     getProducts() : Observable<any>{
-        console.log("test")
-        console.log(`${this.apiUrl}`)
-        return this.http.get(`${this.apiUrl}/auth/product`, httpOptions);
+        return this.http.get(`${this.apiUrl}/auth/product`, { withCredentials: true });
     }
 
     fetchShirts() : Observable<any> {
