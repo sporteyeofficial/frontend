@@ -66,8 +66,8 @@
                                         shirts</span></li>
                                 <li><span *ngIf="giveAuthorityString('ROBIN')" (click)="fetchClubs()">fetch
                                         clubs</span></li>
-                                <li><a *ngIf="!isLoggedIn" href="/login">Login</a></li>
-                                <li><a *ngIf="!isLoggedIn" href="/register">Registreer</a></li>
+                                <li><a *ngIf="!isLoggedIn" href="/#/login">Login</a></li>
+                                <li><a *ngIf="!isLoggedIn" href="/#/register">Registreer</a></li>
                                 <li><span (click)="goAboutUs()">Over ons</span></li>
                                 <li><span (click)="goVoorwaarden()">Voorwaarden</span></li>
                                 <li><span (click)="toggleChat()">Chat met ons</span></li>
@@ -95,8 +95,8 @@
                                         ACCOUNT
                                     </a>
                                     <div class="dropdown-menu main_item_menu_sub sm-menu">
-                                        <a class="dropdown-item" href="/login">Login</a>
-                                        <a class="dropdown-item" href="/register">Registreer</a>
+                                        <a class="dropdown-item" href="/#/login">Login</a>
+                                        <a class="dropdown-item" href="/#/register">Registreer</a>
                                     </div>
                                 </li>
                                 <li *ngIf="isLoggedIn" class="nav-item main_item_menu dropdown dmenu d-none d-md-block">
