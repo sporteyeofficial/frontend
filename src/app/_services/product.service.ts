@@ -12,7 +12,7 @@ const httpOptions = {
     providedIn: 'root'
   })
   export class ProductService {
-    private apiUrl = frontend.url;
+    private apiUrl = backend.url;
 
   
     constructor(private http: HttpClient) { }
