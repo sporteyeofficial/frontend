@@ -1,6 +1,6 @@
 {
     "/api": {
-    "target": "https://sporteye-backend-987b3e5bb000.herokuapp.com",
+    "target": "https://api.sports-eye.be",
     "secure": true
     }
 }
