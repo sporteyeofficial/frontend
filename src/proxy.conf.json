@@ -1,6 +1,6 @@
 {
     "/api": {
-    "target": "http://api.sports-eye.be/",
+    "target": "https://api.sports-eye.be/",
     "secure": true
     }
 }
