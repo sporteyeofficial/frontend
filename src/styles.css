@@ -6351,47 +6351,9 @@ nav i {
 }
 
 /*// Large devices (desktops, 992px and up)*/
-
-@media (min-width: 992px) and (max-width: 1196.9px) {
-
-    /*.main .product-section .inner-product-sec .right-area .box1 {*/
-    /*    height: 56vh;*/
-    /*}*/
-    .contact-us-content #map {
-        margin-top: 25px !important;
-    }
-
-    #openMenu {
-        display: none;
-    }
-    #winkelkar {
-        display: none;
-    }
-
-    #winkelkar-content {
-        display: none;
-    }
-
-    header .contact-us-nav {
-        padding-top: 22px !important;
-    }
-
-    /*.about-us-content{*/
-    /*    padding-top: 7%;*/
-    /*}*/
-    .contact-us-content .slider-content .banner-slide {
-        margin-top: 20px !important;
-    }
-
-    .tab-content .getin_form .user-rating {
-        margin-left: 25px;
-    }
-
-}
-
 /*// Extra large devices (large desktops, 1200px and up)*/
 /*max-width: 1367px*/
-@media (min-width: 1367px) {
+@media (min-width: 992px) {
 
     .main .side-nav-btn {
         padding-top: 30px;
