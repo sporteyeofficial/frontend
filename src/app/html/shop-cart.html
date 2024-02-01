@@ -45,7 +45,7 @@
                                                         <a class="shopping-product" href="{{order.product.imageLoc}}"><img src="{{order.product.imageLoc}}" alt="product"></a>
                                                     </div>
                                                     <div class="d-table-cell">
-                                                        <h4 class="product-name"><a>{{order.product.name}}</a></h4>
+                                                        <h4 class="product-name"><a>{{order.product.name}} {{getOrderSize(order)}}</a></h4>
                                                         <p>{{order.product.description}}</p>
                                                     </div>
                                                 </div>
@@ -55,7 +55,7 @@
                                             </td>
                                             <td class="text-center">
                                                 <div class="quote text-center">
-                                                    <input type="number" placeholder="{{order.number}}" class="rounded-pill quote inp">
+                                                    <input type="number" [(ngModel)]="order.number" class="rounded-pill quote inp">
                                                 </div>
                                             </td>
                                             <td>
@@ -138,9 +138,6 @@
                         <!-- END SHOP CART CHECKOUT FORM -->
                                 <div class="apply_coupon">
                                     <div class="row">
-                                        <div class="col-6  text-lg-left text-center">
-                                            <a class="btn our-btn btn-transparent-black rounded-pill btn-sm" (click)="updateWinkelmand()">Update</a>
-                                        </div>
                                         <div class="col-6  coupon text-lg-right text-center">
                                             <a class="btn our-btn btn-gradient rounded-pill btn-sm" (click)="buyOrders()">Betaal</a>
                                         </div>
@@ -160,7 +157,7 @@
                 <!--START FOOTER NOTES -->
                 <div class="row">
                     <div class="col-12 text-center footer_rights pb-5">
-                        <p>&copy; 2019 MegaOne. Made With Love by <a class="web-link" href="http://www.themesindustry.com/" target="_blank">Themesindustry</a></p>
+                        <p class="d-none d-lg-block">© 2023 SportEye</p>
                     </div>
                 </div>
                 <!--END FOOTER NOTES -->

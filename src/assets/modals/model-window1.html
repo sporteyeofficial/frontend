@@ -69,10 +69,13 @@
                             <div class="col-12 col-md-4 text-center text-lg-left input_plus_mins">
 
                                 <div class="qty"mat-form-field>
-                                    <span id="minus" class="minus bg-dark"><i class="lni-minus"></i></span>
-                                    <input type="number" id="instocknumber" class="count" name="qty" value="1" required
-                                        [formControl]="number">
-                                    <span id="plus" class="plus bg-dark"><i class="lni-plus"></i></span>
+                                    <span class="minus bg-dark" (click)="decreaseNumber(0)">
+                                        <i class="lni-minus"></i>
+                                    </span>
+                                    <input type="number" class="count" name="qty" [formControl]="numbers.at(0)" required>
+                                    <span class="plus bg-dark" (click)="increaseNumber(0)">
+                                        <i class="lni-plus"></i>
+                                    </span>
                                 </div>
 
                             </div>
@@ -85,12 +88,13 @@
                                         <p>(10 euro)</p>
                                         <img src="../assets/img/changeToken.jpg" width="40%" height="50%">
                                         <div class="qty" mat-form-field>
-                                            <span class="minus bg-dark"><i (click)="min(2)"
-                                                    class="lni-minus"></i></span>
-                                            <input type="numberChangeTokens" id="instocknumber2" class="count"
-                                                name="qtyChangeToken" value="0" required
-                                                [formControl]="numberChangeTokens">
-                                            <span class="plus bg-dark"><i (click)="plus(2)" class="lni-plus"></i></span>
+                                            <span class="minus bg-dark" (click)="decreaseNumber(1)">
+                                                <i class="lni-minus"></i>
+                                            </span>
+                                            <input type="number" class="count" name="qty" [formControl]="numbers.at(1)">
+                                            <span class="plus bg-dark" (click)="increaseNumber(1)">
+                                                <i class="lni-plus"></i>
+                                            </span>
                                         </div>
                                     </div>
                                     <div *ngIf="product.productType.toString() == 'RANDOMSHIRT'"
@@ -99,12 +103,13 @@
                                         <p>(5 euro)</p>
                                         <img src = "../assets/img/cheatToken.jpg" width="40%" height="50%">
                                         <div class="qty" mat-form-field>
-                                            <span class="minus bg-dark"><i (click)="min(3)"
-                                                    class="lni-minus"></i></span>
-                                            <input type="numberCheatTokens" id="instocknumber3" class="count"
-                                                name="qtyCheatToken" value="0" required
-                                                [formControl]="numberCheatTokens">
-                                            <span class="plus bg-dark"><i (click)="plus(3)" class="lni-plus"></i></span>
+                                            <span class="minus bg-dark" (click)="decreaseNumber(2)">
+                                                <i class="lni-minus"></i>
+                                            </span>
+                                            <input type="number" class="count" name="qty" [formControl]="numbers.at(2)">
+                                            <span class="plus bg-dark" (click)="increaseNumber(2)">
+                                                <i class="lni-plus"></i>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>

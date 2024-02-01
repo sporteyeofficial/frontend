@@ -1,5 +1,5 @@
 export enum ProductEnum {
-    RANDOMSHIRT,
-    SHIRTPICK,
-    TOKEN
+    RANDOMSHIRT = "RANDOMSHIRT",
+    SHIRTPICK = "SHIRTPICK",
+    TOKEN = "TOKEN"
 }

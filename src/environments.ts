@@ -5,3 +5,7 @@ export const backend = {
 export const frontend = {
     url: "https://sports-eye.be/api"
 }
+
+/*export const backend = {
+    url: "http://localhost:8080/api"
+}*/

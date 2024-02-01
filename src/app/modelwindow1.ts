@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { Product } from "./model/product";
 import { SizeEnum } from "./model/Enum/SizeEnum";
 import { ShoppingcartService } from "./_services/shoppingcart.service";
-import { FormControl } from "@angular/forms";
+import { FormArray, FormControl } from "@angular/forms";
 import { ProductService } from "./_services/product.service";
 import { ProductEnum } from "./model/Enum/ProductEnum";
 
@@ -22,9 +22,11 @@ import { ProductEnum } from "./model/Enum/ProductEnum";
     enumKeys: any[];
     size = "_L";
     selected=false
-    number = new FormControl(1);
-    numberCheatTokens = new FormControl(0);
-    numberChangeTokens = new FormControl(0);
+    numbers = new FormArray([
+      new FormControl(1),
+      new FormControl(0),
+      new FormControl(0)
+    ]);
     docBreedte = window.innerWidth
     docHoogte = window.innerHeight
     constructor(public dialogRef: MatDialogRef<Window1Component>,
@@ -39,17 +41,13 @@ import { ProductEnum } from "./model/Enum/ProductEnum";
     }
 
     addProductToShoppingCart(product: Product) {
-        this.shoppingCartService.addProductToShoppingcart(product, (<HTMLInputElement>document.getElementById("instocknumber")).value, this.size);
-        let changeToken = parseInt((<HTMLInputElement>document.getElementById("instocknumber"+2)).value)
-        let cheatToken = 0
-        if (document.getElementById("instocknumber"+3) != null)
-          cheatToken = parseInt((<HTMLInputElement>document.getElementById("instocknumber"+3)).value)
-        console.log(changeToken)
-        console.log(cheatToken)
-        if (changeToken > 0) {
+        this.shoppingCartService.addProductToShoppingcart(product, this.numbers.at(0).value, this.size);
+        let changeToken = this.numbers.at(1).value
+        let cheatToken = this.numbers.at(2).value
+        if (changeToken) {
           this.shoppingCartService.addProductToShoppingcart(this.products[2], changeToken, this.size);
         }
-        if (cheatToken > 0) {
+        if (cheatToken) {
           this.shoppingCartService.addProductToShoppingcart(this.products[3], cheatToken, this.size);
         }
     }
@@ -63,16 +61,18 @@ import { ProductEnum } from "./model/Enum/ProductEnum";
       this.size = value;
     }
 
-    min(value: number) {
-      if (parseInt((<HTMLInputElement>document.getElementById("instocknumber"+value)).value) > 0) {
-        (<HTMLInputElement>document.getElementById("instocknumber"+value)).value = (parseInt((<HTMLInputElement>document.getElementById("instocknumber"+value)).value)-1).toString();
+    increaseNumber(index: number): void {
+      let control = this.numbers.at(index) as FormControl;
+      control.setValue(control.value + 1);
+    }
+  
+    decreaseNumber(index: number): void {
+      let control = this.numbers.at(index) as FormControl;
+      if (control.value > 0) {
+        control.setValue(control.value - 1);
       }
-      }
-
-    plus(value: number) {
-      (<HTMLInputElement>document.getElementById("instocknumber"+value)).value = (parseInt((<HTMLInputElement>document.getElementById("instocknumber"+value)).value)+1).toString();
     }
 
 
   
-  }
+}

@@ -263,25 +263,6 @@ function open_model_window(x){
 }
 
 /* =====================================
-         Input Number Quantity
-====================================== */
-function load_number_counter() {
-
-    $('#instocknumber').prop('disabled', true);
-    $(document).on('click','#plus',function(){
-       $('#instocknumber').val(parseInt($('#instocknumber').val()) + 1 );
-
-    });
-    $(document).on('click','#minus',function(){
-        $('#instocknumber').val(parseInt($('#instocknumber').val()) - 1 );
-        if ($('#instocknumber').val() == 0) {
-            $('#instocknumber').val(1);
-
-        }
-    });
-}
-
-/* =====================================
              Fancy Box Image viewer
 ====================================== */
 $('[data-fancybox]').fancybox({
@@ -507,24 +488,6 @@ if ($("#slider-range").length) {
         }
     });
 }
-
-/*===================================
-          Input Number Counter
-======================================*/
-
-
-$('#instocknumber').prop('disabled', true);
-    $(document).on('click','#plus',function(){
-       $('#instocknumber').val(parseInt($('#instocknumber').val()) + 1 );
-
-    });
-    $(document).on('click','#minus',function(){
-        $('#instocknumber').val(parseInt($('#instocknumber').val()) - 1 );
-        if ($('#instocknumber').val() == 0) {
-            $('#instocknumber').val(1);
-
-        }
-    });
 
 /*===================================
           Swiper Sync Slider

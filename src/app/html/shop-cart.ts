@@ -1,6 +1,7 @@
 import { Component, ElementRef, QueryList, ViewChild } from "@angular/core";
 import { Order } from "../model/order";
 import { ShoppingcartService } from "../_services/shoppingcart.service";
+import { ProductEnum } from "../model/Enum/ProductEnum";
 
 @Component({
     selector: 'shopcart',
@@ -50,6 +51,13 @@ export class ShopcartComponent {
     removeOrder(order: Order) {
         this.shoppingcartService.removeOrder(order);
         window.location.reload();
+    }
+
+    getOrderSize(order: Order): string {
+        if (order && order.product.productType != ProductEnum.TOKEN) {
+            return "(" + order.size.replace('_', '') + ")";
+        }
+        return '';
     }
 
     updateWinkelmand() {
