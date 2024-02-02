@@ -32,12 +32,15 @@ export class ShopcartComponent {
     }
 
     buyOrders() {
+        window.close()
         this.shoppingcartService.buyShoppingCart().subscribe({
             next: data => {
 
                 return new Promise<boolean>((resolve, reject) => {
-
-                    try { resolve(!!window.open(data.message, "_blank")); }
+                    try { 
+                        window.location.href = data.message; // Wijzig de huidige locatie
+                        resolve(true);
+                    }
                     catch (e) { reject(e); }
                 });
             },
@@ -58,17 +61,5 @@ export class ShopcartComponent {
             return "(" + order.size.replace('_', '') + ")";
         }
         return '';
-    }
-
-    updateWinkelmand() {
-        this.shoppingcartService.removeOrders()
-        let elements = document.getElementsByClassName("inp")
-        Array.from(elements).forEach((element, i) => {
-            if (element instanceof HTMLInputElement) {
-                // Het is een inputelement, dus we kunnen de waarde ophalen
-                this.shoppingcartService.addProductToShoppingcart(this.orders[i].product, element.value, this.orders[i].size);
-            }
-        });
-        window.location.reload();
     }
 }

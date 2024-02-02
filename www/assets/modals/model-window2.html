@@ -10,7 +10,7 @@
                     <h6 [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time:  5000  + 'ms' + ' ' + (i*2000) + 'ms'}}">{{shirt.clubName}}</h6>
                     <img [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time: 5000 + 'ms' + ' ' + (i*2000) + 'ms'}}" class="img-fluid mx-auto d-block" width="100%" height="100%" src={{shirt.shirtImg}}>
                     <p [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time:  5000  + 'ms' + ' ' + (i*2000) + 'ms'}}" style="padding-top: 5%">{{shirt.name.replace(shirt.clubName,"").split("Football")[1]}}: {{shirt.season}}</p>
-                    <button [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time: 5000 + 'ms' + ' ' + (i*2000) + 'ms'}}" (click)="pickShirt(shirt.id)" class="btn btn-success">Pick shirt</button>
+                    <button [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time: 5000 + 'ms' + ' ' + (i*2000) + 'ms'}}" (click)="pickShirt(shirt.id)" class="btn">Pick shirt</button>
                 </div>
             </div>
         </div>

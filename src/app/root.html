@@ -54,12 +54,10 @@
                         <div id="goal" class="hidden">
                             <img src="../assets/img/goalleft.png" width="100px" height="50px">
                         </div>
-
-                        <div class="menu-icon" id="menuButton">
-                            <div id="openMenu"><i class="fa fa-bars" aria-hidden="true" ></i></div>
-                        </div>
-                        <div id="winkelkar" *ngIf="isLoggedIn" (click)="goCheckout()"><i class="lni-cart">
-                            <span>{{this.orders.length}}</span></i></div>
+                        
+                        <i id="openMenu" class="fa fa-bars" aria-hidden="true" ></i>
+                        <i id="winkelkar" *ngIf="isLoggedIn" (click)="goCheckout()" class="lni-cart">
+                            <span>{{this.orders.length}}</span></i>
                         <div class="menu-hidden" id="menuItems">
                             <ul>
                                 <li><span *ngIf="giveAuthorityString('ROBIN')" (click)="fetchShirts()">fetch

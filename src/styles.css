@@ -126,6 +126,7 @@ h1 a {
     rotate: 0deg;
 }
 
+
 /* einde titel animatie */
 
 
@@ -4721,6 +4722,10 @@ form.findus textarea {
     z-index: 9999;
 }
 
+#winkelkar {
+    margin-right: 7%;
+}
+
 .full-width {
     margin-left: 2%;
     margin-bottom: 2%;
@@ -4729,18 +4734,6 @@ form.findus textarea {
 
 .menu-hidden {
     display: none;
-}
-
-.navbar #menuButton {
-    position: fixed;
-    top: 1%;
-    right: 3%;
-}
-
-.navbar #winkelkar {
-    position: fixed;
-    top: 1%;
-    right: 10%;
 }
 
 ::ng-deep mat-dialog-content {
@@ -5084,33 +5077,20 @@ nav i {
     background-color: #45a049;
   }
 
-@media (max-width: 346px) {
-
-    .about_content .four0fourpage .actions .view-cart {
-        width: auto;
-        padding: 6px 25px !important;
-        display: block;
-    }
-
-    .about_content .four0fourpage .actions .view-bag {
-        width: auto;
-        padding: 6px 25px !important;
-        display: block;
-    }
-
-
-}
-
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
-    body {
-        overflow-y: hidden !important;
-        overflow-x: scroll !important;
-    }
-
+    
     .main .product-section .navbar .brand-logo img {
         color: #409b3f !important;
         width: 100%;
+    }
+
+    #goal {
+        display: None;
+    }
+
+    #bal {
+        display: None;
     }
 
     .navbar-light .navbar-nav .nav-link {
@@ -5122,6 +5102,7 @@ nav i {
     .side-menu-nav .side-bar {
         text-align: left;
     }
+
 
     /*Side Menu*/
     .side-menu-nav nav .side-bar li {
@@ -5189,14 +5170,6 @@ nav i {
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
         opacity: 0.4;
-    }
-
-    header i.lni-cart {
-        font-size: 18px;
-        color: white;
-        position: absolute;
-        right: 65px;
-        top: 25px;
     }
 
     header .menu-tog {
@@ -5546,37 +5519,20 @@ nav i {
 
 }
 
-@media (min-width: 400px) and (max-width: 575.9px) {
-
-    .main .product-section .inner-product-sec .right-area .box1 img {
-        width: 50%;
-        height: 100%;
-    }
-
-    .sidenav-bg-text {
-        font-size: 37px;
-        width: 100%;
-        top: 6%;
-        left: 110px;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        opacity: 0.4;
-    }
-
-}
-
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 /*// Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (min-width: 575.98px) and (max-width: 991.98px) {
 
-    body {
-        overflow-y: scroll;
-        overflow-x: hidden;
+    #goal {
+        display: None;
+    }
+
+    #bal {
+        display: None;
     }
 
     .main .product-section .navbar .brand-logo {
@@ -5941,31 +5897,14 @@ nav i {
     .product-dark .dark-body {
         padding-top: 12%;
     }
-
-}
-
-/*// Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) and (max-width: 991.98px) {
     
-    body {
-        overflow-y: scroll;
-        overflow-x: hidden;
-    }
-
-    #winkelkar {
-        display: none;
-    }
-
-    #winkelkar-content {
-        display: none;
-    }
 
     .navbar .manage-logo {
         width: 80%;
     }
 
     .main .product-section .inner-product-sec .right-area .box1 {
-        height: 65vh;
+        height: 100vh;
     }
 
     .box1 .swiper-dots {
@@ -6530,23 +6469,6 @@ nav i {
     background: linear-gradient(30deg, #0F72C8 30%, #26347E 100%);
     text-align: center;
     color: white;
-}
-
-@media (min-width: 500px) {
-    .ribbons-wrapper {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-    }
-
-    .ribbon {
-        width: 48%;
-    }
 }
 
 /*Cart Number*/
