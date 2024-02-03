@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './app.component';
 import { AboutUsComponent } from './html/aboutus';
+import { WindowerrorComponent } from './errorwindow';
 import { Window1Component } from './modelwindow1';
 import { Window2Component } from './modelwindow2';
 import { Window3Component } from './modelwindow3';
@@ -33,6 +34,7 @@ import { ShopcartComponent } from './html/shop-cart';
     Window1Component,
     Window2Component,
     Window3Component,
+    WindowerrorComponent,
     ShopcartComponent,
     OrderComponent,
     WijzigProfielComponent,
