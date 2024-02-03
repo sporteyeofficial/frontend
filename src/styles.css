@@ -4746,13 +4746,14 @@ form.findus textarea {
 
 .main .product-section-mobile {
     display: block !important;
-    margin-top: 15%;
+    margin-top: 20%;
     background-color: #a0c9a9;
 }
 
 .main .product-section-mobile .mobile-header {
     position: relative;
     text-align: center;
+    
 }
 
 body .menu-visible {
