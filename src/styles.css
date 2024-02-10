@@ -4779,6 +4779,10 @@ form.findus textarea {
     
 }
 
+.product-type {
+    
+}
+
 body .menu-visible {
     display: block;
     z-index: 999; /* om ervoor te zorgen dat het menu boven andere elementen staat */

@@ -48,11 +48,8 @@
                     <a colspan="2"> Geen orders gekocht </a>
                 </li>
                 <li th:each="order : ${orderLijst}">
-                    <a><img src="${order.product.imageLoc}"><span th:text="${order.product.name}"></span> x<span
-                            th:text="${order.number}"></span> <span
-                            th:if="${order.product.productType != 'TOKEN'}">https://sports-eye.be/check/<span
-                                th:text="${order.orderGroup.id}"></span>/order/<span
-                                th:text="${order.id}"></span></span></a>
+                    <a th:href="@{'https://sports-eye.be/check/' + ${order.orderGroup.id} + '/order/' + ${order.id}}"><img th:src="${order.product.imageLoc}"><span th:text="${order.product.name}"></span> x<span
+                            th:text="${order.number}"></span> </a>
                 </li>
             </ul>
         </div>

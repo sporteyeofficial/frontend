@@ -53,7 +53,7 @@ export class WijzigProfielComponent {
 
   suggest() {
     this.suggestions = this.clubs
-      .filter(c => c.name.toLowerCase().includes(this.cl.value))
+      .filter(c => c.name.toLowerCase().includes(this.cl.value.toLowerCase()))
       .slice(0, 3);
   }
 
