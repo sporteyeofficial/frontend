@@ -29,8 +29,8 @@ const httpOptions = {
         return this.http.post(`${this.apiUrl}/user/`+ mysterieShirtId +`/order/show`, httpOptions);
     }
 
-    changeShirt(mysterieShirtId: number) : Observable<any> {
-      return this.http.post(`${this.apiUrl}/user/`+ mysterieShirtId +`/order/change`, httpOptions);
+    changeShirt(mysterieShirtId: number, shirtId: number) : Observable<any> {
+      return this.http.post(`${this.apiUrl}/user/`+ mysterieShirtId + (shirtId != -1 ? '/'+ shirtId : '') +`/order/change`, httpOptions);
     }
 
   }

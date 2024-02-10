@@ -179,7 +179,7 @@ export class OrderComponent implements OnInit {
   changeShirt(mysterieShirtId: number, groepId: number) {
     const dialogRef = this.dialog.open(Window3Component, {
       width: '',
-      data: { p: mysterieShirtId, g: groepId, s: "change", o: this.id }
+      data: { p: mysterieShirtId, g: groepId, s: "change", sId: -1,o: this.id }
     });
     console.log("dialog is opened");
 

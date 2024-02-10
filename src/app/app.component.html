@@ -14,13 +14,13 @@
             </div>
             <div class="right-area">
                 <div id="particles"></div>
-                <div class="container container-setting">
+                <div class="container container-setting homepage">
                     <div class="row text-center">
                         <!--  START PRODUCT SLIDER  -->
                         <div class="col-sm-12 col-md-8 col-lg-12 box1 text-center order-2">
                             <div class="ribbon">
                                 <div class="wrap">
-                                    <span class="ribbon6">€ 65.00</span>
+                                    <span class="ribbon6">€ 55.00</span>
                                 </div>
                             </div>
                             <!-- Swiper-->
@@ -36,7 +36,7 @@
                         </div>
                         <!--  END PRODUCT SLIDER  -->
 
-                        <div class="col-sm-12 featured_title d-sm-block d-md-block d-lg-none order-1">
+                        <div class="col-12 featured_title d-sm-block d-md-block d-lg-none order-1">
                             <h4 class="text-center text-lg-left"><span>online sport</span> winkel</h4>
                             <h2 class="featured_description">Het shoppen van sportkleren leuker maken!!</h2>
                             <!--<div class="button-1 rounded-pill">
@@ -55,14 +55,14 @@
                                         <h4 class="text-center text-md-left"><span>online sport</span> winkel</h4>
                                         <p class="">Het shoppen van sportkleren leuker maken!! (voorlopig enkel voetbalshirts)</p>
                                         <div class="button-1 rounded-pill">
-                                            <a [routerLink]='["/about"]' class="rounded-pill">Meer uitleg over ons + de  aangeboden producten </a>
+                                            <a [routerLink]='["/about"]' class="rounded-pill">Klik hier voor meer uitleg over ons </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 featured_items wow fadeIn" data-wow-duration="2s">
-                                        <div class="featured-items owl-carousel owl-theme">
-                                            <div *ngFor="let product of products" class="pr-2">
+                                        <div class="owl-carousel owl-theme">
+                                            <div *ngFor="let product of products" class="pr-1">
                                                 <a (click)="openDialog(product)">
                                                     <div class="img-holder">
                                                         <img src={{product.imageLoc}} alt="items">

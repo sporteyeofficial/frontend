@@ -3,21 +3,22 @@
         <div class="close-window">
             <i (click)="onNoClick()" class="lni-close"></i>
         </div>
-        <h2>Sporteye chatbot</h2>
+        <h2>Sports-eye chatbot</h2>
         <div class="chat-container">
             <div class="chat-window">
                 <ul class="messages">
                     <li *ngFor="let message of messages" [ngClass]="{'self': message.author === 'user', 'bot': message.author === 'bot'}">
-                        {{ message.content }}
+                       <span *ngIf="!message.thinking"> {{ message.content }} </span>
+                       <span *ngIf="message.thinking" class="thinking"> </span>
                     </li>
                 </ul>
                 <div class="chat-input">
                     <input type="text" [(ngModel)]="inputMessage" (keyup.enter)="sendMessage()"
                         placeholder="Typ uw bericht...">
-                    <button [disabled]="this.messages.length > 3" (click)="sendMessage()">Verzend</button>
+                    <button [disabled]="this.messages.length > 5" (click)="sendMessage()">Verzend</button>
                     
                 </div>
-                <p *ngIf="this.messages.length > 3" class="error">Het is momenteel maar mogelijk om 2 vragen te stellen in één chatbox.</p>
+                <p *ngIf="this.messages.length > 5" class="error">Het is momenteel maar mogelijk om 2 vragen te stellen in één chatbox.</p>
             </div>
         </div>
     </div>

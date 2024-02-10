@@ -5,6 +5,8 @@ import { Shirt } from "./model/shirt";
 import { OrderService } from "./_services/order.service";
 import { animate, state, style, transition, trigger } from "@angular/animations";
 import { MysterieShirt } from "./model/mysterieShirt";
+import { Window3Component } from "./modelwindow3";
+import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 
 @Component({
@@ -35,7 +37,7 @@ import { Router } from "@angular/router";
 
     
     constructor(public dialogRef: MatDialogRef<Window2Component>,
-      @Inject(MAT_DIALOG_DATA) public data: {p: MysterieShirt, o: number, g:number}, private router: Router, private orderService: OrderService, public elem: ElementRef) {
+      @Inject(MAT_DIALOG_DATA) public data: {p: MysterieShirt, o: number, g:number}, private router: Router, private dialog: MatDialog,private orderService: OrderService, public elem: ElementRef) {
         this.shirts = data.p.possibleShirts;
         this.mysterieShirt = data.p;
         this.sound.load();
@@ -60,6 +62,18 @@ import { Router } from "@angular/router";
         });
       });
       
+    }
+
+    changeShirt(shirtId: number, groepId: number) {
+      const dialogRef = this.dialog.open(Window3Component, {
+        width: '',
+        data: { p: this.mysterieShirt.id, g: groepId, s: "change", sId: shirtId,o: this.id }
+      });
+      console.log("dialog is opened");
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
     }
 
     

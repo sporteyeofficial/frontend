@@ -21,6 +21,10 @@ const httpOptions = {
     constructor(private http: HttpClient) {
 
     }
+
+    setOrdersToCart(orders: Order[]) {
+        localStorage.setItem("orders", JSON.stringify(orders));
+    }
     
     addProductToShoppingcart(product: Product, number: any ,size: any) {
         this.orders = JSON.parse(localStorage.getItem("orders") || '[]');

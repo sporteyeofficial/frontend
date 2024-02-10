@@ -6,6 +6,7 @@ import { OrderService } from "./_services/order.service";
 import { Router } from "@angular/router";
 import { StorageService } from "./_services/storage.service";
 import { UserServiceService } from "./_services/user-service.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'model-window3',
@@ -19,12 +20,14 @@ import { UserServiceService } from "./_services/user-service.service";
     public groepId: number;
     public soort: string;
     public id: number;
-    constructor(public dialogRef: MatDialogRef<Window3Component>,
-      @Inject(MAT_DIALOG_DATA) public data: {p: number, g: number, s: string, o:number}, private storageService: StorageService, private userService: UserServiceService, private orderService: OrderService, public elem: ElementRef, public router: Router) {
+    public shirtId: number;
+    constructor(public dialogRef: MatDialogRef<Window3Component>, private toastr: ToastrService,
+      @Inject(MAT_DIALOG_DATA) public data: {p: number, g: number, s: string, sId: number, o:number}, private storageService: StorageService, private userService: UserServiceService, private orderService: OrderService, public elem: ElementRef, public router: Router) {
         this.mysterieShirtId = data.p;
         this.groepId = data.g;
         this.soort = data.s;
         this.id = data.o;
+        this.shirtId = data.sId;
     }
 
     onNoClick(): void {
@@ -45,18 +48,23 @@ import { UserServiceService } from "./_services/user-service.service";
           this.storageService.saveTokens(result);
         this.router.navigate(['check/' +this.groepId +'/order/'+this.id]).then(() => {
           window.location.reload();
+          
         });
+        this.toastr.success('Shirt is zichtbaar.');
       })
       })
     }
   
     changeShirt() {
-      this.orderService.changeShirt(this.mysterieShirtId).subscribe((result) => {
+      this.orderService.changeShirt(this.mysterieShirtId, this.shirtId).subscribe((result) => {
         this.userService.getUserTokens().subscribe((result) => {
           this.storageService.saveTokens(result);
-        this.router.navigate(['check/' +this.groepId +'/order/'+this.id]).then(() => {
+          console.log(this.shirtId);
+        this.router.navigate(['check/' + this.groepId + '/order/'+this.id]).then(() => {
           window.location.reload();
+          
         });
+        this.toastr.success('Shirt is veranderd');
       })
       })
     }

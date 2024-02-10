@@ -7,6 +7,7 @@ import { UserServiceService } from "../_services/user-service.service";
 import { StorageService } from "../_services/storage.service";
 import { MatDialog } from "@angular/material/dialog";
 import { VeranderWachtwoordComponent } from "../veranderWachtwoordModal";
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -33,10 +34,15 @@ import { VeranderWachtwoordComponent } from "../veranderWachtwoordModal";
     }
   }
 
-    constructor(private router: Router, private userService: UserServiceService, private activatedRoute: ActivatedRoute, private storageService: StorageService, private dialog: MatDialog,) {
+    constructor(private toastr: ToastrService,private router: Router, private userService: UserServiceService, private activatedRoute: ActivatedRoute, private storageService: StorageService, private dialog: MatDialog,) {
       this.activatedRoute.queryParams.subscribe(params => {
-        if (params['message'] != null)
-          this.message = params['message']; // Print the parameter to the console. 
+        if (params['message'] != null) {
+          this.message = params['message'];
+          if (this.message.includes("succes"))  // Print the parameter to the console. 
+            this.toastr.success(this.message);
+          else
+            this.toastr.error(this.message);
+        }
       });
     }
     

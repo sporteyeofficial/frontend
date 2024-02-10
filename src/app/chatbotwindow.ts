@@ -6,6 +6,7 @@ import { ChatgptService } from "./_services/chatgpt.service";
 interface Message {
     content: string;
     author: 'user' | 'bot';
+    thinking: boolean;
 }
 
 @Component({
@@ -19,7 +20,7 @@ export class ChatBotComponent {
     inputMessage: string = '';
     constructor(public dialogRef: MatDialogRef<ChatBotComponent>,
         @Inject(MAT_DIALOG_DATA) public data: {}, private storageService: StorageService, public elem: ElementRef, public chatgptService: ChatgptService) {
-            this.messages.push({content: "Hallo, met wat kan ik je helpen?", author: "bot"});
+            this.messages.push({content: "Hallo, met wat kan ik je helpen?", author: "bot", thinking: false});
     }
 
     sendMessage(): void {
@@ -27,26 +28,30 @@ export class ChatBotComponent {
 
         const newMessage: Message = {
             content: this.inputMessage,
-            author: 'user'
+            author: 'user',
+            thinking: false
         };
 
         this.messages.push(newMessage);
-
+        const botMessage: Message = {
+            content: "...",
+            author: 'bot',
+            thinking: true
+        };
         // Reset input field after sending message
         this.inputMessage = '';
-
+        this.messages.push(botMessage);
         // Simulate bot response
         this.chatgptService.sendChat(newMessage.content).subscribe(
             {
               next: data => {
-                console.log(data)
-                this.messages.push({
-                    content: data.choices[0].message.content,
-                    author: 'bot'
-                });
+                this.messages[this.messages.length-1].content = data.text.value;
+                this.messages[this.messages.length-1].thinking = false;
+                
              },
               error: err => {
-                
+                this.messages[this.messages.length-1].content = "Sorry, er is een fout opgetreden, probeer opnieuw!";
+                this.messages[this.messages.length-1].thinking = false;
               }
           });
     }

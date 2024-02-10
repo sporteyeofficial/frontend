@@ -33,12 +33,17 @@
                         <div *ngIf="checkOrder()" class="col-12 col-lg-8 order-2 order-lg-2">
 
                             <h2>Bestelling: {{orderGroup.startDate | date : "dd-MM-yyyy HH:mm:ss"}}</h2>
-                            <p class="">Status: {{orderGroup.status}} </p>
-                            <div class="centerD green">
-                                <span><i *ngIf="changeTokens > 0" class="fa fa-random" aria-hidden="true"><span
-                                            class="el">+{{changeTokens}}</span></i></span>
-                                <span><i *ngIf="cheatTokens > 0" class="fa fa-eye" aria-hidden="true"><span
-                                            class="el">+{{cheatTokens}}</span></i></span>
+                            <div class="row">
+                                <div class="col-6">
+                                    <span style="margin-left: 100px;">Status: {{orderGroup.status}}</span> 
+                                </div>
+                                <div class="col-6 centerD green">
+                                    <span style="padding-right: 10px;">Tokens:   </span>
+                                    <span><i *ngIf="changeTokens > 0" class="fa fa-random" aria-hidden="true"><span
+                                                class="el">+{{changeTokens}}</span></i></span>
+                                    <span><i *ngIf="cheatTokens > 0" class="fa fa-eye" aria-hidden="true"><span
+                                                class="el">+{{cheatTokens}}</span></i></span>
+                                </div>
                             </div>
                             <div class="products" *ngIf="getShirtOrdersIndexes().length > 0">
                                 <p class="">Aangekochte mysterieproducten: </p>
@@ -52,7 +57,6 @@
                             
 
                             <div *ngIf="order.productEnum != 'TOKEN'" class="mysterie-shirts">
-                                <p> {{order.productName}} </p>
                                 <div class="mysterie-shirt card" *ngFor="let mshirt of pickedShirts">
                                     <div class="header">
                                         <div class="hover">
@@ -62,6 +66,7 @@
                                             <i *ngIf="mshirt.changeClosed" class="fa fa-random "
                                                 data-hover="Kan shirt niet meer veranderen" aria-hidden="true" (click)="geefError('Het shirt kan niet meer gewijzigd worden, 24 uur na de bestelling!')"></i>
                                         </div>
+                                        <p class="headername"> {{order.productName}} </p>
                                         <div class="red">
                                             <span *ngIf="order.changeUsed > 0"><i class="fa fa-random"
                                                     aria-hidden="true"><span

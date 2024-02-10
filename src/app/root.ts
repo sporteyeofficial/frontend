@@ -39,8 +39,8 @@ import { ChatBotComponent } from "./chatbotwindow";
 
   toggleChat(): void {
     const dialogRef = this.dialog.open(ChatBotComponent, {
-      width: 'max-content',
-      height: 'max-content',
+      width: '75%',
+      height: '75%',
       data: {  }
     });
     console.log("dialog is opened");
@@ -101,7 +101,7 @@ import { ChatBotComponent } from "./chatbotwindow";
         window.location.reload();
         this.currentUser = null;
         this.isLoggedIn = false;
-        this.router.navigate(['login?message=Gebruiker succesvol uitgelogd']).then(() => {
+        this.router.navigateByUrl('/login?message=Gebruiker is succesvol uitgelogd').then(() => {
           window.location.reload();
         });
       },

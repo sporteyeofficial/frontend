@@ -33,6 +33,7 @@ export class ShopcartComponent {
 
     buyOrders() {
         window.close()
+        this.shoppingcartService.setOrdersToCart(this.orders);
         this.shoppingcartService.buyShoppingCart().subscribe({
             next: data => {
 

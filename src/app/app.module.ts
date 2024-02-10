@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './app.component';
@@ -25,6 +24,7 @@ import { AlgVoorwaardenComponent } from './html/algvoorwaarden';
 import { ChatBotComponent } from './chatbotwindow';
 import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ShopcartComponent } from './html/shop-cart';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -51,6 +51,11 @@ import { ShopcartComponent } from './html/shop-cart';
     FormsModule,
     HttpClientModule,
     MatDialogModule,
+    ToastrModule.forRoot({
+      timeOut: 7500,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+  }),
     BrowserAnimationsModule,
     NgxPaginationModule
   ],

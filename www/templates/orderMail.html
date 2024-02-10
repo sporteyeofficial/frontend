@@ -18,14 +18,14 @@
         }
 
         .header {
-            background: #009688;
+            background: #a0c9a9;
             color: #ffffff;
             padding: 10px 0;
             text-align: center;
         }
 
         .footer {
-            background: #009688;
+            background: #a0c9a9;
             color: #ffffff;
             text-align: center;
             padding: 10px 0;
@@ -36,10 +36,10 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="https://sporteye.be/assets/img/sporteye1">
-            <h1> Bestellingsbevestiging SportEye <h1>
+            <img src="https://sports-eye.be/assets/img/logo1.jpg">
+            <h1> Bestellingsbevestiging Sports-Eye <h1>
         </div>
-        <h3>Danku <span th:text="${name}" style="text-align: center"></span>, voor je bestelling bij SportEye</h3>
+        <h3>Danku <span th:text="${name}" style="text-align: center"></span>, voor je bestelling bij Sports-Eye</h3>
         <div class="white">
             <p> De totale prijs is <span th:text="${price}" style="text-align: center"></span> euro:</p>
 
@@ -50,7 +50,7 @@
                 <li th:each="order : ${orderLijst}">
                     <a><img src="${order.product.imageLoc}"><span th:text="${order.product.name}"></span> x<span
                             th:text="${order.number}"></span> <span
-                            th:if="${order.product.productType != 'TOKEN'}">localhost:4200/check/<span
+                            th:if="${order.product.productType != 'TOKEN'}">https://sports-eye.be/check/<span
                                 th:text="${order.orderGroup.id}"></span>/order/<span
                                 th:text="${order.id}"></span></span></a>
                 </li>
@@ -58,7 +58,7 @@
         </div>
         <div class="footer">
             <p>Met vriendelijke groeten,</p>
-            <p>Het SportEye team</p>
+            <p>Het Sports-Eye team</p>
         </div>
     </div>
 </body>
