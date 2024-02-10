@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { WijzigProfielComponent } from "../wijzigProfielModal";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
     selector: 'about-us',
@@ -10,5 +12,18 @@ import { Component } from "@angular/core";
   
   })
   export class AboutUsComponent {
+    constructor(private dialog: MatDialog) {}
     
+    wijzigProfiel() {
+      const dialogRef = this.dialog.open(WijzigProfielComponent, {
+        panelClass: 'dialogclass',
+        data: {}
+      });
+      console.log("dialog is opened");
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
+  }
+
   }
