@@ -8,6 +8,7 @@ import { Club } from "./model/club";
 import { StorageService } from "./_services/storage.service";
 import { User } from "./model/user";
 import { ProductService } from "./_services/product.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'wijzig-profiel',
@@ -34,7 +35,7 @@ export class WijzigProfielComponent {
   public profielClubs: Club[] = [];
   public errorMessage: any;
   public currentUser: any;
-  constructor(public dialogRef: MatDialogRef<WijzigProfielComponent>,
+  constructor(public dialogRef: MatDialogRef<WijzigProfielComponent>, private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: {}, private userService: UserServiceService, private productService: ProductService,public elem: ElementRef, public router: Router, public storageService: StorageService) {
 
     this.storageService.getClubs().subscribe((allClubs) => {
@@ -74,6 +75,7 @@ export class WijzigProfielComponent {
     console.log(this.profielClubs)
     this.userService.adaptProfile(new User(this.currentUser.id, "", "", "", "", new Date(), 0, 0, this.form.get('country')?.value, this.form.get('postalCode')?.value, this.form.get('city')?.value, this.form.get('street')?.value, this.form.get('houseNumber')?.value, "", [], this.profielClubs, 0, 0)).subscribe((result) => {
       console.log(result);
+      this.toastr.success("Profiel succesvol gewijzigd");
       this.onNoClick();
     })
   }

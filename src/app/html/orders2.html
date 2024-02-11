@@ -25,6 +25,10 @@
             <div id="particles"></div>
             <h3>Er zijn nog geen bestellingen geplaatst</h3>
         </div>
+        <div class="right-area" *ngIf="!this.isLoggedIn()">
+            <div id="particles"></div>
+            <h3>Er is geen gebruiker ingelogd</h3>
+        </div>
         <div class="right-area" *ngIf="this.orderGroups.length > 0">
             <div id="particles"></div>
             <div class="order">
@@ -96,7 +100,7 @@
                                                 </div>
                                                 <h3>Shirt: </h3>
                                                 <div>
-                                                    <p>{{mshirt.pickedShirt.name.replace(mshirt.pickedShirt.clubName,"")}}:
+                                                    <p>{{mshirt.pickedShirt.name.replace(mshirt.pickedShirt.season,"")}}:
                                                         {{mshirt.pickedShirt.season}} </p>
                                                     <img width="125px" height="150px" src={{mshirt.pickedShirt.shirtImg}}>
                                                 </div>

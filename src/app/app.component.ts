@@ -26,11 +26,7 @@ export class HomeComponent {
   message = '';
   currentUser: any;
 
-  constructor(private router: Router, private productService: ProductService, private storageService: StorageService,private activatedRoute: ActivatedRoute, private dialog: MatDialog) {
-    this.activatedRoute.queryParams.subscribe(params => {
-      if (params['message'] != null)
-        this.message = params['message']; // Print the parameter to the console. 
-    });
+  constructor(private router: Router, private productService: ProductService, private storageService: StorageService, private dialog: MatDialog) {
     this.currentUser = this.storageService.getUser();
   }
 
@@ -50,7 +46,7 @@ export class HomeComponent {
         console.log('The dialog was closed');
       });
     } else {
-      this.router.navigateByUrl('/login?message=Log in voor toe te voegen aan uw winkelmand').then(() => {
+      this.router.navigateByUrl('/login?message=Log in voor een product te kunnen toe te voegen aan uw winkelmand').then(() => {
         window.location.reload();
       });
     }

@@ -9,6 +9,8 @@ import { ProductService } from "./_services/product.service";
 import { MatDialog } from "@angular/material/dialog";
 import { WijzigProfielComponent } from "./wijzigProfielModal";
 import { ChatBotComponent } from "./chatbotwindow";
+import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-root',
@@ -22,9 +24,19 @@ import { ChatBotComponent } from "./chatbotwindow";
     errorMessage='';
     orders: Order[] = [];
     cheatTokens = 0;
+    message = '';
     changeTokens = 0;
 
-  constructor(private router: Router, private storageService: StorageService, private dialog: MatDialog, private UserService: UserServiceService, private shoppingcartService: ShoppingcartService, private productService: ProductService) { }
+  constructor(private toastr: ToastrService, private router: Router, private activatedRoute: ActivatedRoute, private storageService: StorageService, private dialog: MatDialog, private UserService: UserServiceService, private shoppingcartService: ShoppingcartService, private productService: ProductService) { 
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params['message'] != null)
+        this.message = params['message']; // Print the parameter to the console. 
+        if (this.message.includes("succes"))  // Print the parameter to the console. 
+          this.toastr.success(this.message);
+        else
+          this.toastr.error(this.message);
+    });
+  }
   
   ngOnInit(): void {
     this.currentUser = this.storageService.getUser();

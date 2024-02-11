@@ -6,7 +6,6 @@ import { OrderService } from "./_services/order.service";
 import { Router } from "@angular/router";
 import { StorageService } from "./_services/storage.service";
 import { UserServiceService } from "./_services/user-service.service";
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'model-window3',
@@ -21,7 +20,7 @@ import { ToastrService } from 'ngx-toastr';
     public soort: string;
     public id: number;
     public shirtId: number;
-    constructor(public dialogRef: MatDialogRef<Window3Component>, private toastr: ToastrService,
+    constructor(public dialogRef: MatDialogRef<Window3Component>,
       @Inject(MAT_DIALOG_DATA) public data: {p: number, g: number, s: string, sId: number, o:number}, private storageService: StorageService, private userService: UserServiceService, private orderService: OrderService, public elem: ElementRef, public router: Router) {
         this.mysterieShirtId = data.p;
         this.groepId = data.g;
@@ -46,11 +45,10 @@ import { ToastrService } from 'ngx-toastr';
       this.orderService.showShirt(this.mysterieShirtId).subscribe((result) => {
         this.userService.getUserTokens().subscribe((result) => {
           this.storageService.saveTokens(result);
-        this.router.navigate(['check/' +this.groepId +'/order/'+this.id]).then(() => {
+        this.router.navigateByUrl('check/' +this.groepId +'/order/'+this.id+'?message=Shirt is met succes zichtbaar geworden').then(() => {
           window.location.reload();
           
         });
-        this.toastr.success('Shirt is zichtbaar.');
       })
       })
     }
@@ -60,11 +58,11 @@ import { ToastrService } from 'ngx-toastr';
         this.userService.getUserTokens().subscribe((result) => {
           this.storageService.saveTokens(result);
           console.log(this.shirtId);
-        this.router.navigate(['check/' + this.groepId + '/order/'+this.id]).then(() => {
+        this.router.navigateByUrl('check/' + this.groepId + '/order/'+this.id+'?message=Shirt succesvol gewijzigd').then(() => {
           window.location.reload();
           
         });
-        this.toastr.success('Shirt is veranderd');
+        
       })
       })
     }

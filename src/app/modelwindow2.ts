@@ -57,7 +57,7 @@ import { Router } from "@angular/router";
       this.orderService.pickShirt(pickedShirtId, this.mysterieShirt.id).subscribe((result) => {
         console.log(result);
         this.onNoClick();
-        this.router.navigate(['check/' +this.groupId +'/order/'+this.id]).then(() => {
+        this.router.navigateByUrl('check/' +this.groupId +'/order/'+this.id+'?message=Shirt succesvol gekozen').then(() => {
           window.location.reload();
         });
       });

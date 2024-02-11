@@ -46,6 +46,10 @@ export class OrderComponent implements OnInit {
     this.getOrders(1, this.pageSize);
   }
 
+  isLoggedIn() {
+    return this.storageService.isLoggedIn()
+  }
+
   getOrderGroupTokens() {
     for (let order of this.orderGroup.orders) {
       if (order.productEnum == 'TOKEN') {

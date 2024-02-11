@@ -32,7 +32,7 @@ export class VeranderWachtwoordComponent {
         if (this.form.valid) {
             this.userService.veranderWachtwoordAanvraag(this.form.get("email")?.value).subscribe({
                 next: data => {
-                    this.router.navigateByUrl('/home?message=Wachtwoord wijzigingsemail is verstuurd.').then(() => {
+                    this.router.navigateByUrl('/home?message=Wachtwoord wijzigingsemail is met succes verstuurd.').then(() => {
                         window.location.reload();
                     });
                 },
