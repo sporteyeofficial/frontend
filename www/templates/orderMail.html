@@ -8,7 +8,6 @@
             background-color: #f4f4f4;
             color: #333333;
             line-height: 1.6;
-            text-align: center;
         }
 
         .container {
@@ -16,40 +15,6 @@
             margin: 20px auto;
             padding: 20px;
             background: #ffffff;
-        }
-
-        /* Stijl voor de gehele tabel */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-family: Arial, sans-serif;
-            color: #333;
-        }
-
-        /* Stijl voor de koppen van de tabel */
-        th {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            text-align: left;
-        }
-
-        /* Stijl voor de cellen van de tabel */
-        td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        /* Stijl voor rijen bij hover */
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-
-        /* Stijl voor afbeeldingen in de tabel */
-        td img {
-            display: block;
-            margin: 0 auto;
         }
 
         .header {
@@ -77,34 +42,16 @@
         <h3>Danku <span th:text="${name}" style="text-align: center"></span>, voor je bestelling bij Sports-Eye</h3>
         <div class="white">
             <p> De totale prijs is <span th:text="${price}" style="text-align: center"></span> euro:</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Productnaam</th>
-                        <th>productprijs</th>
-                        <th>Aantal</th>
-                        <th>Totale prijs</th>
-                    </tr>
-                </thead>
-                <tbody th:if="${orderLijst.empty}">
-                    <tr>
-                        <td colspan="2">Geen orders gekocht</td>
-                    </tr>
-                </tbody>
-                <tbody th:each="order : ${orderLijst}">
-                    <tr>
-                        <td><img th:src="@{'https://sports-eye.be' + ${order.product.imageLoc.replace('..', '')}}" width="50px" height="50px"></td>
-                        <td>
-                            <span th:text="${order.product.name}"></span>
-                        </td>
-                        <td><span th:text="'€ ' + ${order.product.price}"></span></td>
-                        <td th:text="${order.number}"></td>
-                        <td th:text="'€ ' + ${order.number * order.product.price}"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>De producten zijn te vinden op <a href="https://sports-eye.be/#/check/0/order/0">deze</a> pagina. Het kan zijn dat de emailprovider een nieuwe browser opent, waardoor er opnieuw aangelogd moet worden. </p>
+
+            <ul>
+                <li th:if="${orderLijst.empty}">
+                    <a colspan="2"> Geen orders gekocht </a>
+                </li>
+                <li th:each="order : ${orderLijst}">
+                    <img th:src="@{'https://sports-eye.be' + ${order.product.imageLoc.replace('..', '')}}"> <a th:href="@{'https://sports-eye.be/#/check/' + ${order.orderGroup.id} + '/order/' + ${order.id}}"><span th:text="${order.product.name}"></span> x<span
+                            th:text="${order.number}"></span> </a>
+                </li>
+            </ul>
         </div>
         <div class="footer">
             <p>Met vriendelijke groeten,</p>

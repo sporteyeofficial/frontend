@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { CustomValidators } from '../_helpers/customvalidator';
 import { UserServiceService } from '../_services/user-service.service';
 import { StorageService } from '../_services/storage.service';
-
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -19,26 +19,28 @@ import { StorageService } from '../_services/storage.service';
         form: FormGroup = new FormGroup({
             name:new FormControl(null,[Validators.required]),
             surname:new FormControl(null,[Validators.required]),
-            street:new FormControl(null,[Validators.required]),
             extra:new FormControl(null,[]),
-            houseNumber:new FormControl(null,[Validators.required]),
-            postalCode:new FormControl(null,[Validators.required]),
-            country:new FormControl(null,[Validators.required]),
-            city:new FormControl(null,[Validators.required]),
+            adres:new FormControl(null,[]),
             email: new FormControl(null,[Validators.required,Validators.email]),
             password:new FormControl(null,[Validators.required]),
             passwordConfirm:new FormControl(null,[Validators.required]),
             acceptTerms: new FormControl(false, Validators.requiredTrue),
+            
             //birthdate: new FormControl(null,[Validators.required])
         },
         { validators: CustomValidators.passwordsMatching }
     );
-
+    street = '';
+    houseNumber = '';
+    country = '';
+    postalCode = '';
+    city = '';
     isSuccessful = false;
     isSignUpFailed = false;
     errorMessage = '';
-
-  constructor(private router: Router, private userService: UserServiceService, private storageService: StorageService) { }
+    showDropdown = false;
+    choices: any = [];
+  constructor(private toastr: ToastrService, private router: Router, private userService: UserServiceService, private storageService: StorageService) { }
 
   register() {
     if (this.form.valid) {
@@ -48,11 +50,11 @@ import { StorageService } from '../_services/storage.service';
         name: this.form.get('name')?.value,
         surname: this.form.get('surname')?.value,
         birthdate: new Date(),
-        country: this.form.get('country')?.value,
-        postalCode: this.form.get('postalCode')?.value,
-        city: this.form.get('city')?.value, 
-        street: this.form.get('street')?.value, 
-        houseNr: this.form.get('houseNumber')?.value, 
+        country: this.country,
+        postalCode: this.postalCode,
+        city: this.city, 
+        street: this.street, 
+        houseNr: this.houseNumber, 
         streetDescr: this.form.get('extra')?.value,
         money: 0,
         points: 0,
@@ -76,6 +78,57 @@ import { StorageService } from '../_services/storage.service';
     }
   }
 
+  toggleDropdown() {
+    const data = null;
+    this.choices = [];
+    const xhr = new XMLHttpRequest();
+    //xhr.withCredentials = true;
+    let self = this;
+    xhr.addEventListener('readystatechange', function () {
+      if (this.readyState === this.DONE) {
+        let addresses = JSON.parse(this.responseText);
+        console.log(addresses);
+        for (let a in addresses) {
+          let adres = addresses[a];
+          if (adres.type == "house") {
+              self.choices.push(adres);
+          }
+        }
+        if (self.choices.length == 0) {
+          self.toastr.error("Geen geldig huisadres, geef minstens straat en nummer!");
+        }
+      }
+    });
+
+    xhr.open('GET', 'https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q=' + encodeURIComponent(this.form.get('adres')?.value) + '&format=json&addressdetails=1&namedetails=1&accept-language=nl&limit=3&polygon_threshold=0.0');
+    xhr.setRequestHeader('X-RapidAPI-Key', 'c38d36ac02msh1616276a4babbe5p16058ejsnc1d528a7db56');
+    xhr.setRequestHeader('X-RapidAPI-Host', 'forward-reverse-geocoding.p.rapidapi.com');
+    xhr.setRequestHeader('Access-Control-Allow-Origin', 'localhost:4200');
+
+    xhr.send(data);
+    this.showDropdown = !this.showDropdown;
+  }
+
+  selectChoice(choice: any) {
+    if (choice.address.country == "Nederland" || choice.address.country == "België") {
+      this.postalCode = choice.address.postcode
+      this.street = choice.address.road
+      this.houseNumber = choice.address.house_number
+      this.city = choice.address.city_district
+      this.country = choice.address.country
+      this.form.patchValue({
+        adres: `${this.street} ${this.houseNumber}, ${this.postalCode} ${this.city} (${this.country})`
+  ,
+        // andere velden van het formulier moeten hier ook opgenomen worden
+      });  
+    } else {
+      this.toastr.error("Voorlopig is het enkel mogelijk om aan te kopen op een belgisch of nederlands adres!")
+    }
+    // Voer hier acties uit voor de geselecteerde keuze
+    this.showDropdown = false; // Sluit de dropdown na selectie
+  }
+
+
     get email(): FormControl {
         return this.form.get('email') as FormControl;
     }
@@ -92,28 +145,12 @@ import { StorageService } from '../_services/storage.service';
         return this.form.get('surname') as FormControl;
     }
 
-    get country(): FormControl {
-      return this.form.get('country') as FormControl;
-    }
-
-    get street(): FormControl {
-      return this.form.get('street') as FormControl;
-    }
-
-    get houseNr(): FormControl {
-      return this.form.get('houseNumber') as FormControl;
-    }
-
-    get city(): FormControl {
-      return this.form.get('city') as FormControl;
-    }
-
-    get postalCode(): FormControl {
-      return this.form.get('postalCode') as FormControl;
-    }
-
     get extra(): FormControl {
       return this.form.get('extra') as FormControl;
+    }
+
+    get adres(): FormControl {
+      return this.form.get('adres') as FormControl;
     }
 
     get password(): FormControl {

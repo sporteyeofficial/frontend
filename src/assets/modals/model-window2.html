@@ -9,7 +9,7 @@
                     <img [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time: 5000 + 'ms' + ' ' + (i*2000) + 'ms'}}" class="rounded mx-auto d-block" src={{shirt.clubImg}}>
                     <h6 [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time:  5000  + 'ms' + ' ' + (i*2000) + 'ms'}}">{{shirt.clubName}}</h6>
                     <img [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time: 5000 + 'ms' + ' ' + (i*2000) + 'ms'}}" class="img-fluid mx-auto d-block" src={{shirt.shirtImg}}>
-                    <p [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time:  5000  + 'ms' + ' ' + (i*2000) + 'ms'}}" style="padding-top: 5%">{{shirt.name.replace(shirt.clubName,"").split("Football")[1]}}: {{shirt.season}}</p>
+                    <p [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time:  5000  + 'ms' + ' ' + (i*2000) + 'ms'}}" style="padding-top: 5%">{{shirt.name.replace(shirt.season,"")}}: {{shirt.season}}</p>
                     <div class="row justify-content-center">
                         <button class="col-3" [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time: 5000 + 'ms' + ' ' + (i*2000) + 'ms'}}" (click)="pickShirt(shirt.id)" class="btn">Pick shirt</button>
                         <div class="change col-2">

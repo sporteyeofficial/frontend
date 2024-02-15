@@ -14,7 +14,8 @@
                     currentPage: page,
                     totalItems: count
                   }; index as i">
-                    <span class="lijst-itemtext">Bestelling {{orderGroups.length - ((page * pageSize)) + (pageSize - i) }} </span>
+                    <span class="lijst-itemtext">Bestelling {{orderGroups.length - ((page * pageSize)) + (pageSize - i)
+                        }} </span>
                     <span class="lijst-itemtext">besteld op {{o.startDate | date : "dd-MM-YY HH:mm:ss"}}</span>
                 </div>
 
@@ -39,10 +40,10 @@
                             <h2>Bestelling: {{orderGroup.startDate | date : "dd-MM-yyyy HH:mm:ss"}}</h2>
                             <div class="row">
                                 <div class="col-6">
-                                    <span style="margin-left: 100px;">Status: {{orderGroup.status}}</span> 
+                                    <span style="margin-left: 100px;">Status: {{orderGroup.status}}</span>
                                 </div>
                                 <div class="col-6 centerD green">
-                                    <span style="padding-right: 10px;">Tokens:   </span>
+                                    <span style="padding-right: 10px;">Tokens: </span>
                                     <span><i *ngIf="changeTokens > 0" class="fa fa-random" aria-hidden="true"><span
                                                 class="el">+{{changeTokens}}</span></i></span>
                                     <span><i *ngIf="cheatTokens > 0" class="fa fa-eye" aria-hidden="true"><span
@@ -58,7 +59,7 @@
                             </div>
 
 
-                            
+
 
                             <div *ngIf="order.productEnum != 'TOKEN'" class="mysterie-shirts">
                                 <div class="mysterie-shirt card" *ngFor="let mshirt of pickedShirts">
@@ -68,7 +69,8 @@
                                                 data-hover="Klik hier om change token te gebruiken" aria-hidden="true"
                                                 (click)="changeShirt(mshirt.id, orderGroup.id)"></i>
                                             <i *ngIf="mshirt.changeClosed" class="fa fa-random "
-                                                data-hover="Kan shirt niet meer veranderen" aria-hidden="true" (click)="geefError('Het shirt kan niet meer gewijzigd worden, 24 uur na de bestelling!')"></i>
+                                                data-hover="Kan shirt niet meer veranderen" aria-hidden="true"
+                                                (click)="geefError('Het shirt kan niet meer gewijzigd worden, 24 uur na de bestelling!')"></i>
                                         </div>
                                         <p class="headername"> {{order.productName}} </p>
                                         <div class="red">
@@ -92,17 +94,19 @@
                                             zien</button>
 
                                         <div *ngIf="mshirt.pickedShirt != null">
-                                            <div class="shirt-item">
-                                                <h3>Club: </h3>
-                                                <div>
-                                                    <p>{{mshirt.pickedShirt.clubName}} </p>
-                                                    <img width="75px" height="75px" src={{mshirt.pickedShirt.clubImg}}>
+                                            <div class="row justify-content-center">
+                                                <h3 class="col-4">Club: </h3>
+                                                <p class="col-8 text-left">{{mshirt.pickedShirt.clubName}} </p>
+                                                <div class="col-12">
+                                                    <img width="100px" height="100px" src={{mshirt.pickedShirt.clubImg}}>
                                                 </div>
-                                                <h3>Shirt: </h3>
-                                                <div>
-                                                    <p>{{mshirt.pickedShirt.name.replace(mshirt.pickedShirt.season,"")}}:
-                                                        {{mshirt.pickedShirt.season}} </p>
-                                                    <img width="125px" height="150px" src={{mshirt.pickedShirt.shirtImg}}>
+                                                <h3 class="col-4">Shirt: </h3>
+                                                <p class="col-8 text-left pt-1">
+                                                    {{mshirt.pickedShirt.name.replace(mshirt.pickedShirt.season,"").trim()}}: {{mshirt.pickedShirt.season}}
+                                                </p>
+                                                <div class="col-12">
+                                                    <img width="150px" height="150px"
+                                                        src={{mshirt.pickedShirt.shirtImg}}>
                                                 </div>
                                             </div>
                                         </div>

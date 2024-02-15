@@ -29,12 +29,13 @@ import { ToastrService } from 'ngx-toastr';
 
   constructor(private toastr: ToastrService, private router: Router, private activatedRoute: ActivatedRoute, private storageService: StorageService, private dialog: MatDialog, private UserService: UserServiceService, private shoppingcartService: ShoppingcartService, private productService: ProductService) { 
     this.activatedRoute.queryParams.subscribe(params => {
-      if (params['message'] != null)
-        this.message = params['message']; // Print the parameter to the console. 
-        if (this.message.includes("succes"))  // Print the parameter to the console. 
+      if (params['message'] != null){
+        this.message = params['message']; 
+        if (this.message.includes("succes"))  
           this.toastr.success(this.message);
         else
           this.toastr.error(this.message);
+      }
     });
   }
   

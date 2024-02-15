@@ -1,0 +1,53 @@
+<body>
+    
+    <img style="width: 50%; margin-left: auto; margin-right: auto" src="https://sporteye.be/assets/img/sporteye1">
+    
+</body>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+        }
+
+        .header {
+            background: #009688;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .footer {
+            background: #009688;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img style="width: 50%; margin-left: auto; margin-right: auto" src="https://sporteye.be/assets/img/sporteye1">
+            <h1 style="color: black; text-align: center"> Nieuwe gebruiker <span style="color: green"> Sports-Eye <span><h1>
+        </div>
+        <p> User <span th:text="${user.name}" ></span> <span th:text="${user.surname}" ></span> is nieuw en woont in <span th:text="${user.city}" ></span> </p>
+        <div class="footer">
+            <p>Met vriendelijke groeten,</p>
+            <p>Het Sports-Eye team</p>
+        </div>
+    </div>
+</body>
+
+</html>

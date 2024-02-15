@@ -10,21 +10,21 @@
                 <!--  START FORM SECTION  -->
                 <div class="offset-lg-3 col-lg-6 col-md-12 col-sm-12 pr-lg-0 whitebox">
                     <div class="widget logincontainer">
-                        <h3 class="bottom35 text-center text-md-left">Create Your Account </h3>
+                        <h3 class="bottom35 text-center text-md-left">Maak uw account </h3>
                         <form class="getin_form border-form" [formGroup]='form' (ngSubmit)="register()" id="register">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12">
                                     <div class="form-group bottom35">
-                                        <label for="registerName" class="d-block">Name: </label>
+                                        <label for="registerName" class="d-block">Voornaam: </label>
                                         <input class="form-control" type="text" formControlName="name">
-                                        <p class="valid" *ngIf="name.touched && name.hasError('required')">Name is required</p>
+                                        <p class="valid" *ngIf="name.touched && name.hasError('required')">Voornaam is required</p>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12">
                                     <div class="form-group bottom35">
-                                        <label for="registerName" class="d-block">Surname: </label>
+                                        <label for="registerName" class="d-block">Achternaam: </label>
                                         <input class="form-control" type="text" formControlName="surname" >
-                                        <a class="d-block wrong" *ngIf="surname.touched && surname.hasError('required')">surname is required</a>
+                                        <a class="d-block wrong" *ngIf="surname.touched && surname.hasError('required')">Achternaam is required</a>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12">
@@ -32,68 +32,42 @@
                                         <label for="registerEmail" class="d-block">Email: </label>
                                         <input class="form-control" type="email" formControlName="email">
                                         <a class="d-block wrong" *ngIf="email.touched && email.hasError('required')">Email is required</a>
-                                        <a class="d-block wrong" *ngIf="email.touched && email.hasError('email')">Email must be valid</a>
+                                        <a class="d-block wrong" *ngIf="email.touched && email.hasError('email')">Email moet juiste formaat hebben</a>
                                     </div>
                                 </div>
 
                                 <div class="col-md-12 col-sm-12">
                                     <div class="form-group bottom35">
-                                        <label for="country" class="d-block">Country: </label>
-                                        <input class="form-control" type="text" id="country" name="country" formControlName="country" required>
-                                        <a class="d-block wrong" *ngIf="country.touched && country.hasError('required')">Country is required</a>
+                                        <label for="registerPostBox" class="d-block">Adres (geef straat en nummer om te kunnen zoeken): </label>
+                                        <input class="form-control" type="text" id="registerPostBox" name="adres" formControlName="adres">
+                                        <a class="d-block wrong" *ngIf="adres.touched && adres.hasError('required')">Wachtwoord is required</a>
+                                        <button class="btn" (click)="toggleDropdown()">Zoek juiste adres</button>
+                                    </div>
+                                    <div *ngIf="showDropdown" class="dropdown-menuA show">
+                                        <a  class="dropdown-itemA" href="javascript:void(0)" *ngFor="let adres of choices" (click)="selectChoice(adres)">{{adres.address.road}} {{adres.address.house_number}}, {{adres.address.postcode}} {{adres.address.city_district}} ({{adres.address.country}})</a>
                                     </div>
                                 </div>
-
+      
                                 <div class="col-md-12 col-sm-12">
                                     <div class="form-group bottom35">
-                                        <label for="registerCity" class="d-block">City: </label>
-                                        <input class="form-control" type="text" id="registerCity" name="city" formControlName="city" required>
-                                        <a class="d-block wrong" *ngIf="city.touched && city.hasError('required')">City is required</a>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="form-group bottom35">
-                                        <label for="registerPostalCode" class="d-block">Postal Code (if applicable): </label>
-                                        <input class="form-control" type="text" id="registerPostalCode" name="postalCode" formControlName="postalCode">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="form-group bottom35">
-                                        <label for="registerStreet" class="d-block">Street Address: </label>
-                                        <input class="form-control" type="text" id="registerStreet" name="street" formControlName="street" required>
-                                        <a class="d-block wrong" *ngIf="street.touched && street.hasError('required')">Street Address is required</a>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="form-group bottom35">
-                                        <label for="registerHouseNumber" class="d-block">House Number: </label>
-                                        <input class="form-control" type="text" id="registerHouseNumber" name="houseNumber" formControlName="houseNumber">
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="form-group bottom35">
-                                        <label for="registerPostBox" class="d-block">extra information: </label>
+                                        <label for="registerPostBox" class="d-block">extra adresinformatie: (optioneel) </label>
                                         <input class="form-control" type="text" id="registerPostBox" name="extra" formControlName="extra">
                                     </div>
                                 </div>
                                 
                                 <div class="col-md-12 col-sm-12">
                                     <div class="form-group bottom35">
-                                        <label for="registerPass" class="d-block">Password: </label>
+                                        <label for="registerPass" class="d-block">Wachtwoord: </label>
                                         <input class="form-control" type="password" formControlName="password">
-                                        <a class="d-block wrong" *ngIf="password.touched && password.hasError('required')">Password is required</a>
+                                        <a class="d-block wrong" *ngIf="password.touched && password.hasError('required')">Wachtwoord is required</a>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12">
                                     <div class="form-group bottom35">
-                                        <label for="registerPassConfirm" class="d-block">Confirm password: </label>
+                                        <label for="registerPassConfirm" class="d-block">Bevestig wachtwoord: </label>
                                         <input class="form-control" type="password" formControlName="passwordConfirm">
-                                        <p class="d-block wrong" *ngIf="!form.valid"><small>Please fill out all needed information</small></p>
-                                        <p class="d-block wrong" *ngIf="passwordConfirm.touched && form.hasError('passwordsNotMatching')"><small>Passwords are not matching</small></p>
+                                        <p class="d-block wrong" *ngIf="!form.valid"><small>Vul alstublieft alle benodigde data in</small></p>
+                                        <p class="d-block wrong" *ngIf="passwordConfirm.touched && form.hasError('passwordsNotMatching')"><small>Wachtwoorden matchen niet</small></p>
                                     </div>
                                 </div>
                                 <p *ngIf="isSignUpFailed" class="error">{{errorMessage}}</p>
@@ -102,7 +76,7 @@
                                         <div class="form-check text-left">
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                                                <label class="custom-control-label" for="defaultUnchecked">Remember me on this device</label>
+                                                <label class="custom-control-label" for="defaultUnchecked">Herinner mij op dit apparaat</label>
                                             </div>
                                         </div>
                                     </div>
@@ -120,7 +94,7 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <button type="submit" [disabled]="!form.valid" class="button btn btn-gradient w-100 rounded-pill register-btn ">Registreer</button>
-                                    <p class="top20"> Al een account? &nbsp;<a href="/login" class="defaultcolor">Log in</a> </p>
+                                    <p class="top20"> Al een account? &nbsp;<a href="/#/login" class="defaultcolor">Log in</a> </p>
                                     
                                 </div>
                             </div>
