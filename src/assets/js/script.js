@@ -22,29 +22,15 @@ jQuery(window).on("load", function () {
     }, function () {
         $(this).find('.sm-menu').first().stop(true, true).delay(200).fadeOut(500);
     });
+
     document.getElementById('openMenu').addEventListener('click', function() {
         var menu = document.getElementById('menuItems');
         if (menu.classList.contains('menu-hidden')) {
             menu.classList.remove('menu-hidden');
             menu.classList.add('menu-visible');
-            document.getElementById('openMenu').style.visibility = 'hidden'
         } else {
             menu.classList.remove('menu-visible');
             menu.classList.add('menu-hidden');
-            document.getElementById('openMenu').style.visibility = 'visible'
-        }
-    });
-
-    document.getElementById('menuItems').addEventListener('click', function() {
-        var menu = document.getElementById('menuItems');
-        if (menu.classList.contains('menu-hidden')) {
-            menu.classList.remove('menu-hidden');
-            menu.classList.add('menu-visible');
-            document.getElementById('openMenu').style.visibility = 'hidden'
-        } else {
-            menu.classList.remove('menu-visible');
-            menu.classList.add('menu-hidden');
-            document.getElementById('openMenu').style.visibility = 'visible'
         }
     });
 

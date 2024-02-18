@@ -5167,9 +5167,16 @@ nav i {
 /* Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
 
+    .owl-carousel {
+        justify-content: center;
+    }
+
     .img-holder {
         width: 50px; /* Stel een vaste breedte in */
         height: 50px; /* Stel een vaste hoogte in */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .main .product-section .navbar .brand-logo img {
@@ -5618,6 +5625,9 @@ nav i {
 
 /*// Small devices (landscape phones, 576px and up)*/
 @media (min-width: 575.98px) and (max-width: 768px) {
+    .owl-carousel {
+        justify-content: center;
+    }
 
     #goal {
         display: None;
@@ -5666,6 +5676,8 @@ nav i {
         width: 285px;
         left: -244px;
         z-index: 9999;
+        border: 1px white dashed;
+        border-radius: 25px;
     }
 
     .mini-cart-body .media .media-body {}
@@ -5812,6 +5824,7 @@ nav i {
     .main .product-section .inner-product-sec .right-area .featured_products .featured_items {
         padding-right: 0px;
         padding-left: 0px;
+        justify-content: center;
         margin-top: 5px;
     }
 
@@ -6386,7 +6399,10 @@ nav i {
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-    
+    .owl-carousel {
+        justify-content: center;
+    }
+
     body {
         overflow-y: scroll;
         overflow-x: hidden;
@@ -6783,7 +6799,7 @@ nav i {
     }
 }
 
-@media (min-width: 992px) and (max-width: 1196.9px) {
+@media (min-width: 992px) and (max-width: 1367px) {
 
     /*.main .product-section .inner-product-sec .right-area .box1 {*/
     /*    height: 56vh;*/
@@ -6828,7 +6844,7 @@ nav i {
 /*// Large devices (desktops, 992px and up)*/
 /*// Extra large devices (large desktops, 1200px and up)*/
 /*max-width: 1367px*/
-@media (min-width: 1196.9px) {
+@media (min-width: 1367px) {
 
     .main .side-nav-btn {
         padding-top: 30px;

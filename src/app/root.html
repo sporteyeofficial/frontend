@@ -46,7 +46,7 @@
             <div class="container container-setting">
                 <div class="row justify-content-center">
                     <!-- START HEADER NAV   -->
-                    <nav class="navbar navbar-expand navbar-light bg-light">
+                    <nav id="nav" class="navbar navbar-expand navbar-light bg-light">
                         <h1 id="title" class="brand-logo mr-3"> <a href="/">Sports-Eye</a> </h1>
                         <div id="ball" class="hidden">
                             <img src="../assets/img/bal.png" width="70px" height="50px">
@@ -76,6 +76,16 @@
                         </div>
                         <div class="collapse navbar-collapse transparent-nav" id="navbarTogglerDemo03">
                             <ul class="navbar-nav ml-auto header-nav">
+                                <li class="nav-item dropdown dmenu d-none d-md-block">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                        NL
+                                    </a>
+                                    <div class="dropdown-menu sm-menu">
+                                        <a class="dropdown-item" href="#">Nederlands</a>
+                                        <!--<a class="dropdown-item" href="#"><img src="img/flags/french.jpg" alt="French">French</a>
+                                        <a class="dropdown-item" href="#"><img src="img/flags/spain.jpg" alt="spain">Spanish</a>-->
+                                    </div>
+                                </li>
                                 <li class="nav-item main_item_menu dropdown dmenu d-none d-md-block">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop2"
                                         data-toggle="dropdown">
@@ -83,10 +93,9 @@
                                     </a>
                                     <div class="dropdown-menu main_item_menu_sub sm-menu">
                                         <a class="dropdown-item" href="#"><img src="../assets/img/flags/eur.png"
-                                                alt="flag_eur">EUR</a>
+                                                alt="flag_eur">€</a>
                                     </div>
                                 </li>
-
                                 <li *ngIf="!isLoggedIn"
                                     class="nav-item main_item_menu dropdown dmenu d-none d-md-block">
                                     <a class="nav-link dropdown-toggle" id="navbardrop3" data-toggle="dropdown">
@@ -213,7 +222,7 @@
                     <li><a href="#." class="instagram_bg_hvr2 wow fadeInDown"><i class="fab fa-instagram"
                                 aria-hidden="true"></i></a></li>
                 </ul>
-                <p class="whitecolor text-center w-100 wow fadeInDown">&copy; 2023 SportEye. </p>
+                <p class="whitecolor text-center w-100 wow fadeInDown">&copy; 2024 Sports-Eye. </p>
             </div>
         </div>
         <!-- End OVERLAY Menu -->

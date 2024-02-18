@@ -83,6 +83,7 @@ import { ToastrService } from 'ngx-toastr';
 
   wijzigProfiel() {
     const dialogRef = this.dialog.open(WijzigProfielComponent, {
+      height: 'max-content',
       panelClass: 'dialogclass',
       data: {}
     });
@@ -141,6 +142,7 @@ import { ToastrService } from 'ngx-toastr';
 
   removeOrder(order:Order) {
     this.shoppingcartService.removeOrder(order);
+    window.location.reload();
   }
 
   goCheckout() {

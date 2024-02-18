@@ -48,9 +48,9 @@
 
                     <div class="product-type">
                         <div class="row justify-content-center">
-                            <p class="col-6 text-center">Twijfel je over welke shirtgrootte je moet kopen? <a href="/about#shirt">klik hier</a></p>
                             <div *ngIf="!product.name.includes('token') "
                                 class="col-3" mat-form-field>
+                                <p class="col-12">Twijfel je over welke shirtgrootte je moet kopen? <a href="/about#shirt">klik hier</a></p>
                                 <!--                                <h4><span>Sizes</span></h4>-->
                                 <select id="size" class="input-group" #size (change)="onSelected(size.value)" required>
                                     <option class="input-control" ngDefaultControl selected disabled hidden>Sizes
@@ -67,7 +67,7 @@
                                 <p class="pt-1"><i class="fa fa-check"></i> In Stock</p>
                             </div>
 
-                            <div class="col-12 col-md-4 text-center text-lg-left input_plus_mins">
+                            <div class="col-12 col-md-4 text-center text-lg-left input_plus_mins justify-content-center">
 
                                 <div class="qty"mat-form-field>
                                     <span class="minus bg-dark" (click)="decreaseNumber(0)">
@@ -114,7 +114,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 text-center model-head-button">
+                                <div class="col-12 text-center model-head-button justify-content-center">
                                     <div class="model-title">
                                         <button [disabled]="this.selected == false && product.productType.toString() != 'TOKEN'" type="button" (click)="addProductToShoppingCart(product)"
                                             class="btn btn-prev btn-rounded">ADD TO CART</button>

@@ -6,46 +6,6 @@
         <div class="container model-content">
             <form class="getin_form border-form" [formGroup]='form' id="wijzig">
                 <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group bottom35">
-                            <label for="country" class="d-block">Country: </label>
-                            <input class="form-control" type="text" id="country" name="country"
-                                formControlName="country">
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group bottom35">
-                            <label for="registerCity" class="d-block">City: </label>
-                            <input class="form-control" type="text" id="registerCity" name="city"
-                                formControlName="city">
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group bottom35">
-                            <label for="registerPostalCode" class="d-block">Postal Code (if applicable): </label>
-                            <input class="form-control" type="text" id="registerPostalCode" name="postalCode"
-                                formControlName="postalCode">
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group bottom35">
-                            <label for="registerStreet" class="d-block">Street Address: </label>
-                            <input class="form-control" type="text" id="registerStreet" name="street"
-                                formControlName="street">
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 col-sm-12">
-                        <div class="form-group">
-                            <label for="registerHouseNumber" class="d-block">House Number: </label>
-                            <input class="form-control" type="text" id="registerHouseNumber" name="houseNumber"
-                                formControlName="houseNumber">
-                        </div>
-                    </div>
                     <div class="row full-width" *ngIf="clubs.length">
                             <div class="col-4" *ngFor="let s of profielClubs; index as i">
                                 <div class="row">
@@ -70,9 +30,11 @@
                     </div>
                     <p class="error">{{this.errorMessage}}</p>
 
-
-                    <button class="btn btn-success" (click)="confirmBox()">Bevestig</button>
-                    <button class="btn btn-danger" (click)="onNoClick()">Cancel</button>
+                    <div class="centerbutton">
+                        <button class="btn btn-success" (click)="confirmBox()">Bevestig</button>
+                        <button class="btn btn-danger" (click)="onNoClick()">Cancel</button>
+                    </div>
+                    
                 </div>
             </form>
         </div>
