@@ -62,29 +62,6 @@ ul {
     list-style: none;
 }
 
-/* titel animatie */
-
-@keyframes colorChange {
-    0% {
-        color: #096708;
-    }
-
-    25% {
-        color: #11810f;
-    }
-
-    50% {
-        color: #2a9628;
-    }
-
-    75% {
-        color: #5aad59;
-    }
-
-    100% {
-        color: #85af84;
-    }
-}
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
@@ -92,7 +69,7 @@ ul {
 }
 
 h1 a {
-    animation: colorChange 3s infinite !important;
+    color: #85af84;
     text-shadow: 5px 5px 6px rgba(146, 205, 126, 0.5);
     font-family: 'Roboto', 'sans-serif';
 }
@@ -105,27 +82,6 @@ h1 a {
 .hidden {
     display: none;
 }
-
-#ball {
-    animation: roll 5s linear infinite;
-}
-
-@keyframes roll {
-    0% {
-        transform: translateX(0) rotate(0deg);
-    }
-    90% {
-        transform: translateX(160%) rotate(360deg); /* Pas de afstand aan naar wens */
-    }
-}
-
-#goal {
-    position: absolute;
-    top: 10%;
-    left: 10%; /* Pas de positie aan naar wens */
-    rotate: 0deg;
-}
-
 
 /* einde titel animatie */
 
@@ -1357,7 +1313,7 @@ header .container-setting .navbar-nav .cart-item .badge-custom-setting {
 }
 
 .main .product-section .inner-product-sec .right-area .featured_products .featured_items .img-holder:hover .plus {
-    opacity: 1;
+    opacity: 0.7;
 
 }
 
@@ -4714,6 +4670,30 @@ form.findus textarea {
 /*Order history tab*/
 
 /*my css*/
+
+.product-item {
+    position: relative;
+    /* Overige stijlen voor uw product item */
+}
+
+.hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparante achtergrond */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-item:hover .hover-content {
+    opacity: 1;
+}
 
 .img-holder {
     width: 150px; /* Stel een vaste breedte in */

@@ -48,13 +48,6 @@
                     <!-- START HEADER NAV   -->
                     <nav id="nav" class="navbar navbar-expand navbar-light bg-light">
                         <h1 id="title" class="brand-logo mr-3"> <a href="/">Sports-Eye</a> </h1>
-                        <div id="ball" class="hidden">
-                            <img src="../assets/img/bal.png" width="70px" height="50px">
-                        </div>
-                        <div id="goal" class="hidden">
-                            <img src="../assets/img/goalleft.png" width="100px" height="50px">
-                        </div>
-                        
                         <i id="openMenu" class="fa fa-bars" aria-hidden="true" ></i>
                         <i id="winkelkar" *ngIf="isLoggedIn" (click)="goCheckout()" class="lni-cart">
                             <span>{{this.orders.length}}</span></i>

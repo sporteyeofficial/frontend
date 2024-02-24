@@ -56,38 +56,6 @@ jQuery(window).on("load", function () {
 
 
 
-
-
- /* ===================================
-          Titel animatie
-======================================*/
-
-/*document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-        document.getElementById('title').classList.add('hidden');
-        document.getElementById('ball').classList.remove('hidden');
-    }, 5000); // 5000 milliseconden = 5 seconden
-});*/
-
-document.addEventListener('DOMContentLoaded', function() {
-    if (window.innerWidth >= 768)
-    {
-        setTimeout(function() {
-            document.getElementById('title').classList.add('hidden');
-            document.getElementById('ball').classList.remove('hidden');
-            document.getElementById('goal').classList.remove('hidden');
-            // Na de animatietijd van de bal, toon vuurwerk en breng titel terug
-            setTimeout(function() {
-                document.getElementById('ball').classList.add('hidden');
-                document.getElementById('goal').classList.add('hidden');
-                document.getElementById('title').classList.remove('hidden');
-            }, 5000); // De tijd voor de bal om het doel te bereiken
-        }, 5000); // 5 seconden om de titel te verbergen
-    }
-});
-
-
-
 /*===================================
 //Side Menu Close
 ======================================*/

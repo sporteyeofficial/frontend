@@ -78,6 +78,12 @@ import { ToastrService } from 'ngx-toastr';
     }
   }
 
+  getCity(adres: any) {
+    return adres.address.village !== undefined ? adres.address.village 
+       : adres.address.town !== undefined ? adres.address.town 
+       : adres.address.city;
+  }
+
   toggleDropdown() {
     const data = null;
     this.choices = [];
@@ -90,7 +96,7 @@ import { ToastrService } from 'ngx-toastr';
         console.log(addresses);
         for (let a in addresses) {
           let adres = addresses[a];
-          if (adres.type == "house") {
+          if (adres.type == "house" || adres.type == "yes") {
               self.choices.push(adres);
           }
         }
@@ -114,7 +120,7 @@ import { ToastrService } from 'ngx-toastr';
       this.postalCode = choice.address.postcode
       this.street = choice.address.road
       this.houseNumber = choice.address.house_number
-      this.city = choice.address.city_district
+      this.city = this.getCity(choice)
       this.country = choice.address.country
       this.form.patchValue({
         adres: `${this.street} ${this.houseNumber}, ${this.postalCode} ${this.city} (${this.country})`
