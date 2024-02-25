@@ -80,13 +80,14 @@
                                 </div>
 
                             </div>
+                            <h4 class="text-center">Verander de clubs die je niet wilt <a (click)="wijzigProfiel()" href="javascript:void(0)">hier</a></h4>
                             <div>
                                 <h3 class="text-center">Aanbevolen producten om bij te bestellen</h3>
                                 <div class="row justify-content-center">
                                     <div *ngIf="product.productType.toString() != 'TOKEN'"
                                         class="col-12 col-md-6 text-center input_plus_mins">
                                         <p>Voeg change tokens toe om de toegewezen truitjes te veranderen. </p>
-                                        <p>(10 euro)</p>
+                                        <p>(5 euro)</p>
                                         <img src="../assets/img/changeToken.jpg" width="40%" height="50%">
                                         <div class="qty" mat-form-field>
                                             <span class="minus bg-dark" (click)="decreaseNumber(1)">
@@ -101,7 +102,7 @@
                                     <div *ngIf="product.productType.toString() == 'RANDOMSHIRT'"
                                         class="col-12 col-md-6 text-center input_plus_mins">
                                         <p>Voeg cheat token toe om de toegewezen truitjes te bekijken. </p>
-                                        <p>(5 euro)</p>
+                                        <p>(3 euro)</p>
                                         <img src = "../assets/img/cheatToken.jpg" width="40%" height="50%">
                                         <div class="qty" mat-form-field>
                                             <span class="minus bg-dark" (click)="decreaseNumber(2)">

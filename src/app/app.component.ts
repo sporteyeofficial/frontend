@@ -7,6 +7,7 @@ import { Product } from './model/product';
 import { ShoppingcartService } from './_services/shoppingcart.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Window1Component } from './modelwindow1';
+import { WindowVideoComponent } from './modelvideo1';
 import { StorageService } from './_services/storage.service';
 
 
@@ -50,6 +51,19 @@ export class HomeComponent {
         window.location.reload();
       });
     }
+  }
+
+  openVideo() {
+      const dialogRef = this.dialog.open(WindowVideoComponent, {
+        panelClass: 'dialogclass',
+        height: 'max-content',
+        data: {}
+      });
+      console.log("dialog is opened");
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
   }
 
   getProducts(): void {

@@ -17,6 +17,7 @@ import { MatDialog } from "@angular/material/dialog";
     wijzigProfiel() {
       const dialogRef = this.dialog.open(WijzigProfielComponent, {
         panelClass: 'dialogclass',
+        height: 'max-content',
         data: {}
       });
       console.log("dialog is opened");

@@ -6,6 +6,8 @@ import { ShoppingcartService } from "./_services/shoppingcart.service";
 import { FormArray, FormControl } from "@angular/forms";
 import { ProductService } from "./_services/product.service";
 import { ProductEnum } from "./model/Enum/ProductEnum";
+import { WijzigProfielComponent } from "./wijzigProfielModal";
+import { MatDialog } from "@angular/material/dialog";
 
 
 @Component({
@@ -30,7 +32,7 @@ import { ProductEnum } from "./model/Enum/ProductEnum";
     docBreedte = window.innerWidth
     docHoogte = window.innerHeight
     constructor(public dialogRef: MatDialogRef<Window1Component>,
-      @Inject(MAT_DIALOG_DATA) public data: {p: Product, products: Product[]}, private shoppingCartService: ShoppingcartService, private productService: ProductService) {
+      @Inject(MAT_DIALOG_DATA) public data: {p: Product, products: Product[]}, private dialog: MatDialog, private shoppingCartService: ShoppingcartService, private productService: ProductService) {
         this.product = data.p;
         this.products = data.products;
         this.enumKeys=Object.keys(this.sizeEnum);
@@ -51,6 +53,19 @@ import { ProductEnum } from "./model/Enum/ProductEnum";
           this.shoppingCartService.addProductToShoppingcart(this.products[3], cheatToken, this.size);
         }
     }
+
+    wijzigProfiel() {
+      const dialogRef = this.dialog.open(WijzigProfielComponent, {
+        panelClass: 'dialogclass',
+        height: 'max-content',
+        data: {}
+      });
+      console.log("dialog is opened");
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
+  }
 
     onNoClick(): void {
       this.dialogRef.close();
