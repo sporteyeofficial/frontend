@@ -78,6 +78,10 @@ import { ToastrService } from 'ngx-toastr';
     }
   }
 
+  closeDropdown() {
+    this.showDropdown = false;
+  }
+
   getCity(adres: any) {
     return adres.address.village !== undefined ? adres.address.village 
        : adres.address.town !== undefined ? adres.address.town 

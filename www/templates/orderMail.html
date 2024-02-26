@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+        }
+
+        .header {
+            background: #a0c9a9;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .footer {
+            background: #a0c9a9;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://sports-eye.be/assets/img/logo1.jpg">
+            <h1> Bestellingsbevestiging Sports-Eye <h1>
+        </div>
+        <h3>Danku <span th:text="${name}" style="text-align: center"></span>, voor je bestelling bij Sports-Eye</h3>
+        <div class="white">
+            <p> De totale prijs is <span th:text="${price}" style="text-align: center"></span> euro:</p>
+
+            <ul>
+                <li th:if="${orderLijst.empty}">
+                    <a colspan="2"> Geen orders gekocht </a>
+                </li>
+                <li th:each="order : ${orderLijst}">
+                    <img th:src="@{'https://sports-eye.be' + ${order.product.imageLoc.replace('..', '')}}"> <a th:href="@{'https://sports-eye.be/#/check/' + ${order.orderGroup.id} + '/order/' + ${order.id}}"><span th:text="${order.product.name}"></span> x<span
+                            th:text="${order.number}"></span> </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <p>Met vriendelijke groeten,</p>
+            <p>Het Sports-Eye team</p>
+        </div>
+    </div>
+</body>
+
+</html>

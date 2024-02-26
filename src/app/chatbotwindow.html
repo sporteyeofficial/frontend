@@ -7,7 +7,7 @@
         <div class="chat-container">
             <div class="chat-window">
                 <ul class="messages">
-                    <li *ngFor="let message of messages" [ngClass]="{'self': message.author === 'user', 'bot': message.author === 'bot'}">
+                    <li *ngFor="let message of messages" [ngClass]="{'self': message.author === 'user', 'Sporty': message.author === 'bot'}">
                        <span *ngIf="!message.thinking"> {{ message.content }} </span>
                        <span *ngIf="message.thinking" class="thinking"> </span>
                     </li>

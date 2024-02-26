@@ -44,7 +44,9 @@
                                         <button class="btn" (click)="toggleDropdown()">Zoek juiste adres</button>
                                     </div>
                                     <div *ngIf="showDropdown" class="dropdown-menuA show">
-                                        <a  class="dropdown-itemA" href="javascript:void(0)" *ngFor="let adres of choices" (click)="selectChoice(adres)">{{adres.address.road}} {{adres.address.house_number}}, {{adres.address.postcode}} {{getCity(adres)}} ({{adres.address.country}})</a>
+                                        <a class="dropdown-itemA" href="javascript:void(0)" *ngFor="let adres of choices" (click)="selectChoice(adres)">{{adres.address.road}} {{adres.address.house_number}}, {{adres.address.postcode}} {{getCity(adres)}} ({{adres.address.country}})</a>
+                                        <button class="close-window" (click)="closeDropdown()">Close</button>
+                                        
                                     </div>
                                 </div>
       

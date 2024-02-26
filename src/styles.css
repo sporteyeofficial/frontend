@@ -3984,6 +3984,8 @@ a {
 }
 
 
+
+
 /*Product Detail*/
 
 .product-detail-slider img {
@@ -4674,6 +4676,29 @@ form.findus textarea {
 .product-item {
     position: relative;
     /* Overige stijlen voor uw product item */
+}
+
+.image-container {
+    position: relative;
+    display: inline-block; /* Zorgt ervoor dat de container de grootte van de afbeelding heeft */
+}
+
+.image-container .hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.image-container:hover .hover-text {
+    visibility: visible;
+    background-color: #a0c9a9;
+    border-radius: 10px; /* Ronde hoeken met een radius van 10px */
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5); /* Glanzend effect */
+    opacity: 1;
 }
 
 .hover-content {
