@@ -20,7 +20,7 @@ export class ChatBotComponent {
     inputMessage: string = '';
     constructor(public dialogRef: MatDialogRef<ChatBotComponent>,
         @Inject(MAT_DIALOG_DATA) public data: {}, private storageService: StorageService, public elem: ElementRef, public chatgptService: ChatgptService) {
-            this.messages.push({content: "Hallo, met wat kan ik je helpen?", author: "bot", thinking: false});
+            this.messages.push({content: "Hallo ik ben Sporty, de chatbot van Sports-Eye, met wat kan ik je helpen?", author: "Sporty", thinking: false});
     }
 
     sendMessage(): void {
@@ -35,7 +35,7 @@ export class ChatBotComponent {
         this.messages.push(newMessage);
         const botMessage: Message = {
             content: "...",
-            author: 'bot',
+            author: 'Sporty',
             thinking: true
         };
         // Reset input field after sending message
