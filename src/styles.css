@@ -5100,19 +5100,19 @@ nav i {
 
   @keyframes ellipsis {
     0% {
-      content: 'Bot is thinking';
+      content: 'thinking';
     }
     25% {
-      content: 'Bot is thinking.';
+      content: 'thinking.';
     }
     50% {
-      content: 'Bot is thinking..';
+      content: 'thinking..';
     }
     75% {
-      content: 'Bot is thinking...';
+      content: 'thinking...';
     }
     100% {
-      content: 'Bot is thinking';
+      content: 'thinking';
     }
   }
   
@@ -5122,7 +5122,7 @@ nav i {
   }
   
   .thinking:after {
-    content: 'Bot is thinking';
+    content: 'thinking';
     animation: ellipsis 2s infinite;
   }
   
