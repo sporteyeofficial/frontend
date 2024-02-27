@@ -17,6 +17,15 @@
             background: #ffffff;
         }
 
+        ul {
+            list-style-type: none;
+        }
+
+        ul img {
+            width: 100px;
+            height: 100px;
+        }
+
         .header {
             background: #a0c9a9;
             color: #ffffff;
@@ -48,8 +57,7 @@
                     <a colspan="2"> Geen orders gekocht </a>
                 </li>
                 <li th:each="order : ${orderLijst}">
-                    <img th:src="@{'https://sports-eye.be' + ${order.product.imageLoc.replace('..', '')}}"> <a th:href="@{'https://sports-eye.be/#/check/' + ${order.orderGroup.id} + '/order/' + ${order.id}}"><span th:text="${order.product.name}"></span> x<span
-                            th:text="${order.number}"></span> </a>
+                    <img th:src="@{'https://sports-eye.be' + ${order.product.imageLoc.replace('..', '')}}" width="100px" height="100px"> <span th:text="${order.product.name}"></span> x<span th:text="${order.number}"></span>
                 </li>
             </ul>
         </div>
