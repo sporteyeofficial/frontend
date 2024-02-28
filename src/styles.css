@@ -70,7 +70,6 @@ ul {
 
 h1 a {
     color: #85af84;
-    text-shadow: 5px 5px 6px rgba(146, 205, 126, 0.5);
     font-family: 'Roboto', 'sans-serif';
 }
 
@@ -1238,7 +1237,7 @@ header .container-setting .navbar-nav .cart-item .badge-custom-setting {
     margin-top: 5px;
     margin-bottom: 5px;
     font-size: 250%;
-    color: #409b3f;
+    color: #fcfff8;
     font-family: 'Poppins', sans-serif;
     font-weight: lighter;
 }
@@ -4678,6 +4677,10 @@ form.findus textarea {
     /* Overige stijlen voor uw product item */
 }
 
+.img-rounded {
+    border-radius: 10%;
+}
+
 .image-container {
     position: relative;
     display: inline-block; /* Zorgt ervoor dat de container de grootte van de afbeelding heeft */
@@ -6134,7 +6137,7 @@ nav i {
         margin-top: 5px;
         margin-bottom: 5px;
         font-size: 50px;
-        color: #409b3f;
+        color: white;
         font-family: "Poppins";
         font-weight: lighter;
     }
@@ -6538,7 +6541,7 @@ nav i {
         margin-top: 5px;
         margin-bottom: 5px;
         font-size: 50px;
-        color: #409b3f;
+        color: white;
         font-family: "Poppins";
         font-weight: lighter;
     }
