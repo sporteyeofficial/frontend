@@ -19,8 +19,8 @@
                     </div>
                 </div>
                 <div *ngIf="mysterieShirt.pickedShirt == null">
-                    <p *ngIf="this.shirtId == -1" class="col-12">Ben je zeker dat je 3 change tokens wilt gebruiken om alle shirts in de pick aan te passen? </p>
-                    <p *ngIf="this.shirtId != -1" class="col-12">Ben je zeker dat je een change tokens wilt gebruiken om deze shirt in de pick aan te passen? </p>
+                    <p *ngIf="this.shirtId == -1 && this.order.product.name.includes('pick')" class="col-12">Ben je zeker dat je 3 change tokens wilt gebruiken om alle shirts in de pick aan te passen? </p>
+                    <p *ngIf="this.shirtId != -1 && !this.order.product.name.includes('pick')" class="col-12">Ben je zeker dat je een change tokens wilt gebruiken om deze shirt in de pick aan te passen? </p>
                     <button class="btn btn-success col-6" (click)="confirmBox()">Bevestig</button>
                     <button class="btn btn-danger col-6" (click)="onNoClick()">Cancel</button>
                 </div>   
