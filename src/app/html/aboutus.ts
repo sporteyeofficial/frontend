@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { WijzigProfielComponent } from "../wijzigProfielModal";
 import { MatDialog } from "@angular/material/dialog";
+import { StorageService } from "../_services/storage.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'about-us',
@@ -12,10 +14,11 @@ import { MatDialog } from "@angular/material/dialog";
   
   })
   export class AboutUsComponent {
-    constructor(private dialog: MatDialog) {}
+    constructor(private dialog: MatDialog, private storageService: StorageService, private toastr: ToastrService) {}
     
     wijzigProfiel() {
-      const dialogRef = this.dialog.open(WijzigProfielComponent, {
+      if (this.storageService.getUser() != null) {
+        const dialogRef = this.dialog.open(WijzigProfielComponent, {
         panelClass: 'dialogclass',
         height: 'max-content',
         data: {}
@@ -25,6 +28,10 @@ import { MatDialog } from "@angular/material/dialog";
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
       });
+      } else {
+        this.toastr.error("Meld u aan om ploegen te kunnen kiezen!");
+      }
+      
   }
 
   }

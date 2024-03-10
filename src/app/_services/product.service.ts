@@ -13,12 +13,15 @@ const httpOptions = {
   })
   export class ProductService {
     private apiUrl = backend.url;
-
   
     constructor(private http: HttpClient) { }
 
     getProducts() : Observable<any>{
         return this.http.get(`${this.apiUrl}/auth/product`, { withCredentials: true });
+    }
+
+    public getClubs() : Observable<any> {
+      return this.http.get(`${this.apiUrl}/auth/clubs`, httpOptions);
     }
 
     fetchShirts() : Observable<any> {
@@ -34,6 +37,6 @@ const httpOptions = {
     }
 
     getSizes(productId: Number) : Observable<any> {
-      return this.http.get(`${this.apiUrl}/user/product/` + productId  + `/sizes`, httpOptions);
+      return this.http.get(`${this.apiUrl}/auth/product/` + productId  + `/sizes`, httpOptions);
     }
   }

@@ -47,6 +47,11 @@ import { ToastrService } from 'ngx-toastr';
       this.cheatTokens = this.currentUser.cheatTokens;
       this.changeTokens = this.currentUser.changeTokens;
     }
+    if (this.storageService.getClubs() == null) {
+      this.productService.getClubs().subscribe((allClubs) => {
+            this.storageService.setClubs(allClubs);
+          });
+    }
     
   }
 

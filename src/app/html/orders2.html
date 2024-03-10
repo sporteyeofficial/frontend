@@ -67,10 +67,10 @@
                                         <div class="hover">
                                             <i *ngIf="!mshirt.changeClosed" class="fa fa-random "
                                                 data-hover="Klik hier om change token te gebruiken" aria-hidden="true"
-                                                (click)="changeShirt(mshirt.id, orderGroup.id)"></i>
+                                                (click)="changeShirt(mshirt, orderGroup.id)"></i>
                                             <i *ngIf="mshirt.changeClosed" class="fa fa-random "
                                                 data-hover="Kan shirt niet meer veranderen" aria-hidden="true"
-                                                (click)="geefError('Het shirt kan niet meer gewijzigd worden, 24 uur na de bestelling!')"></i>
+                                                (click)="geefError('Het shirt kan niet meer gewijzigd worden, na 0u één dag na de bestelling!')"></i>
                                         </div>
                                         <p class="headername"> {{order.productName}} </p>
                                         <div class="red">
@@ -85,7 +85,7 @@
                                     <div *ngIf="!mshirt.shirtIsShown">
                                         <p>Shirt wordt niet getoond</p>
                                         <button class="btn btn-dark"
-                                            (click)="showShirt(mshirt.id, orderGroup.id)">gebruik een
+                                            (click)="showShirt(mshirt, orderGroup.id)">gebruik een
                                             cheat token om shirt te zien</button>
                                     </div>
                                     <div *ngIf="mshirt.shirtIsShown">
@@ -169,7 +169,7 @@
                                 <div class="hover">
                                     <i *ngIf="!mshirt.changeClosed" class="fa fa-random "
                                         data-hover="Klik hier om change token te gebruiken" aria-hidden="true"
-                                        (click)="changeShirt(mshirt.id, orderGroup.id)"></i>
+                                        (click)="changeShirt(mshirt, orderGroup.id)"></i>
                                     <i *ngIf="mshirt.changeClosed" class="fa fa-random "
                                         data-hover="Kan shirt niet meer veranderen" aria-hidden="true"></i>
                                 </div>
@@ -182,7 +182,7 @@
                             </div>
                             <div *ngIf="!mshirt.shirtIsShown">
                                 <p>Shirt wordt niet getoond</p>
-                                <button class="btn btn-dark" (click)="showShirt(mshirt.id, orderGroup.id)">gebruik
+                                <button class="btn btn-dark" (click)="showShirt(mshirt, orderGroup.id)">gebruik
                                     een
                                     cheat token om shirt te zien</button>
                             </div>

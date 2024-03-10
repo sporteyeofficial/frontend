@@ -6,6 +6,8 @@ import { Login } from '../model/login';
 import { Observable } from 'rxjs/internal/Observable';
 import { backend } from 'src/environments';
 
+
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   withCredentials: true
@@ -44,7 +46,6 @@ export class UserServiceService {
   }
 
   veranderWachtwoordAanvraag(email: string) {
-    console.log(email);
     return this.http.post(`${this.apiUrl}/auth/resetPassword?email=`+email, {}, httpOptions);
   }
 

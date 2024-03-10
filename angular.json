@@ -64,10 +64,10 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "sportEye:build:production"
+              "buildTarget": "sportEye:build:production"
             },
             "development": {
-              "browserTarget": "sportEye:build:development"
+              "buildTarget": "sportEye:build:development"
             }
           },
           "defaultConfiguration": "development"

@@ -67,7 +67,7 @@ import { Router } from "@angular/router";
     changeShirt(shirtId: number, groepId: number) {
       const dialogRef = this.dialog.open(Window3Component, {
         width: '',
-        data: { p: this.mysterieShirt.id, g: groepId, s: "change", sId: shirtId,o: this.id }
+        data: { ms: this.mysterieShirt, g: groepId, s: "change", sId: shirtId,o: this.id }
       });
       console.log("dialog is opened");
   

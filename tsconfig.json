@@ -1,6 +1,6 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "compileOnSave": false,
+  "compileOnSave": true,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
@@ -11,7 +11,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
@@ -19,7 +19,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "allowJs": true,
-    "useDefineForClassFields": false,
+    "useDefineForClassFields": true,
     "lib": [
       "ES2022",
       "dom"
@@ -31,11 +31,5 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
     
-  },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "www", "dist"
-  ]
+  }
 }

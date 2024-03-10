@@ -1,11 +1,13 @@
 import { Component, ElementRef, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { MysterieShirt } from "./model/mysterieShirt";
+import { Order } from "./model/order";
 import { ShoppingcartService } from "./_services/shoppingcart.service";
 import { OrderService } from "./_services/order.service";
 import { Router } from "@angular/router";
 import { StorageService } from "./_services/storage.service";
 import { UserServiceService } from "./_services/user-service.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'model-window3',
@@ -15,17 +17,19 @@ import { UserServiceService } from "./_services/user-service.service";
   
   })
   export class Window3Component {
-    public mysterieShirtId: number;
+    public mysterieShirt: MysterieShirt;
     public groepId: number;
     public soort: string;
     public id: number;
+    public order: Order;
     public shirtId: number;
-    constructor(public dialogRef: MatDialogRef<Window3Component>,
-      @Inject(MAT_DIALOG_DATA) public data: {p: number, g: number, s: string, sId: number, o:number}, private storageService: StorageService, private userService: UserServiceService, private orderService: OrderService, public elem: ElementRef, public router: Router) {
-        this.mysterieShirtId = data.p;
+    constructor(public dialogRef: MatDialogRef<Window3Component>, private toastr: ToastrService,
+      @Inject(MAT_DIALOG_DATA) public data: {ms: MysterieShirt, g: number, s: string, sId: number, order:Order, o:number}, private storageService: StorageService, private userService: UserServiceService, private orderService: OrderService, public elem: ElementRef, public router: Router) {
+        this.mysterieShirt = data.ms;
         this.groepId = data.g;
         this.soort = data.s;
         this.id = data.o;
+        this.order = data.order;
         this.shirtId = data.sId;
     }
 
@@ -41,8 +45,14 @@ import { UserServiceService } from "./_services/user-service.service";
       }
     }
 
+    pickAgain() {
+      this.orderService.unpickShirt(this.mysterieShirt.id).subscribe((result) => {
+        window.location.reload();
+      });
+    }
+
     showShirt() {
-      this.orderService.showShirt(this.mysterieShirtId).subscribe((result) => {
+      this.orderService.showShirt(this.mysterieShirt.id).subscribe((result) => {
         this.userService.getUserTokens().subscribe((result) => {
           this.storageService.saveTokens(result);
         this.router.navigateByUrl('check/' +this.groepId +'/order/'+this.id+'?message=Shirt is met succes zichtbaar geworden').then(() => {
@@ -54,7 +64,7 @@ import { UserServiceService } from "./_services/user-service.service";
     }
   
     changeShirt() {
-      this.orderService.changeShirt(this.mysterieShirtId, this.shirtId).subscribe((result) => {
+      this.orderService.changeShirt(this.mysterieShirt.id, this.shirtId).subscribe((result) => {
         this.userService.getUserTokens().subscribe((result) => {
           this.storageService.saveTokens(result);
           console.log(this.shirtId);
@@ -63,7 +73,13 @@ import { UserServiceService } from "./_services/user-service.service";
           
         });
         
+      },
+      (error) => {
+        this.toastr.error(error.error.message);
       })
+      },
+      (error) => {
+        this.toastr.error(error.error.message);
       })
     }
   }

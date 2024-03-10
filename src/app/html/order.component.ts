@@ -160,11 +160,11 @@ export class OrderComponent implements OnInit {
     }
   }
 
-  showShirt(mysterieShirtId: number, groepId: number) {
+  showShirt(mysterieShirt: MysterieShirt, groepId: number) {
     const dialogRef = this.dialog.open(Window3Component, {
       width: 'max-content',
       height: 'max-content',
-      data: { p: mysterieShirtId, g: groepId, s: "show", o: this.id }
+      data: { ms: mysterieShirt, g: groepId, s: "show", order: this.order,o: this.id }
     });
     console.log("dialog is opened");
 
@@ -180,10 +180,10 @@ export class OrderComponent implements OnInit {
     });
   }
 
-  changeShirt(mysterieShirtId: number, groepId: number) {
+  changeShirt(mysterieShirt: MysterieShirt, groepId: number) {
     const dialogRef = this.dialog.open(Window3Component, {
       width: '',
-      data: { p: mysterieShirtId, g: groepId, s: "change", sId: -1,o: this.id }
+      data: { ms: mysterieShirt, g: groepId, s: "change", sId: -1, order: this.order, o: this.id }
     });
     console.log("dialog is opened");
 

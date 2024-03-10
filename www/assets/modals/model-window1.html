@@ -50,7 +50,7 @@
                         <div class="row justify-content-center">
                             <div *ngIf="!product.name.includes('token') "
                                 class="col-3" mat-form-field>
-                                <p class="col-12">Twijfel je over welke shirtgrootte je moet kopen? <a href="/about#shirt">klik hier</a></p>
+                                <p class="col-12">Twijfel je over welke shirtgrootte je moet kopen? <a (click)="goToAboutSection()" href="javascript:void(0);">klik hier</a></p>
                                 <!--                                <h4><span>Sizes</span></h4>-->
                                 <select id="size" class="input-group" #size (change)="onSelected(size.value)" required>
                                     <option class="input-control" ngDefaultControl selected disabled hidden>Sizes

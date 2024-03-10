@@ -90,8 +90,8 @@ h1 a {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     margin-bottom: 30px;
-    background: -o-linear-gradient(60deg, #409b3f 5%, #a0c9a9 100%);
-    background: linear-gradient(30deg, #409b3f 5%, #a0c9a9 100%);
+    background: -o-linear-gradient(60deg, #a0c9a9 5%, #409b3f 100%);
+    background: linear-gradient(30deg, #a0c9a9 5%, #409b3f 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -4677,6 +4677,25 @@ form.findus textarea {
     /* Overige stijlen voor uw product item */
 }
 
+.hoverPlan {
+    display: none;
+    position: absolute;
+    background-color: #a0c9a9;
+    color: white;
+    padding: 10px;
+    border: 5px solid white;
+    border-radius: 20px; /* Ronde hoeken met een radius van 10px */
+    box-shadow: 0px 0px 8px 2px #ffffff; /* Glanzend effect */
+    opacity: 1;
+    top: 0;
+    /* Stel deze waarden af op je layout */
+    z-index: 100; /* Zorgt dat het boven andere elementen zweeft */
+}
+
+.product-container:hover .hoverPlan {
+    display: block;
+}
+
 .img-rounded {
     border-radius: 10%;
 }
@@ -4967,7 +4986,7 @@ nav i {
 .orders {
     position: relative;
     left: 50%;
-    min-height: 100%;
+    height: 100%;
     margin-top: 20%;
     z-index: 1;
     border-right: solid 5px black;
@@ -5033,6 +5052,12 @@ nav i {
     margin: 5%;
 }
 
+.order .hover i {
+    position: relative;
+    background: white;
+    z-index: 1000;
+}
+
 .order .hover i:hover:before {
     content: attr(data-hover);
     color: black;
@@ -5040,8 +5065,6 @@ nav i {
     border-radius: 5px;
     padding: 5px 0;
     transition: opacity 1s ease-in-out;
-
-
     z-index: 1;
     left: 0;
     top: 110%;
@@ -5180,6 +5203,10 @@ nav i {
 
     .owl-carousel {
         justify-content: center;
+    }
+
+    #logo {
+        display: none;
     }
 
     .img-holder {
@@ -5638,6 +5665,10 @@ nav i {
 @media (min-width: 575.98px) and (max-width: 768px) {
     .owl-carousel {
         justify-content: center;
+    }
+
+    #logo {
+        display: none;
     }
 
     #goal {
@@ -6412,6 +6443,10 @@ nav i {
 @media (min-width: 768px) and (max-width: 991.98px) {
     .owl-carousel {
         justify-content: center;
+    }
+
+    #logo {
+        display: none;
     }
 
     body {

@@ -21,6 +21,10 @@ const httpOptions = {
       return this.http.get(`${this.apiUrl}/user/order/` + orderId + `/shirts`, httpOptions);
     }
 
+    unpickShirt(mysterieShirtId: number) : Observable<any> {
+      return this.http.post(`${this.apiUrl}/user/`+ mysterieShirtId +`/order/shirtunpick`, httpOptions);
+    }
+
     pickShirt(shirtId: number, mysterieShirtId: number) : Observable<any> {
       return this.http.post(`${this.apiUrl}/user/`+ mysterieShirtId +`/order/` + shirtId + `/shirtpick`, httpOptions);
     }

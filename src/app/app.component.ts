@@ -35,6 +35,13 @@ export class HomeComponent {
     this.getProducts();
   }
 
+  goToAboutSection() {
+    this.router.navigate(['about']).then(() => {
+        const element = document.querySelector('#productinfo');
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
   openDialog(product: Product): void {
     if (this.currentUser != null) {
       const dialogRef = this.dialog.open(Window1Component, {
@@ -67,22 +74,28 @@ export class HomeComponent {
   }
 
   getProducts(): void {
-    if (this.products.length == 0) {
-      this.productService.getProducts(
-
-      ).subscribe({
+    if (!this.storageService.getProducts()) {
+      this.productService.getProducts().subscribe({
         next: data => {
           for (let d in data) {
-            let product = new Product(data[d].id, data[d].categorie, data[d].name, data[d].price, data[d].description, data[d].imageLoc, data[d].numberOfShirts, data[d].productType);
-            this.products.push(product);
-          }
+            
+              this.productService.getSizes(data[d].id).subscribe((result) => {
+                let product = new Product(data[d].id, data[d].categorie, data[d].name, data[d].price, data[d].description, data[d].imageLoc, data[d].numberOfShirts, data[d].productType, result.sort());
+                this.storageService.addProduct(product);
+                this.products.push(product);
+              })
+          } 
         },
         error: err => {
           this.errorMessage = err.error.message;
 
         }
       });
+    } else {
+      this.products = this.storageService.getProducts();
+      this.products.sort((a: Product, b: Product) => b.price - a.price);
     }
+    
 
   }
 }

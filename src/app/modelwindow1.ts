@@ -8,6 +8,8 @@ import { ProductService } from "./_services/product.service";
 import { ProductEnum } from "./model/Enum/ProductEnum";
 import { WijzigProfielComponent } from "./wijzigProfielModal";
 import { MatDialog } from "@angular/material/dialog";
+import { StorageService } from './_services/storage.service';
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -32,14 +34,20 @@ import { MatDialog } from "@angular/material/dialog";
     docBreedte = window.innerWidth
     docHoogte = window.innerHeight
     constructor(public dialogRef: MatDialogRef<Window1Component>,
-      @Inject(MAT_DIALOG_DATA) public data: {p: Product, products: Product[]}, private dialog: MatDialog, private shoppingCartService: ShoppingcartService, private productService: ProductService) {
+      @Inject(MAT_DIALOG_DATA) public data: {p: Product, products: Product[]}, private dialog: MatDialog, private router: Router, private shoppingCartService: ShoppingcartService, private productService: ProductService, private storageService: StorageService) {
         this.product = data.p;
         this.products = data.products;
         this.enumKeys=Object.keys(this.sizeEnum);
-        this.productService.getSizes(this.product.id).subscribe((result) => {
-          this.enumKeys=result;
-          this.enumKeys.sort();
-        })
+        // get sizes from storage
+        this.enumKeys = data.p.sizes;
+    }
+
+    goToAboutSection() {
+      this.router.navigate(['about']).then(() => {
+        this.onNoClick()
+        const element = document.querySelector('#shirt');
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+      });
     }
 
     addProductToShoppingCart(product: Product) {

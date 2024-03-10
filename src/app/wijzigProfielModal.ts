@@ -38,14 +38,12 @@ export class WijzigProfielComponent {
   constructor(public dialogRef: MatDialogRef<WijzigProfielComponent>, private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: {}, private userService: UserServiceService, private productService: ProductService,public elem: ElementRef, public router: Router, public storageService: StorageService) {
 
-    this.storageService.getClubs().subscribe((allClubs) => {
-      this.clubs = allClubs;
-      this.currentUser = this.storageService.getUser();
       this.productService.profielClubs().subscribe((profielClubs) => {
-        console.log(profielClubs);
-        this.profielClubs = profielClubs;
-      })
-    });
+          console.log(profielClubs);
+          this.clubs = this.storageService.getClubs();
+          this.currentUser = this.storageService.getUser();
+          this.profielClubs = profielClubs;
+        });
   }
 
   onNoClick(): void {

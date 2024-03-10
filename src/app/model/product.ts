@@ -9,11 +9,10 @@ export class Product {
     numberOfShirts: BigInteger;
     category: String;
     productType: ProductEnum;
+    sizes: any[];
 
 
-    
-
-    constructor(id: Number, categorie: String, name: string,price: number,description: String,imageLoc: String,numberOfShirts: BigInteger, productType: ProductEnum) {
+    constructor(id: Number, categorie: String, name: string,price: number,description: String, imageLoc: String,numberOfShirts: BigInteger, productType: ProductEnum, sizes: any[]) {
         this.description = description;
         this.id = id;
         this.imageLoc = imageLoc;
@@ -22,5 +21,6 @@ export class Product {
         this.numberOfShirts = numberOfShirts;
         this.price = price;
         this.productType=productType;
+        this.sizes = sizes;
     }
 }
