@@ -6,6 +6,7 @@ import { HomeComponent } from './app.component';
 import { AboutUsComponent } from './html/aboutus';
 import { WindowerrorComponent } from './errorwindow';
 import { Window1Component } from './modelwindow1';
+import { WindowInfoComponent } from './modelinfo';
 import { Window2Component } from './modelwindow2';
 import { Window3Component } from './modelwindow3';
 import { AppComponent } from './root';
@@ -34,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
     Window1Component,
     Window2Component,
     Window3Component,
+    WindowInfoComponent,
     WindowerrorComponent,
     ShopcartComponent,
     OrderComponent,

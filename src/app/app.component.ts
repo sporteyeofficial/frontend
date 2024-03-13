@@ -8,6 +8,7 @@ import { ShoppingcartService } from './_services/shoppingcart.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Window1Component } from './modelwindow1';
 import { WindowVideoComponent } from './modelvideo1';
+import { WindowInfoComponent } from './modelinfo';
 import { StorageService } from './_services/storage.service';
 
 
@@ -35,11 +36,17 @@ export class HomeComponent {
     this.getProducts();
   }
 
-  goToAboutSection() {
-    this.router.navigate(['about']).then(() => {
-        const element = document.querySelector('#productinfo');
-        if (element) element.scrollIntoView({ behavior: 'smooth' });
-    });
+  openInfoModal(product: Product) {
+    const dialogRef = this.dialog.open(WindowInfoComponent, {
+        width: 'max-content',
+        height: 'max-content',
+        data: { p: product }
+      });
+      console.log("dialog is opened");
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
   }
 
   openDialog(product: Product): void {

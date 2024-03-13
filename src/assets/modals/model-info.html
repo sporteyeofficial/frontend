@@ -1,0 +1,93 @@
+<div>
+    <div class="model-window-body">
+        <div class="close-window">
+            <i (click)="onNoClick()" class="lni-close"></i>
+        </div>
+        <div class="container model-content">
+            <div class="row">
+                <h4 class="col-12">Hoe verloopt de bestelling?</h4>
+                <div *ngIf="product.name.includes('pick')" class="col-12 pl-5">
+                    <ol style="list-style-type: decimal">
+                        <li>Klik op homepagina op “mysterie pick” product</li>
+                        <li>
+                            Er opent een pop-up scherm dat bevat:
+                            <ol style="list-style-type: lower-alpha">
+                                <li>Size keuze</li>
+                                <li>Link naar club keuzes</li>
+                                <li>
+                                    Mogelijkheid om change tokens bij te kopen
+                                    <ol style="list-style-type: lower-roman">
+                                        <li>Met een change token kan je de toegewezen truitjes wijzigen</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            Na betaling kan je bij de bestellingsgeschiedenis (te vinden onder emailadres in navigatie):
+                            <ol style="list-style-type: lower-alpha">
+                                <li>Naar je bestelling gaan</li>
+                                <li>
+                                    Je shirts wijzigen door op het change token icoontje te duwen, er zijn 2
+                                    mogelijkheden:
+                                    <ol style="list-style-type: lower-roman">
+                                        <li>Je kan in 1 keer alle 3 de toegewezen truitjes wissen</li>
+                                        <li>Of in de truitjes pop-up kan je 1 afzonderlijk truitje wijzigen</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>Vanaf de volgende dag 0u kan je de truitjes niet meer veranderen!</li>
+                    </ol>
+                </div>
+                <div *ngIf="product.name.includes('Random')" class="col-12 pl-5">
+                    <ol style="list-style-type: decimal">
+                        <li>Klik op de homepagina op "Random shirt"</li>
+                        <li>
+                            Er opent een pop-up scherm dat bevat:
+                            <ol style="list-style-type: lower-alpha">
+                                <li>Size keuze</li>
+                                <li>Link naar club keuzes</li>
+                                <li>
+                                    Mogelijkheid om change tokens en cheat tokens bij te kopen
+                                    <ol style="list-style-type: lower-roman">
+                                        <li>Een cheat token is nodig hierbij als je het product al op voorhand wilt zien
+                                            !!</li>
+                                        <li>Met een change token kan je het truitje wijzigen</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            Na betaling kan je bij de bestellingsgeschiedenis (te vinden onder emailadres in navigatie):
+                            <ol style="list-style-type: lower-alpha">
+                                <li>Naar je bestelling gaan</li>
+                                <li>Je shirt zien door op het cheat token icoontje te duwen (Zorg dan wel dat je cheat
+                                    tokens hebt)</li>
+                                <li>Je shirt wijzigen door op het change token icoontje te duwen</li>
+                            </ol>
+                        </li>
+                        <li>Vanaf de volgende dag 0u kan je de truitjes niet meer veranderen!</li>
+                    </ol>
+                </div>
+                <div *ngIf="product.name.includes('token')" class="col-12 pl-5">
+                    <ol style="list-style-type: decimal">
+                        <li>Klik op homepagina op de gewenste token</li>
+                        <li>
+                            Er opent een pop-up scherm dat bevat:
+                            <ol style="list-style-type: lower-alpha">
+                                <li>
+                                    Mogelijkheid om change tokens of cheat tokens bij te kopen
+                                    <ol style="list-style-type: lower-roman">
+                                        <li>Een cheat token is nodig hierbij als je het product al op voorhand wilt zien
+                                            !! Bij een mysterie pick heb je geen cheat token nodig om het truitje te zien aangezien je moet kiezen uit 3 truitjes.</li>
+                                        <li>Met een change token kan je het truitje wijzigen</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
