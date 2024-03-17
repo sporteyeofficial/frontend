@@ -38,9 +38,9 @@
 
                                 <div class="col-md-12 col-sm-12">
                                     <div class="form-group bottom35">
-                                        <label for="registerPostBox" class="d-block">Adres (geef straat en nummer om te kunnen zoeken): </label>
+                                        <label for="registerPostBox" class="d-block">Adres (geef straat en nummer om het adres te vinden): </label>
                                         <input class="form-control" type="text" id="registerPostBox" name="adres" formControlName="adres">
-                                        <a class="d-block wrong" *ngIf="adres.touched && adres.hasError('required')">Wachtwoord is required</a>
+                                        <a class="d-block wrong" *ngIf="adres.touched && adres.hasError('required')">Adres is required, vergeet niet op de knop hieronder de duwen om het adres te vinden</a>
                                         <button class="btn" (click)="toggleDropdown()">Zoek juiste adres</button>
                                     </div>
                                     <div *ngIf="showDropdown" class="dropdown-menuA show">

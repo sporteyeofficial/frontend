@@ -59,7 +59,13 @@ import { ToastrService } from 'ngx-toastr';
           window.location.reload();
           
         });
+      },
+      (error) => {
+        this.toastr.error(error.error.message);
       })
+      },
+      (error) => {
+        this.toastr.error(error.error.message);
       })
     }
   

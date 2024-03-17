@@ -3,6 +3,7 @@ import { WijzigProfielComponent } from "../wijzigProfielModal";
 import { MatDialog } from "@angular/material/dialog";
 import { StorageService } from "../_services/storage.service";
 import { ToastrService } from 'ngx-toastr';
+import { WindowVideoComponent } from '../modelvideo1';
 
 @Component({
     selector: 'about-us',
@@ -32,6 +33,19 @@ import { ToastrService } from 'ngx-toastr';
         this.toastr.error("Meld u aan om ploegen te kunnen kiezen!");
       }
       
+  }
+
+  openVideo() {
+      const dialogRef = this.dialog.open(WindowVideoComponent, {
+        panelClass: 'dialogclass',
+        height: 'max-content',
+        data: {}
+      });
+      console.log("dialog is opened");
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+      });
   }
 
   }

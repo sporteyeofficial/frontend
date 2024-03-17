@@ -5,7 +5,7 @@
         </div>
         <div class="container model-content">
             <div *ngIf="soort == 'show'" class="row">
-                <p class="col-12">Ben je zeker dat je een cheat token wilt gebruiken? </p>
+                <p class="col-12">Ben je zeker dat je een cheat token <i class="fa fa-eye" aria-hidden="true"></i> wilt gebruiken? </p>
                 <button class="btn btn-success col-6" (click)="confirmBox()">Bevestig</button>
                 <button class="btn btn-danger col-6" (click)="onNoClick()">Cancel</button>
             </div>
@@ -13,7 +13,7 @@
                 <div *ngIf="mysterieShirt.pickedShirt != null">
                     <div *ngIf="order.productName.includes('pick')">
                         <p class="col-12">Opnieuw kiezen uit de vorige drie toegewezen truitjes of liever 3 change
-                            tokens gebruiken om uit nieuwe shirts te kunnen kiezen? </p>
+                            tokens <i class="fa fa-random" aria-hidden="true"></i> gebruiken om uit nieuwe shirts te kunnen kiezen? </p>
                         <div class="col-12 centerD">
                             <button class="btn btn-success col-4" (click)="pickAgain()">Oude</button>
                             <button class="btn btn-success col-4" (click)="confirmBox()">Nieuwe</button>
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div *ngIf="order.productName.includes('Random')">
-                        <p class="col-12">Ben je zeker dat je een change tokens wilt gebruiken om
+                        <p class="col-12">Ben je zeker dat je een change token <i class="fa fa-random" aria-hidden="true"></i> wilt gebruiken om
                             deze shirt in de pick aan te passen? </p>
                         <div class="col-12 centerD">
                             <button class="btn btn-success col-6" (click)="confirmBox()">Bevestig</button>
@@ -31,9 +31,9 @@
 
                 </div>
                 <div *ngIf="mysterieShirt.pickedShirt == null">
-                    <p *ngIf="this.shirtId == -1" class="col-12">Ben je zeker dat je 3 change tokens wilt gebruiken om
+                    <p *ngIf="this.shirtId == -1" class="col-12">Ben je zeker dat je 3 change tokens <i class="fa fa-random" aria-hidden="true"></i> wilt gebruiken om
                         alle shirts in de pick aan te passen? </p>
-                    <p *ngIf="this.shirtId != -1" class="col-12">Ben je zeker dat je een change tokens wilt gebruiken om
+                    <p *ngIf="this.shirtId != -1" class="col-12">Ben je zeker dat je een change tokens <i class="fa fa-random" aria-hidden="true"></i> wilt gebruiken om
                         deze shirt in de pick aan te passen? </p>
                     <button class="btn btn-success col-6" (click)="confirmBox()">Bevestig</button>
                     <button class="btn btn-danger col-6" (click)="onNoClick()">Cancel</button>

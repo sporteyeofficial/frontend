@@ -1816,8 +1816,8 @@ header .container-setting .navbar-nav .cart-item .badge-custom-setting {
 
 .close-window {
     position: absolute;
-    right: 33px;
-    top: 30px;
+    right: 0%;
+    bottom: -30%;
     cursor: pointer;
     z-index: 16;
 }
@@ -2436,8 +2436,7 @@ header .container-setting .navbar-nav .cart-item .badge-custom-setting {
 }
 
 .about_content {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    
     overflow: hidden;
 }
 
@@ -4677,6 +4676,43 @@ form.findus textarea {
     /* Overige stijlen voor uw product item */
 }
 
+.videobutton {
+    position: relative;
+    margin-top: 3%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.arrow-text {
+    /* Stijlen voor de tekst */
+    position: relative;
+    margin-bottom: 1%;
+    left: 22%; /* Pas aan op basis van jouw layout */
+    color: #000;
+    font-size: 14px;
+}
+
+.arrow-text::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black; /* Verander de kleur indien nodig */
+    transform: translateX(-50%); /* Centreert de pijlpunt onder de tekst */
+}
+
+.error-close-tobutton {
+    color: red;
+    position: relative;
+    padding-top: 1%;
+    text-align: center;
+}
+
 .hoverPlan {
     display: none;
     position: absolute;
@@ -4897,7 +4933,7 @@ nav i {
 .products span{
     margin-left: 1%;
     display: inline-block;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
 }
 
 .products {
@@ -6440,7 +6476,7 @@ nav i {
 
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (min-width: 768px) and (max-width: 992px) {
     .owl-carousel {
         justify-content: center;
     }
@@ -6850,6 +6886,21 @@ nav i {
     /*.main .product-section .inner-product-sec .right-area .box1 {*/
     /*    height: 56vh;*/
     /*}*/
+
+    .main .product-section .inner-product-sec .right-area .box1 {
+        width: 53%;
+        background-color: #a0c9a9;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        z-index: 111;
+        left: 0%;
+        padding: 20px;
+        height: 75vh;
+    }
+    
     .contact-us-content #map {
         margin-top: 25px !important;
     }

@@ -90,6 +90,7 @@ export class HomeComponent {
                 let product = new Product(data[d].id, data[d].categorie, data[d].name, data[d].price, data[d].description, data[d].imageLoc, data[d].numberOfShirts, data[d].productType, result.sort());
                 this.storageService.addProduct(product);
                 this.products.push(product);
+                this.products.sort((a: Product, b: Product) => b.price - a.price);
               })
           } 
         },

@@ -6,9 +6,9 @@
         <div class="container model-content">
             <div class="row justify-content-center">
                 <div id="animation" class="col-4 text-center" *ngFor="let shirt of shirts; index as i">
-                    <img [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time: 5000 + 'ms' + ' ' + (i*2000) + 'ms'}}" width="20vh" height="20vh" class="rounded mx-auto d-block" src={{shirt.clubImg}}>
+                    <img [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time: 5000 + 'ms' + ' ' + (i*2000) + 'ms'}}" width="70vh" height="70vh" class="rounded mx-auto d-block" src={{shirt.clubImg}}>
                     <h6 [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time:  5000  + 'ms' + ' ' + (i*2000) + 'ms'}}">{{shirt.clubName}}</h6>
-                    <img [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time: 5000 + 'ms' + ' ' + (i*2000) + 'ms'}}" width="30vh" height="30vh" class="img-fluid mx-auto d-block" src={{shirt.shirtImg}}>
+                    <img [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time: 5000 + 'ms' + ' ' + (i*2000) + 'ms'}}" width="170vh" height="170vh" class="img-fluid mx-auto d-block" src={{shirt.shirtImg}}>
                     <p [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time:  5000  + 'ms' + ' ' + (i*2000) + 'ms'}}" style="padding-top: 5%">{{shirt.name.replace(shirt.season,"")}}: {{shirt.season}}</p>
                     <div class="row justify-content-center">
                         <button class="col-3" [@fadeIn]="{value: elem.nativeElement.querySelectorAll('#animation').length, params:{time: 5000 + 'ms' + ' ' + (i*2000) + 'ms'}}" (click)="pickShirt(shirt.id)" class="btn">Pick shirt</button>
