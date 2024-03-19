@@ -39,6 +39,7 @@ import { ToastrService } from 'ngx-toastr';
     isSignUpFailed = false;
     errorMessage = '';
     showDropdown = false;
+    adresAdded = false;
     choices: any = [];
   constructor(private toastr: ToastrService, private router: Router, private userService: UserServiceService, private storageService: StorageService) { }
 
@@ -131,6 +132,7 @@ import { ToastrService } from 'ngx-toastr';
   ,
         // andere velden van het formulier moeten hier ook opgenomen worden
       });  
+      this.adresAdded = true;
     } else {
       this.toastr.error("Voorlopig is het enkel mogelijk om aan te kopen op een belgisch of nederlands adres!")
     }

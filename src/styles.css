@@ -1816,8 +1816,16 @@ header .container-setting .navbar-nav .cart-item .badge-custom-setting {
 
 .close-window {
     position: absolute;
+    right: 5%;
+    top: 5%;
+    cursor: pointer;
+    z-index: 16;
+}
+
+.close-window-adres {
+    position: absolute;
     right: 0%;
-    bottom: -30%;
+    bottom: -100%;
     cursor: pointer;
     z-index: 16;
 }
@@ -4674,6 +4682,10 @@ form.findus textarea {
 .product-item {
     position: relative;
     /* Overige stijlen voor uw product item */
+}
+
+.wrong {
+    color: red;
 }
 
 .videobutton {

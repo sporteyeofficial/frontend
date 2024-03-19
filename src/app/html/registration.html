@@ -17,7 +17,7 @@
                                     <div class="form-group bottom35">
                                         <label for="registerName" class="d-block">Voornaam: </label>
                                         <input class="form-control" type="text" formControlName="name">
-                                        <p class="valid" *ngIf="name.touched && name.hasError('required')">Voornaam is required</p>
+                                        <p class="d-block wrong" *ngIf="name.touched && name.hasError('required')">Voornaam is required</p>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12">
@@ -31,8 +31,8 @@
                                     <div class="form-group bottom35">
                                         <label for="registerEmail" class="d-block">Email: </label>
                                         <input class="form-control" type="email" formControlName="email">
-                                        <a class="d-block wrong" *ngIf="email.touched && email.hasError('required')">Email is required</a>
-                                        <a class="d-block wrong" *ngIf="email.touched && email.hasError('email')">Email moet juiste formaat hebben</a>
+                                        <p class="d-block wrong" *ngIf="email.touched && email.hasError('required')">Email is required</p>
+                                        <p class="d-block wrong" *ngIf="email.touched && email.hasError('email')">Email moet juiste formaat hebben</p>
                                     </div>
                                 </div>
 
@@ -41,11 +41,12 @@
                                         <label for="registerPostBox" class="d-block">Adres (geef straat en nummer om het adres te vinden): </label>
                                         <input class="form-control" type="text" id="registerPostBox" name="adres" formControlName="adres">
                                         <a class="d-block wrong" *ngIf="adres.touched && adres.hasError('required')">Adres is required, vergeet niet op de knop hieronder de duwen om het adres te vinden</a>
+                                        <p class="d-block wrong" *ngIf="!adresAdded">Druk op zoek om adres te vinden</p>
                                         <button class="btn" (click)="toggleDropdown()">Zoek juiste adres</button>
                                     </div>
                                     <div *ngIf="showDropdown" class="dropdown-menuA show">
                                         <a class="dropdown-itemA" href="javascript:void(0)" *ngFor="let adres of choices" (click)="selectChoice(adres)">{{adres.address.road}} {{adres.address.house_number}}, {{adres.address.postcode}} {{getCity(adres)}} ({{adres.address.country}})</a>
-                                        <button class="close-window" (click)="closeDropdown()">Close</button>
+                                        <button class="close-window-adres" (click)="closeDropdown()">Close</button>
                                         
                                     </div>
                                 </div>
@@ -61,14 +62,14 @@
                                     <div class="form-group bottom35">
                                         <label for="registerPass" class="d-block">Wachtwoord: </label>
                                         <input class="form-control" type="password" formControlName="password">
-                                        <a class="d-block wrong" *ngIf="password.touched && password.hasError('required')">Wachtwoord is required</a>
+                                        <p class="d-block wrong" *ngIf="password.touched && password.hasError('required')">Wachtwoord is required</p>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12">
                                     <div class="form-group bottom35">
                                         <label for="registerPassConfirm" class="d-block">Bevestig wachtwoord: </label>
                                         <input class="form-control" type="password" formControlName="passwordConfirm">
-                                        <p class="d-block wrong" *ngIf="!form.valid"><small>Vul alstublieft alle benodigde data in</small></p>
+                                        <p class="d-block wrong" *ngIf="!form.valid"><small>Vul alle benodigde data in</small></p>
                                         <p class="d-block wrong" *ngIf="passwordConfirm.touched && form.hasError('passwordsNotMatching')"><small>Wachtwoorden matchen niet</small></p>
                                     </div>
                                 </div>
