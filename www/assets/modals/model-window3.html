@@ -23,6 +23,7 @@
                     <div *ngIf="order.productName.includes('Random')">
                         <p class="col-12">Ben je zeker dat je een change token <i class="fa fa-random" aria-hidden="true"></i> wilt gebruiken om
                             deze shirt in de pick aan te passen? </p>
+                            <p class="red">Als je geen cheat token gebruikt, zal je je nieuwe truitje niet kunnen zien. Enkel het gewijzigde truitje zal zichtbaar worden naast deze box!</p>
                         <div class="col-12 centerD">
                             <button class="btn btn-success col-6" (click)="confirmBox()">Bevestig</button>
                             <button class="btn btn-danger col-6" (click)="onNoClick()">Cancel</button>

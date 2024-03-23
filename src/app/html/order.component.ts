@@ -35,6 +35,7 @@ export class OrderComponent implements OnInit {
   page = 1;
   count = 0;
   pageSize = 3;
+  isLoaded = false;
   docBreedte = window.innerWidth
   docHoogte = window.innerHeight
 
@@ -105,10 +106,10 @@ export class OrderComponent implements OnInit {
               this.changeOrder(orderGroup.orders[0]);
             }
           }
-
+          
         })
 
-
+        
       },
       error: err => {
         //this.errorMessage = err.error.message;
@@ -150,6 +151,7 @@ export class OrderComponent implements OnInit {
     if (order.productEnum != 'TOKEN') {
       this.orderService.getShirts(order.id).subscribe((result) => {
         this.pickedShirts = result;
+        this.isLoaded = true;
         console.log(this.pickedShirts)
         for (let ps of this.pickedShirts) {
           console.log("beforeChangedShirt " + ps.beforeChangeShirts[0].clubName)

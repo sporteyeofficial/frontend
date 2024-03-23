@@ -13,7 +13,7 @@ import { ProductEnum } from "../model/Enum/ProductEnum";
 export class ShopcartComponent {
     orders: Order[] = [];
     errorMessage = "";
-
+    payPushed = false;
     constructor(private shoppingcartService: ShoppingcartService) { }
     ngOnInit(): void {
         this.orders = this.shoppingcartService.getOrders();
@@ -32,6 +32,7 @@ export class ShopcartComponent {
     }
 
     buyOrders() {
+        this.payPushed = true;
         window.close()
         this.shoppingcartService.setOrdersToCart(this.orders);
         this.shoppingcartService.buyShoppingCart().subscribe({

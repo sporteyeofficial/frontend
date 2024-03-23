@@ -1,3 +1,13 @@
+<!--START PAGE LOADER-->
+<div *ngIf="!isLoaded" id="loader">
+    <div class="loader center-block">
+        <div class="inner one"></div>
+        <div class="inner two"></div>
+        <div class="inner three"></div>
+    </div>
+</div>
+<!--END PAGE LOADER-->
+
 <div *ngIf="docBreedte >= 992" class="product-section">
     <!--START HEADER -->
 
@@ -215,7 +225,7 @@
                                 <img src={{shirt.shirtImg}}>
                             </div>
                         </div>
-                        <p class="d-none d-lg-block">© 2023 Sports-Eye</p>
+                        <p class="d-none d-lg-block">© 2024 Sports-Eye</p>
                     </div>
                 </div>
             </div>
