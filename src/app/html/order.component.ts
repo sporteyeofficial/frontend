@@ -34,10 +34,12 @@ export class OrderComponent implements OnInit {
   changeTokens = 0;
   page = 1;
   count = 0;
+  remainingTime = "";
   pageSize = 3;
   isLoaded = false;
   docBreedte = window.innerWidth
   docHoogte = window.innerHeight
+  timer: any;
 
   constructor(private route: ActivatedRoute, private userService: UserServiceService, private dialog: MatDialog, private orderService: OrderService, private storageService: StorageService, private router: Router) {
 
@@ -45,6 +47,7 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOrders(1, this.pageSize);
+    this.timer = setInterval(() => this.calculateRemainingTime(), 1000);
   }
 
   isLoggedIn() {
@@ -146,6 +149,29 @@ export class OrderComponent implements OnInit {
     });
   }
 
+  calculateRemainingTime() {
+    let startDate = new Date(this.orderGroup.startDate);
+    let endDate = new Date(
+      startDate.getFullYear(),
+      startDate.getMonth(),
+      startDate.getDate() + 2
+    ); // De volgende dag om middernacht
+    if (new Date() > endDate) {
+      let endDate = new Date(
+      new Date().getFullYear(),
+      new Date().getMonth(),
+      new Date().getDate() + 1
+    ); // De volgende dag om middernacht
+    }
+    let diff = endDate.getTime() - new Date().getTime(); // Verschil in milliseconden
+
+    let hours = Math.floor(diff / (1000 * 60 * 60));
+    let minutes = Math.floor((diff / (1000 * 60)) % 60);
+    let seconds = Math.floor((diff / (1000)) % 60);
+
+    this.remainingTime = `${hours}:${minutes}:${seconds}`;
+  }
+
   changeOrder(order: Order) {
     this.order = order;
     if (order.productEnum != 'TOKEN') {
@@ -159,6 +185,8 @@ export class OrderComponent implements OnInit {
           console.log("changed shirts " + this.beforeChangeShirts)
         }
       })
+    } else {
+      this.isLoaded = true;
     }
   }
 
