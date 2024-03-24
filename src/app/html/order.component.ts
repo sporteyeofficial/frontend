@@ -174,6 +174,9 @@ export class OrderComponent implements OnInit {
 
   changeOrder(order: Order) {
     this.order = order;
+    if (this.order == undefined) {
+      this.isLoaded = true;
+    }
     if (order.productEnum != 'TOKEN') {
       this.orderService.getShirts(order.id).subscribe((result) => {
         this.pickedShirts = result;
