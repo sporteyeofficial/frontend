@@ -4696,6 +4696,16 @@ form.findus textarea {
     
 }
 
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .arrow-text {
     /* Stijlen voor de tekst */
     position: relative;
