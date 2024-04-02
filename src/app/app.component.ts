@@ -71,6 +71,7 @@ export class HomeComponent {
       const dialogRef = this.dialog.open(WindowVideoComponent, {
         panelClass: 'dialogclass',
         height: 'max-content',
+        width: 'max-content',
         data: {}
       });
       console.log("dialog is opened");

@@ -83,50 +83,46 @@ import { ToastrService } from 'ngx-toastr';
     this.showDropdown = false;
   }
 
-  getCity(adres: any) {
-    return adres.address.village !== undefined ? adres.address.village 
-       : adres.address.town !== undefined ? adres.address.town 
-       : adres.address.city;
-  }
-
   toggleDropdown() {
     const data = null;
     this.choices = [];
+    this.choices.push({formatted: "Zoeken naar adres ..."});
     const xhr = new XMLHttpRequest();
     //xhr.withCredentials = true;
     let self = this;
     xhr.addEventListener('readystatechange', function () {
       if (this.readyState === this.DONE) {
-        let addresses = JSON.parse(this.responseText);
+        let addresses = JSON.parse(this.responseText).features;
         console.log(addresses);
         for (let a in addresses) {
-          let adres = addresses[a];
-          if (adres.type == "house" || adres.type == "yes") {
+          let adres = addresses[a].properties;
+          if (adres.result_type == "building") {
               self.choices.push(adres);
           }
         }
         if (self.choices.length == 0) {
           self.toastr.error("Geen geldig huisadres, geef minstens straat en nummer!");
         }
+        self.choices.shift();
       }
     });
 
-    xhr.open('GET', 'https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q=' + encodeURIComponent(this.form.get('adres')?.value) + '&format=json&addressdetails=1&namedetails=1&accept-language=nl&limit=3&polygon_threshold=0.0');
+    xhr.open('GET', 'https://geoapify-address-autocomplete.p.rapidapi.com/v1/geocode/autocomplete?text=' + encodeURIComponent(this.form.get('adres')?.value) + '&lang=nl&limit=3');
     xhr.setRequestHeader('X-RapidAPI-Key', 'c38d36ac02msh1616276a4babbe5p16058ejsnc1d528a7db56');
-    xhr.setRequestHeader('X-RapidAPI-Host', 'forward-reverse-geocoding.p.rapidapi.com');
-    xhr.setRequestHeader('Access-Control-Allow-Origin', 'localhost:4200');
+    xhr.setRequestHeader('X-RapidAPI-Host', 'geoapify-address-autocomplete.p.rapidapi.com');
 
     xhr.send(data);
+
     this.showDropdown = !this.showDropdown;
   }
 
   selectChoice(choice: any) {
-    if (choice.address.country == "Nederland" || choice.address.country == "België") {
-      this.postalCode = choice.address.postcode
-      this.street = choice.address.road
-      this.houseNumber = choice.address.house_number
-      this.city = this.getCity(choice)
-      this.country = choice.address.country
+    if (choice.country == "Nederland" || choice.country == "België") {
+      this.postalCode = choice.postcode
+      this.street = choice.street
+      this.houseNumber = choice.housenumber
+      this.city = choice.city
+      this.country = choice.country
       this.form.patchValue({
         adres: `${this.street} ${this.houseNumber}, ${this.postalCode} ${this.city} (${this.country})`
   ,
