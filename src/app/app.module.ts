@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './app.component';
 import { AboutUsComponent } from './html/aboutus';
 import { WindowerrorComponent } from './errorwindow';
+import { PaymentWindowComponent } from './paymentwindow';
 import { Window1Component } from './modelwindow1';
 import { WindowInfoComponent } from './modelinfo';
 import { Window2Component } from './modelwindow2';
@@ -36,6 +37,7 @@ import { ToastrModule } from 'ngx-toastr';
     Window2Component,
     Window3Component,
     WindowInfoComponent,
+    PaymentWindowComponent,
     WindowerrorComponent,
     ShopcartComponent,
     OrderComponent,

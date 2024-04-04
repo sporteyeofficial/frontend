@@ -2,6 +2,8 @@ import { Component, ElementRef, QueryList, ViewChild } from "@angular/core";
 import { Order } from "../model/order";
 import { ShoppingcartService } from "../_services/shoppingcart.service";
 import { ProductEnum } from "../model/Enum/ProductEnum";
+import { MatDialog } from "@angular/material/dialog";
+import { PaymentWindowComponent } from "../paymentwindow";
 
 @Component({
     selector: 'shopcart',
@@ -14,7 +16,7 @@ export class ShopcartComponent {
     orders: Order[] = [];
     errorMessage = "";
     payPushed = false;
-    constructor(private shoppingcartService: ShoppingcartService) { }
+    constructor(private shoppingcartService: ShoppingcartService, private dialog: MatDialog,) { }
     ngOnInit(): void {
         this.orders = this.shoppingcartService.getOrders();
     }
@@ -37,14 +39,17 @@ export class ShopcartComponent {
         this.shoppingcartService.setOrdersToCart(this.orders);
         this.shoppingcartService.buyShoppingCart().subscribe({
             next: data => {
-
-                return new Promise<boolean>((resolve, reject) => {
-                    try { 
-                        window.location.href = data.message; // Wijzig de huidige locatie
-                        resolve(true);
-                    }
-                    catch (e) { reject(e); }
+                const dialogRef = this.dialog.open(PaymentWindowComponent, {
+                    width: 'max-content',
+                    height: 'max-content',
+                    data: { sdata: data.sessionData, sid: data.id }
                 });
+                console.log("dialog is opened");
+                    
+                dialogRef.afterClosed().subscribe(result => {
+                    console.log('The dialog was closed');
+                });
+                
             },
             error: err => {
                 this.errorMessage = err.error.message;

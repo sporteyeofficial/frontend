@@ -12,6 +12,7 @@
     "postinstall": "tsc"
   },
   "dependencies": {
+    "@adyen/adyen-web": "^5.62.0",
     "@angular/animations": "^17.2.3",
     "@angular/cdk": "^17.2.1",
     "@angular/common": "^17.2.3",
@@ -42,12 +43,14 @@
     "@babel/preset-env": "^7.24.0",
     "@types/crypto-js": "^4.2.2",
     "@types/jasmine": "~4.3.0",
+    "css-loader": "^6.11.0",
     "jasmine-core": "^4.6.0",
     "karma": "^6.4.2",
     "karma-chrome-launcher": "^3.2.0",
     "karma-coverage": "^2.2.0",
     "karma-jasmine": "^5.1.0",
     "karma-jasmine-html-reporter": "^2.0.0",
+    "style-loader": "^3.3.4",
     "typescript": "^5.2.2"
   }
 }
