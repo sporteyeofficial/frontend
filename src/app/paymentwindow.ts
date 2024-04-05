@@ -27,7 +27,7 @@ import AdyenCheckout from '@adyen/adyen-web';
       @Inject(MAT_DIALOG_DATA) public data: {sid: string, sdata: string}, private storageService: StorageService, private userService: UserServiceService, private orderService: OrderService, public elem: ElementRef, public router: Router) {
         this.configuration = {
           environment: 'test', // Change to 'live' for the live environment.
-          clientKey: 'test_SXBZ2NSOZ5AZTMRCLZKETDUW44AX7QUW', // Public key used for client-side authentication
+          clientKey: 'test_HWNB4L4XO5F4BNFH4DYUEVT3QAHMTSOY', // Public key used for client-side authentication
           analytics: {
             enabled: true // Set to false to not send analytics data to Adyen.
           },

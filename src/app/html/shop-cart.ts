@@ -34,11 +34,11 @@ export class ShopcartComponent {
     }
 
     buyOrders() {
-        this.payPushed = true;
-        window.close()
+        
         this.shoppingcartService.setOrdersToCart(this.orders);
         this.shoppingcartService.buyShoppingCart().subscribe({
             next: data => {
+                this.payPushed = true;
                 const dialogRef = this.dialog.open(PaymentWindowComponent, {
                     width: 'max-content',
                     height: 'max-content',
