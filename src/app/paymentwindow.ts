@@ -34,6 +34,9 @@ import AdyenCheckout from '@adyen/adyen-web';
           session: data.session,
           onPaymentCompleted: (result: any, component: any) => {
               console.info(result, component);
+              this.router.navigateByUrl('check/' + 0 +'/order/' + 0 +'?message=Betaling geslaagd').then(() => {
+                window.location.reload();
+              });
           },
           onError: (error: any, component: any) => {
               console.error(error.name, error.message, error.stack, component);
@@ -45,8 +48,8 @@ import AdyenCheckout from '@adyen/adyen-web';
               holderNameRequired: true,
               billingAddressRequired: true,
               amount: {
-                      value: data.amount,
-                      currency: "EUR"
+                  value: data.amount,
+                  currency: "EUR"
               }
             }
           }
