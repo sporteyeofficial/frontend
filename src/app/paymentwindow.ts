@@ -18,23 +18,20 @@ import AdyenCheckout from '@adyen/adyen-web';
   
   })
   export class PaymentWindowComponent {
-      @ViewChild('dropinContainer') dropinContainer!: ElementRef;
-
       private checkout: any;
       private dropinComponent: any;
       configuration = {}
       constructor(private toastr: ToastrService,
-      @Inject(MAT_DIALOG_DATA) public data: {sid: string, sdata: string}, private storageService: StorageService, private userService: UserServiceService, private orderService: OrderService, public elem: ElementRef, public router: Router) {
+      @Inject(MAT_DIALOG_DATA) public data: {session: any, amount: any}, private storageService: StorageService, private userService: UserServiceService, private orderService: OrderService, public elem: ElementRef, public router: Router) {
         this.configuration = {
           environment: 'test', // Change to 'live' for the live environment.
           clientKey: 'test_HWNB4L4XO5F4BNFH4DYUEVT3QAHMTSOY', // Public key used for client-side authentication
+          locale: "nl_BE",
+          showPayButton: true,
           analytics: {
             enabled: true // Set to false to not send analytics data to Adyen.
           },
-          session: {
-            id: data.sid, // Unique identifier for the payment session.
-            sessionData: data.sdata // The payment session data.
-          },
+          session: data.session,
           onPaymentCompleted: (result: any, component: any) => {
               console.info(result, component);
           },
@@ -46,16 +43,24 @@ import AdyenCheckout from '@adyen/adyen-web';
             card: {
               hasHolderName: true,
               holderNameRequired: true,
-              billingAddressRequired: true
+              billingAddressRequired: true,
+              amount: {
+                      value: data.amount,
+                      currency: "EUR"
+              }
             }
           }
         };
     }
 
     async ngOnInit() {
-      this.checkout = await AdyenCheckout(this.configuration);
-
-      this.dropinComponent = this.checkout.create('dropin').mount(this.dropinContainer.nativeElement);
+      	// Create an instance of AdyenCheckout using the configuration object.
+      const checkout = await AdyenCheckout(this.configuration);
+      
+      
+      
+      // Create an instance of Drop-in and mount it to the container you created.
+      const dropinComponent = checkout.create('dropin').mount('#dropin-container');
     }
 
     ngOnDestroy() {

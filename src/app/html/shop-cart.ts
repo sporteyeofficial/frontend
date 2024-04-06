@@ -40,9 +40,9 @@ export class ShopcartComponent {
             next: data => {
                 this.payPushed = true;
                 const dialogRef = this.dialog.open(PaymentWindowComponent, {
-                    width: 'max-content',
-                    height: 'max-content',
-                    data: { sdata: data.sessionData, sid: data.id }
+                    width: '80%',
+                    height: '80%',
+                    data: { session: data, amount: this.getTotalPrice() }
                 });
                 console.log("dialog is opened");
                     
