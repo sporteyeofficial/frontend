@@ -34,20 +34,26 @@ export class ShopcartComponent {
     }
 
     buyOrders() {
-        
+        this.payPushed = true;
         this.shoppingcartService.setOrdersToCart(this.orders);
+        const estimatedTaskbarHeight = 50; // Schat de hoogte van de taakbalk
+        const bottomMarginPercent = 5; // Ondermarge als percentage van de schermhoogte
+        const bottomMargin = window.innerHeight * (bottomMarginPercent / 100); // Bereken de marge in pixels
+
+        const maxHeight = window.innerHeight - bottomMargin - estimatedTaskbarHeight;
         this.shoppingcartService.buyShoppingCart().subscribe({
             next: data => {
-                this.payPushed = true;
+                
                 const dialogRef = this.dialog.open(PaymentWindowComponent, {
-                    width: '80%',
-                    height: '80%',
-                    data: { session: data, amount: this.getTotalPrice() }
+                    width: 'max-content',
+                    height: 'max-content',
+                    data: { session: data, amount: this.getTotalPrice()*100 }
                 });
                 console.log("dialog is opened");
-                    
+                
                 dialogRef.afterClosed().subscribe(result => {
                     console.log('The dialog was closed');
+                    this.payPushed = false;    
                 });
                 
             },

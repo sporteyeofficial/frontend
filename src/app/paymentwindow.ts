@@ -13,8 +13,8 @@ import AdyenCheckout from '@adyen/adyen-web';
 @Component({
     selector: 'payment-window',
     templateUrl: '../assets/modals/payment-window.html',
-    styleUrls: ["../assets/vendor/css/bundle.min.css","../assets/vendor/css/jquery.fancybox.min.css","../assets/vendor/css/cubeportfolio.min.css",
-  "../assets/vendor/css/owl.carousel.min.css","../assets/vendor/css/wow.css","../assets/vendor/css/LineIcons.min.css",'../styles.css',"../assets/vendor/css/swiper.min.css", '../../node_modules/@adyen/adyen-web/dist/adyen.css'],
+    styleUrls: ['../../node_modules/@adyen/adyen-web/dist/adyen.css', "../assets/vendor/css/bundle.min.css","../assets/vendor/css/jquery.fancybox.min.css","../assets/vendor/css/cubeportfolio.min.css",
+  "../assets/vendor/css/owl.carousel.min.css","../assets/vendor/css/wow.css","../assets/vendor/css/LineIcons.min.css",'../styles.css',"../assets/vendor/css/swiper.min.css"],
   
   })
   export class PaymentWindowComponent {
@@ -34,7 +34,7 @@ import AdyenCheckout from '@adyen/adyen-web';
           session: data.session,
           onPaymentCompleted: (result: any, component: any) => {
               console.info(result, component);
-              this.router.navigateByUrl('check/' + 0 +'/order/' + 0 +'?message=Betaling geslaagd').then(() => {
+              this.router.navigateByUrl('check/' + 0 +'/order/' + 0 +'?message=Betaling was succesvol!').then(() => {
                 window.location.reload();
               });
           },

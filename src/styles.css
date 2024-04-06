@@ -1787,8 +1787,8 @@ header .container-setting .navbar-nav .cart-item .badge-custom-setting {
     right: 0px;
     left: 0px;
     bottom: 0px;
-    height: 100vh;
-    width: 100%;
+    height: max-content;
+    width: max-content;
     z-index: 9999;
     background-color: rgba(226, 226, 226, 0.65);
     display: none;
@@ -1799,17 +1799,17 @@ header .container-setting .navbar-nav .cart-item .badge-custom-setting {
     display: block !important;
 }
 
+mat-dialog-content {
+    height: 'max-content' !important;
+}
+
 .model-window-body {
-    width: 100%;
-    height: 100%;
     background-color: white;
-    margin-right: auto;
-    margin-left: auto;
     position: relative;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-right: 0%;
+    padding-left: 0%;
     -webkit-box-shadow: 1px 1px 15px #cdcdcd;
     box-shadow: 1px 1px 15px #cdcdcd;
 }
@@ -1865,7 +1865,10 @@ header .container-setting .navbar-nav .cart-item .badge-custom-setting {
     }
 }
 
-.model-content {}
+.model-content {
+    max-height: 100%;
+    overflow-y: auto;
+}
 
 /*inner model window design*/
 

@@ -26,9 +26,9 @@
             ],
             "styles": [
               "src/custom-theme.scss",
-              "src/styles.css", "node_modules/ngx-toastr/toastr.css"
+              "src/styles.css", "node_modules/ngx-toastr/toastr.css", "node_modules/@adyen/adyen-web/dist/adyen.css"
             ],
-            "scripts": ["src/assets/vendor/js/jquery.min.js","src/assets/vendor/js/bundle.min.js", "src/assets/vendor/js/angular.min.js","src/assets/vendor/js/jquery.fancybox.min.js","src/assets/vendor/js/parallaxie.min.js","src/assets/vendor/js/bootstrap-input-spinner.js","src/assets/vendor/js/wow.min.js","src/assets/vendor/js/jquery.cubeportfolio.min.js","src/assets/vendor/js/swiper.min.js","src/assets/vendor/js/owl.carousel.min.js","src/assets/js/script.js"]
+            "scripts": ["node_modules/@adyen/adyen-web/dist/adyen.js", "src/assets/vendor/js/jquery.min.js","src/assets/vendor/js/bundle.min.js", "src/assets/vendor/js/angular.min.js","src/assets/vendor/js/jquery.fancybox.min.js","src/assets/vendor/js/parallaxie.min.js","src/assets/vendor/js/bootstrap-input-spinner.js","src/assets/vendor/js/wow.min.js","src/assets/vendor/js/jquery.cubeportfolio.min.js","src/assets/vendor/js/swiper.min.js","src/assets/vendor/js/owl.carousel.min.js","src/assets/js/script.js"]
           },
           "configurations": {
             "production": {
