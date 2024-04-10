@@ -40,6 +40,7 @@ export class ShopcartComponent {
             next: data => {
                 
                 this.payPushed = true;
+                window.close();
                 // for mollie
                 return new Promise<boolean>((resolve, reject) => {
 
