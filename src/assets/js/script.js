@@ -25,12 +25,29 @@ jQuery(window).on("load", function () {
 
     document.getElementById('openMenu').addEventListener('click', function() {
         var menu = document.getElementById('menuItems');
+        var close = document.getElementById('closeMenu');
         if (menu.classList.contains('menu-hidden')) {
             menu.classList.remove('menu-hidden');
             menu.classList.add('menu-visible');
+            close.style.display = 'block'
         } else {
             menu.classList.remove('menu-visible');
             menu.classList.add('menu-hidden');
+            close.style.display = 'none'
+        }
+    });
+
+    document.getElementById('closeMenu').addEventListener('click', function() {
+        var menu = document.getElementById('menuItems');
+        var close = document.getElementById('closeMenu');
+        if (menu.classList.contains('menu-hidden')) {
+            menu.classList.remove('menu-hidden');
+            menu.classList.add('menu-visible');
+            close.style.display = 'block'
+        } else {
+            menu.classList.remove('menu-visible');
+            menu.classList.add('menu-hidden');
+            close.style.display = 'none'
         }
     });
 

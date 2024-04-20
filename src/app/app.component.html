@@ -23,17 +23,15 @@
                         <div class="col-sm-12 col-md-8 col-lg-12 box1 text-center order-2">
                             <div class="ribbon">
                                 <div class="wrap">
-                                    <span class="ribbon6">Twv 65.00 euro</span>
+                                    <span class="ribbon6">€ 50.50</span>
                                 </div>
                             </div>
                             <!-- Swiper-->
                             <div class="swiper-container" id="product-slider" style="overflow: hidden;">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                       <div class="image-container" (click)="openVideo()" style="cursor: pointer">
+                                    <div class="swiper-slide" (click)="openVideo()">
                                             <img src="../assets/img/MysteriepickSportsEye2.webp" alt="featured product 1">
                                             <span class="hover-text">Klik om te zien hoe de mysterie pick er effectief uit ziet</span>
-                                        </div>
                                         <!--<div class="image-container" style="cursor: pointer">
                                             <img src="../assets/img/winactie_sportseye-removebg_1.png" alt="featured product 1">
                                         </div>-->
@@ -46,8 +44,8 @@
                         <!--  END PRODUCT SLIDER  -->
 
                         <div class="col-12 featured_title d-sm-block d-md-block d-lg-none order-1">
-                            <h4 class="text-center text-md-left"><span>Koop een</span> mysterie shirt</h4>
-                            <p class="text-center text-md-left">Speciale mogelijkheid om verkregen mysterie shirts te wijzigen met tokens</p>
+                            <h5 class="text-center fs-6"><span>Koop een</span> mysterie shirt</h5>
+                            <p class="text-center fs-6">Speciale mogelijkheid om verkregen mysterie shirts te wijzigen met tokens</p>
                             <!--<div class="button-1 rounded-pill">
                                 <a [routerLink]='["/shop"]' class="rounded-pill">Toon meer producten </a>
                             </div>-->
@@ -72,7 +70,7 @@
                                 <div class="row">
                                     <div class="col-12 featured_items wow fadeIn" data-wow-duration="2s">
                                         <div class="owl-carousel owl-theme">
-                                            <div *ngFor="let product of products" class="pr-1 product-item">
+                                            <div *ngFor="let product of products" class="col-3">
                                                 <a (click)="openDialog(product)">
                                                     <div class="img-holder">
                                                         <img src={{product.imageLoc}} alt="items">
@@ -83,8 +81,8 @@
                                                         <div class="plus"><i class="lni-plus"></i></div>
                                                     </div>
                                                 </a>
-                                                <p class="text-center product-body">{{product.name}} <i (click)="openInfoModal(product)" class="fa fa-info-circle info"></i></p>
-                                                <p class="text-center product-price">€ {{product.price}}</p>
+                                                <p class="text-center fs-6">{{product.name}} <i (click)="openInfoModal(product)" class="fa fa-info-circle info"></i></p>
+                                                <p class="text-center fs-6">€ {{product.price}}</p>
                                             </div>
                                         
                                         </div>
@@ -93,24 +91,24 @@
                                     <div class="col-12 featured_footer">
                                         <div class="row">
                                             <div class="col-12">
-                                                <p class="text-center text-md-left">Veel truitjes beschikbaar van dit seizoen (2023-2024) + retro truitjes</p>
+                                                <p class="text-center">Veel truitjes beschikbaar van dit seizoen (2023-2024) + retro truitjes</p>
                                             </div>
                                             <div class="col-12 text-center text-lg-left">
                                                 <div class="row">
                                                     <div class="terms col-sm-12 col-md-4  col-lg-4">
                                                         <h4>Gratis verzending</h4>
-                                                        <p>Kan 1-5 weken duren voor aankomst</p>
+                                                        <p class="fs-6">Kan 1-5 weken duren voor aankomst</p>
                                                     </div>
                                                     <div class="terms col-sm-12  col-md-4 col-lg-4">
                                                         <h4>Veilige betaling </h4>
-                                                        <p>100% veilige betaling</p>
+                                                        <p class="fs-6">100% veilige betaling</p>
                                                     </div>
                                                     <div class="terms col-sm-12 col-md-4  col-lg-4">
                                                         <h4>Geen terugzending mogelijk</h4>
-                                                        <p>Snelle communicatie via info&#64;sports-eye.be</p>
+                                                        <p class="fs-6">Snelle communicatie via info&#64;sports-eye.be</p>
                                                     </div>
                                                     <div class="col-md-12 d-block d-lg-none">
-                                                        <p>© 2024 Sports-Eye.  </p>
+                                                        <p >© 2024 Sports-Eye.  </p>
                                                     </div>
                                                 </div>
                                             </div>
