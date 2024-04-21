@@ -8,26 +8,26 @@
             <div class="slider-content">
 
                 <!--  START FORM SECTION  -->
-                <div class="offset-lg-3 col-lg-6 col-md-12 col-sm-12 pr-lg-0 whitebox">
+                <div class="offset-lg-3 col-lg-6 col-md-12 col-sm-12 col-12 pr-lg-0 whitebox">
                     <div class="widget logincontainer">
-                        <h3 class="bottom35 text-center text-md-left">Maak uw account </h3>
+                        <h3 class="bottom35 text-center text-md-left fs-6">Maak uw account </h3>
                         <form class="getin_form border-form" [formGroup]='form' (ngSubmit)="register()" id="register">
                             <div class="row">
-                                <div class="col-md-12 col-sm-12">
+                                <div class="col-md-12 col-sm-12 col-12">
                                     <div class="form-group bottom35">
                                         <label for="registerName" class="d-block">Voornaam: </label>
                                         <input class="form-control" type="text" formControlName="name">
                                         <p class="d-block wrong" *ngIf="name.touched && name.hasError('required')">Voornaam is required</p>
                                     </div>
                                 </div>
-                                <div class="col-md-12 col-sm-12">
+                                <div class="col-md-12 col-sm-12 col-12">
                                     <div class="form-group bottom35">
                                         <label for="registerName" class="d-block">Achternaam: </label>
                                         <input class="form-control" type="text" formControlName="surname" >
                                         <a class="d-block wrong" *ngIf="surname.touched && surname.hasError('required')">Achternaam is required</a>
                                     </div>
                                 </div>
-                                <div class="col-md-12 col-sm-12">
+                                <div class="col-md-12 col-sm-12 col-12">
                                     <div class="form-group bottom35">
                                         <label for="registerEmail" class="d-block">Email: </label>
                                         <input class="form-control" type="email" formControlName="email">
@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-12 col-sm-12">
+                                <div class="col-md-12 col-sm-12 col-12">
                                     <div class="form-group bottom35">
                                         <label for="registerPostBox" class="d-block">Adres (geef straat en nummer om het adres te vinden): </label>
                                         <input class="form-control" type="text" id="registerPostBox" name="adres" formControlName="adres">
@@ -51,21 +51,21 @@
                                     </div>
                                 </div>
       
-                                <div class="col-md-12 col-sm-12">
+                                <div class="col-md-12 col-sm-12 col-12">
                                     <div class="form-group bottom35">
                                         <label for="registerPostBox" class="d-block">extra adresinformatie: (optioneel) </label>
                                         <input class="form-control" type="text" id="registerPostBox" name="extra" formControlName="extra">
                                     </div>
                                 </div>
                                 
-                                <div class="col-md-12 col-sm-12">
+                                <div class="col-md-12 col-sm-12 col-12">
                                     <div class="form-group bottom35">
                                         <label for="registerPass" class="d-block">Wachtwoord: </label>
                                         <input class="form-control" type="password" formControlName="password">
                                         <p class="d-block wrong" *ngIf="password.touched && password.hasError('required')">Wachtwoord is required</p>
                                     </div>
                                 </div>
-                                <div class="col-md-12 col-sm-12">
+                                <div class="col-md-12 col-sm-12 col-12">
                                     <div class="form-group bottom35">
                                         <label for="registerPassConfirm" class="d-block">Bevestig wachtwoord: </label>
                                         <input class="form-control" type="password" formControlName="passwordConfirm">

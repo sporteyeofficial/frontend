@@ -27,6 +27,24 @@ import { ChatBotComponent } from './chatbotwindow';
 import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ShopcartComponent } from './html/shop-cart';
 import { ToastrModule } from 'ngx-toastr';
+import {NgcCookieConsentModule, NgcCookieConsentConfig} from 'ngx-cookieconsent';
+import { domain } from "src/environments";
+
+const cookieConfig:NgcCookieConsentConfig = {
+  cookie: {
+    domain: domain.url // or 'your.domain.com' // it is mandatory to set a domain, for cookies to work properly (see https://goo.gl/S2Hy2A)
+  },
+  palette: {
+    popup: {
+      background: '#000'
+    },
+    button: {
+      background: '#f1d600'
+    }
+  },
+  theme: 'edgeless',
+  type: 'opt-out'
+};
 
 @NgModule({
   declarations: [
@@ -60,6 +78,7 @@ import { ToastrModule } from 'ngx-toastr';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
   }),
+    NgcCookieConsentModule.forRoot(cookieConfig),
     BrowserAnimationsModule,
     NgxPaginationModule
   ],

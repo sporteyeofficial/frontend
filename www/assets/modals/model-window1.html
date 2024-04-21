@@ -49,8 +49,8 @@
                     <div class="product-type">
                         <div class="row justify-content-center">
                             <div *ngIf="!product.name.includes('token') "
-                                class="col-3" mat-form-field>
-                                <p class="col-12">Twijfel je over welke shirtgrootte je moet kopen? <a (click)="goToAboutSection()" href="javascript:void(0);">klik hier</a></p>
+                                class="col-8" mat-form-field>
+                                <p class="col-12 fs-6">Twijfel je over welke shirtgrootte je moet kopen? <a (click)="goToAboutSection()" href="javascript:void(0);">klik hier</a></p>
                                 <!--                                <h4><span>Sizes</span></h4>-->
                                 <select id="size" class="input-group" #size (change)="onSelected(size.value)" required>
                                     <option class="input-control" ngDefaultControl selected disabled hidden>Sizes
@@ -94,7 +94,7 @@
                                     <div *ngIf="product.productType.toString() != 'TOKEN'"
                                         class="col-12 col-md-6 text-center input_plus_mins">
                                         <p>Voeg change tokens toe om de toegewezen truitjes te veranderen. </p>
-                                        <p>(5 euro)</p>
+                                        <p>(4.5 euro)</p>
                                         <img src="../assets/img/changeToken.jpg" width="40%" height="50%">
                                         <div class="qty" mat-form-field>
                                             <span class="minus bg-dark" (click)="decreaseNumber(1)">
@@ -109,7 +109,7 @@
                                     <div *ngIf="product.productType.toString() == 'RANDOMSHIRT'"
                                         class="col-12 col-md-6 text-center input_plus_mins">
                                         <p>Voeg cheat token toe om de toegewezen truitjes te bekijken. </p>
-                                        <p>(3 euro)</p>
+                                        <p>(2 euro)</p>
                                         <img src = "../assets/img/cheatToken.jpg" width="40%" height="50%">
                                         <div class="qty" mat-form-field>
                                             <span class="minus bg-dark" (click)="decreaseNumber(2)">
