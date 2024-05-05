@@ -1,0 +1,107 @@
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1483891644895073"
+        crossorigin="anonymous"></script>
+</head>
+
+<div class="container-bet">
+    <h2 class="text-center">Voorspel en win een change token</h2>
+    <div class="container match-live-container mt-2">
+        <div class="row match-live-update">
+            <div class="col-12 col-md-12 col-lg-12 d-flex justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-4">
+                        <img src="{{lastMatch.homeclub.logo}}" alt="team logo1">
+                    </div>
+                    <div class="col-4 text-center match-update-content">
+                        <h2>Vorige match</h2>
+                        <h6 class="sub-title">{{lastMatch.startdate | date:'medium'}}</h6>
+                        <h3 class="title">{{lastMatch.homescore}} - {{lastMatch.awayscore}}</h3>
+                        <span>{{lastMatch.leaguename}}</span>
+                    </div>
+                    <div class="col-4">
+                        <img src="{{lastMatch.awayclub.logo}}" alt="team logo1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isLoggedIn()" class="leaderboard" id="leaderboard">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-8 mb-2 mt-2">
+
+                    <div class="heading-box">
+                        <h4>NEXT MATCH</h4>
+                    </div>
+
+                    <div *ngIf="!matchBezig()" class="row no-gutters count-down">
+                        <div class="col-3 timer">
+                            <h5 class="days">{{days}}</h5>
+                            <span>Days</span>
+                        </div>
+                        <div class="col-3 timer">
+                            <h5 class="hours">{{hours}}</h5>
+                            <span>Hrs</span>
+                        </div>
+                        <div class="col-3 timer">
+                            <h5 class="minutes">{{minutes}}</h5>
+                            <span>Mins</span>
+                        </div>
+                        <div class="col-3 timer">
+                            <h5 class="seconds">{{seconds}}</h5>
+                            <span>Secs</span>
+                        </div>
+                    </div>
+                    <div *ngIf="matchBezig()" class="row no-gutters count-down">
+                        <h3 class="text-center">Match bezig! Geen inzet meer mogelijk! </h3>
+                    </div>
+
+                    <div class="row no-gutters coming-match">
+                        <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                            <div class="team-1-box">
+                                <div class="image-holder">
+                                    <img src="{{nextMatch.homeclub.logo}}" alt="team1">
+                                </div>
+                                <h6>{{nextMatch.homeclub.name}}</h6>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12 col-lg-4 text-center up-coming-verser">
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="number" class="score-input" id="team1-score" placeholder="{{homescore}}" [(ngModel)]="homescore">
+                                    <span class="verse-text">- VS -</span>
+                                    <input type="number" class="score-input" id="team2-score" placeholder="{{awayscore}}" [(ngModel)]="awayscore">
+                                </div>
+                                <div class="col-12">
+                                    <p>{{nextMatch.leaguename}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                            <div class="team-1-box">
+                                <div class="image-holder">
+                                    <img src="{{nextMatch.awayclub.logo}}" alt="team1">
+                                </div>
+                                <h6>{{nextMatch.awayclub.name}}</h6>
+                            </div>
+                        </div>
+                        <button [disabled]="matchBezig()" (click)="placeBet()" class="col-12 centerbutton">Dien in</button>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4 justify-content-center">
+                    <h2>Informatie</h2>
+                    <p>Een half uur na de wedstrijd wordt het resultaat verwerkt en krijgt iedereen die juist voorspeld had een change token. Hierna zoekt het systeem automatisch naar een nieuwe match, die bij een goed gevonden wedstrijd al diezelfde dag kan plaatsvinden. De wedstrijd wordt gekozen op basis van de top competities in de wereld. Als beslissingswaarde voor een "goede" wedstrijd wordt er gekeken naar de grote van beide stadiums en de oprichtingsdatum van beide ploegen.</p>
+                    <p>Aantal change tokens gewonnen: <span>{{aantalWins}}</span></p>
+                    <p>Aantal deelnames: <span>{{aantalBets}}</span></p>
+                    <p *ngIf="betPlaced" class="wrong">U neemt reeds deel om een change token te winnen voor deze wedstrijd! </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!isLoggedIn()">
+        <h3 class="text-center wrong p-2">Als je wilt meedoen aan de winacties, moet je ingelogd zijn!</h3>
+    </div>
+</div>

@@ -22,6 +22,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { WijzigProfielComponent } from './wijzigProfielModal';
 import { VeranderWachtwoordComponent } from './veranderWachtwoordModal';
 import { PasswordComponent } from './html/password';
+import { BetScreenComponent } from './html/betscreen';
 import { AlgVoorwaardenComponent } from './html/algvoorwaarden';
 import { ChatBotComponent } from './chatbotwindow';
 import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -61,6 +62,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     OrderComponent,
     WijzigProfielComponent,
     VeranderWachtwoordComponent,
+    BetScreenComponent,
     PasswordComponent,
     AlgVoorwaardenComponent,
     ChatBotComponent

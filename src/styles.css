@@ -1498,7 +1498,7 @@ header .container-setting .navbar-nav .cart-item .badge-custom-setting {
 
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 70%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -4699,6 +4699,145 @@ form.findus textarea {
     
 }
 
+/* betscreen */
+
+.score-input {
+    padding: 5px 10px;
+    font-size: 16px; /* Aanpasbaar naar wens */
+    width: 60px; /* Aanpasbaar naar wens */
+    text-align: center;
+}
+
+.leaderboard{
+    position: relative;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+.leaderboard .heading-box {
+    padding: 20px 20px 20px 20px;
+    background-color: #3d8623;
+    color: #ffffff;
+    text-align: center;
+}
+
+.leaderboard .heading-box h4{
+    margin-bottom: 0;
+}
+
+/*START COUNT DONW*/
+.leaderboard .timer{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.leaderboard .timer h5{
+    font-size: 50px;
+}
+
+.leaderboard .timer span{
+    font-size: 22px;
+}
+
+.leaderboard .timer::after{
+    content:"\A";
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    display:inline-block;
+    position: absolute;
+    right: 0;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    border: 2px solid #3d8623;
+}
+
+.leaderboard .timer:last-child::after{
+    display: none;
+}
+/*END COUNTDOWN*/
+
+/*START COMING MATCH*/
+
+.coming-match{
+    border: 3px dashed #3d8623;
+    padding: 25px;
+}
+
+.coming-match .image-holder{
+    height: 150px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.coming-match .image-holder img{
+    width: 100%;
+}
+
+.coming-match .team-1-box h6{
+   font-size: 18px;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+.coming-match .up-coming-verser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coming-match .up-coming-verser .verse-text{
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10%;
+    -webkit-text-stroke: 1px #3d8623;
+    -webkit-text-fill-color: transparent;-webkit-text-stroke: 1px #3d8623;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.container-bet {
+    margin-top: 7%;
+}
+
+.match-live-container{
+    position: relative;
+}
+
+.match-live-container, .leaderboard {
+    width: 100%; /* Zorgt dat beide elementen de volledige breedte van hun ouder gebruiken */
+}
+
+.match-live-update{
+    background-color: #ffffff;
+    right: 21px;
+    left: 30px;
+    position: relative;
+    box-shadow: 1px 1px 15px #e1e1e1;
+}
+.match-live-update .match-live-col::after{
+    content: " ";
+    display: block;
+    height: 200px;
+    width: 30px;
+    border-right: 10px double rgba(43, 43, 43, 0.35);
+}
+
+
+.match-live-update  .match-update-content{
+    color: #2b2b2b;
+}
+
+.match-live-update  .match-update-content .sub-title{
+    font-size: 16px;
+}
+.match-live-update  .match-update-content .title{
+    font-size: 50px;
+}
+
 
 
 .homepvid video {
@@ -5289,6 +5428,29 @@ nav i {
         justify-content: center;
     }
 
+    .lastest-update .match-live-update {
+        background-color:transparent;
+        min-height: 250px;
+        right: auto;
+        left: auto;
+        position: relative;
+        box-shadow: none;
+        transform: translateY(0);
+    }
+
+    .lastest-update .match-live-update .match-live-col{
+        margin-bottom: 40px;
+    }
+
+    .lastest-update .match-live-update .match-live-col::after {
+        content: none;
+    }
+
+    .lastest-update .match-live-update .match-update-content .sub-title {
+        font-size: 15px;
+        text-align: center;
+    }
+
     #logo {
         display: none;
     }
@@ -5731,6 +5893,33 @@ nav i {
 @media (min-width: 575.98px) and (max-width: 992px) {
     .owl-carousel {
         justify-content: center;
+    }
+
+    .match-live-update {
+        background-color:transparent;
+        min-height: 250px;
+        right: auto;
+        left: auto;
+        position: relative;
+        box-shadow: none;
+        transform: translateY(0);
+    }
+
+    .match-live-update .match-live-col{
+        margin-bottom: 40px;
+    }
+
+    .match-live-update .match-live-col::after {
+        content: none;
+    }
+
+    .match-live-update .match-update-content .sub-title {
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .container-bet {
+        margin: 20%;
     }
 
     #logo {
