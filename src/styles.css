@@ -5454,6 +5454,10 @@ nav i {
     #logo {
         display: none;
     }
+
+    .container-bet h2 {
+        margin-top: 7%;
+    }
     
     .main .product-section .navbar .brand-logo img {
         color: #409b3f !important;
