@@ -1032,6 +1032,7 @@ header .container-setting .navbar-nav .cart-item .badge-custom-setting {
 
 .inner-product-sec {
     overflow: hidden;
+    overflow-y: scroll;
     height: 100%;
 }
 
@@ -4983,12 +4984,12 @@ form.findus textarea {
 
 #winkelkar {
     position: fixed;
-    right: 15%;
+    right: 5%;
 }
 
 #openMenu {
     position: fixed;
-    right: 20%;
+    right: 15%;
 }
 
 #closeMenu{

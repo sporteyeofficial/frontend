@@ -34,12 +34,15 @@ export class OrderComponent implements OnInit {
   changeTokens = 0;
   page = 1;
   count = 0;
-  remainingTime = "";
+  days: number = 0;
+  hours: number = 0;
+  minutes: number = 0;
+  seconds: number = 0;
+  timer: any;
   pageSize = 3;
   isLoaded = false;
   docBreedte = window.innerWidth
   docHoogte = window.innerHeight
-  timer: any;
 
   constructor(private route: ActivatedRoute, private userService: UserServiceService, private dialog: MatDialog, private orderService: OrderService, private storageService: StorageService, private router: Router) {
 
@@ -150,27 +153,25 @@ export class OrderComponent implements OnInit {
   }
 
   calculateRemainingTime() {
-    let startDate = new Date(this.orderGroup.startDate);
-    let endDate = new Date(
-      startDate.getFullYear(),
-      startDate.getMonth(),
-      startDate.getDate() + 2
-    ); // De volgende dag om middernacht
-    if (new Date() > endDate) {
-      let endDate = new Date(
-      new Date().getFullYear(),
-      new Date().getMonth(),
-      new Date().getDate() + 1
-    ); // De volgende dag om middernacht
+        let startDate = new Date(this.orderGroup.startDate);
+        let endDate = new Date(
+          startDate.getFullYear(),
+          startDate.getMonth(),
+          startDate.getDate() + 2
+        ); // De volgende dag om middernacht
+        if (new Date() > endDate) {
+          let endDate = new Date(
+          new Date().getFullYear(),
+          new Date().getMonth(),
+          new Date().getDate() + 1
+        ); // De volgende dag om middernacht
+        }
+        let diff = endDate.getTime() - new Date().getTime(); // Verschil in milliseconden
+        this.days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        this.hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        this.minutes = Math.floor((diff / (1000 * 60)) % 60);
+        this.seconds = Math.floor((diff / (1000)) % 60);
     }
-    let diff = endDate.getTime() - new Date().getTime(); // Verschil in milliseconden
-
-    let hours = Math.floor(diff / (1000 * 60 * 60));
-    let minutes = Math.floor((diff / (1000 * 60)) % 60);
-    let seconds = Math.floor((diff / (1000)) % 60);
-
-    this.remainingTime = `${hours}:${minutes}:${seconds}`;
-  }
 
   changeOrder(order: Order) {
     this.order = order;
