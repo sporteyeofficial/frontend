@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .header {
+            background: #a0c9a9;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .footer {
+            background: #a0c9a9;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://sports-eye.be/assets/img/logo1.jpg">
+            <h1> Change token gewonnen - Sports-Eye <h1>
+        </div>
+
+        <img th:src="@{'https://sports-eye.be' + '/assets/img/changeToken.jpg'}" width="100px" height="100px">
+        <h3>Proficiat <span th:text="${user.name}" style="text-align: center"></span>, U hebt een change token gewonnen</h3>
+
+        <div class="white">
+            <p>De match <span th:text="${bet.match.home.name}" style="text-align: center"></span> vs <span th:text="${bet.match.away.name}" style="text-align: center"></span> juist voorspeld namelijk <span th:text="${bet.homescore}" style="text-align: center"></span> vs <span th:text="${bet.awayscore}" style="text-align: center"></span> </p>
+        </div>
+
+        <div class="footer">
+            <p>Met vriendelijke groeten,</p>
+            <p>Het Sports-Eye team</p>
+        </div>
+    </div>
+</body>
+
+</html>
