@@ -43,8 +43,8 @@ import { ToastrService } from 'ngx-toastr';
         if (this.isLoggedIn()) {
           this.BetscreenService.getLastAndNewMatch().subscribe({
             next: data => {
-              this.lastMatch = new Match(data[0].home, data[0].away, data[0].startdate,data[0].homescore, data[0].awayscore, ' ', data[0].leaguename)
-              this.nextMatch = new Match(data[1].home, data[1].away, data[1].startdate,data[1].homescore, data[1].awayscore, ' ', data[1].leaguename)
+              this.lastMatch = new Match(data[0].homeclub, data[0].awayclub, data[0].startdate,data[0].homescore, data[0].awayscore, ' ', data[0].leaguename, data[0].fixture_id)
+              this.nextMatch = new Match(data[1].homeclub, data[1].awayclub, data[1].startdate,data[1].homescore, data[1].awayscore, ' ', data[1].leaguename, data[1].fixture_id)
               console.log(data)
             },
             error: err => {
@@ -55,7 +55,7 @@ import { ToastrService } from 'ngx-toastr';
         } else {
           this.BetscreenService.getLastMatch().subscribe({
             next: data => {
-              this.lastMatch = new Match(data.home, data.away, data.startdate,data.homescore, data.awayscore, ' ', data.leaguename)
+              this.lastMatch = new Match(data.home, data.away, data.startdate,data.homescore, data.awayscore, ' ', data.leaguename, data.fixture_id)
               console.log(data)
             },
             error: err => {

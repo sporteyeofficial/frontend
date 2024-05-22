@@ -111,6 +111,8 @@ export class OrderComponent implements OnInit {
             } else {
               this.changeOrder(orderGroup.orders[0]);
             }
+          } else {
+            this.isLoaded = true;
           }
           
         })
@@ -174,6 +176,7 @@ export class OrderComponent implements OnInit {
     }
 
   changeOrder(order: Order) {
+    console.log(order)
     this.order = order;
     if (this.order == undefined) {
       this.isLoaded = true;

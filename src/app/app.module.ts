@@ -20,9 +20,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrderComponent } from './html/order.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { WijzigProfielComponent } from './wijzigProfielModal';
+import { WindowBetusernameComponent } from './betusernamewindow';
 import { VeranderWachtwoordComponent } from './veranderWachtwoordModal';
 import { PasswordComponent } from './html/password';
 import { BetScreenComponent } from './html/betscreen';
+import { EkVoorspellingComponent } from './html/ekvoorspelling';
 import { AlgVoorwaardenComponent } from './html/algvoorwaarden';
 import { ChatBotComponent } from './chatbotwindow';
 import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -61,8 +63,10 @@ const cookieConfig:NgcCookieConsentConfig = {
     ShopcartComponent,
     OrderComponent,
     WijzigProfielComponent,
+    WindowBetusernameComponent,
     VeranderWachtwoordComponent,
     BetScreenComponent,
+    EkVoorspellingComponent,
     PasswordComponent,
     AlgVoorwaardenComponent,
     ChatBotComponent

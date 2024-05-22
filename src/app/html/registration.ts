@@ -49,6 +49,8 @@ import { ToastrService } from 'ngx-toastr';
         email: this.form.get('email')?.value,
         password:​this.form.get('password')?.value,
         name: this.form.get('name')?.value,
+        ekVoorspellingsPoints: 0,
+        betUsername: '',
         surname: this.form.get('surname')?.value,
         birthdate: new Date(),
         country: this.country,

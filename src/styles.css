@@ -4814,11 +4814,12 @@ form.findus textarea {
 
 .match-live-update{
     background-color: #ffffff;
-    right: 21px;
-    left: 30px;
+    right: 5%;
+    left: 2%;
     position: relative;
     box-shadow: 1px 1px 15px #e1e1e1;
 }
+
 .match-live-update .match-live-col::after{
     content: " ";
     display: block;
@@ -4849,6 +4850,7 @@ form.findus textarea {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 0;
 }
 
 .arrow-text {
@@ -5332,6 +5334,14 @@ nav i {
     z-index: 0;
 }
 
+.deelnamebutton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 9999;
+}
+
 /* chat bot */
 
 .chat-container {
@@ -5429,7 +5439,7 @@ nav i {
         justify-content: center;
     }
 
-    .lastest-update .match-live-update {
+    .match-live-update {
         background-color:transparent;
         min-height: 250px;
         right: auto;
@@ -5439,15 +5449,15 @@ nav i {
         transform: translateY(0);
     }
 
-    .lastest-update .match-live-update .match-live-col{
+    .match-live-update .match-live-col{
         margin-bottom: 40px;
     }
 
-    .lastest-update .match-live-update .match-live-col::after {
+    .match-live-update .match-live-col::after {
         content: none;
     }
 
-    .lastest-update .match-live-update .match-update-content .sub-title {
+    .match-live-update .match-update-content .sub-title {
         font-size: 15px;
         text-align: center;
     }
@@ -6341,6 +6351,29 @@ nav i {
         left: 0%;
         padding: 20px;
         height: 75vh;
+    }
+
+    .match-live-update {
+        background-color:transparent;
+        min-height: 250px;
+        right: auto;
+        left: auto;
+        position: relative;
+        box-shadow: none;
+        transform: translateY(0);
+    }
+
+    .match-live-update .match-live-col{
+        margin-bottom: 40px;
+    }
+
+    .match-live-update .match-live-col::after {
+        content: none;
+    }
+
+    .match-live-update .match-update-content .sub-title {
+        font-size: 15px;
+        text-align: center;
     }
     
     .contact-us-content #map {

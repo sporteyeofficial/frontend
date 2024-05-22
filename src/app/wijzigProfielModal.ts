@@ -71,7 +71,7 @@ export class WijzigProfielComponent {
 
   confirmBox() {
     console.log(this.profielClubs)
-    this.userService.adaptProfile(new User(this.currentUser.id, "", "", "", "", new Date(), 0, 0, this.form.get('country')?.value, this.form.get('postalCode')?.value, this.form.get('city')?.value, this.form.get('street')?.value, this.form.get('houseNumber')?.value, "", [], this.profielClubs, 0, 0)).subscribe((result) => {
+    this.userService.adaptProfile(new User(this.currentUser.id, "", "", "", "", new Date(), 0, 0, this.form.get('country')?.value, this.form.get('postalCode')?.value, this.form.get('city')?.value, this.form.get('street')?.value, this.form.get('houseNumber')?.value, "", [], this.profielClubs, 0, 0, 0, '')).subscribe((result) => {
       console.log(result);
       this.toastr.success("Profiel succesvol gewijzigd");
       this.onNoClick();

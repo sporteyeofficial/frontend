@@ -1,0 +1,272 @@
+<div class="container-bet">
+    <div class="homepvid">
+        <video src="../assets/ektrailer_highres.mp4" oncanplay="this.muted=true"loop autoplay muted></video>
+    </div>
+    <h2 class="text-center fs-6">Doe mee aan de ek voorspelling en win leuke prijzen</h2>
+    <button *ngIf="emptyUsername()" class="deelnamebutton" (click)="bevestigDeelname()">Klik hier om in te schrijven</button>
+    <div *ngIf="isLoggedIn()" class="leaderboard" id="leaderboard">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-8">
+                    <!-- Gespeelde matchen -->
+                    <div class="col-12 mt-1" *ngFor="let day of lastDayMatches">
+                        <div class="header-box" (click)="toggleExpansion(day)">
+                            <h4>{{ day.expanded ? '▼' : '►' }} {{ day.date }}</h4>
+                        </div>
+
+                        <div *ngIf="day.expanded">
+                            <div class="match-box" *ngFor="let match of day.matches">
+                                <div class="header-box" (click)="toggleMatchExpansion(match)">
+                                    <h5>{{ match.expanded ? '▼' : '►' }} {{ match.startdate | date:'shortTime' }}: {{
+                                        match.homeclub.name }} vs {{ match.awayclub.name }}</h5>
+                                </div>
+
+                                <div *ngIf="match.expanded">
+                                    <div *ngIf="!matchBezig(match)" class="row no-gutters count-down">
+                                        <div class="col-3 timer">
+                                            <h5 class="days">{{ match.remDays }}</h5>
+                                            <span>Days</span>
+                                        </div>
+                                        <div class="col-3 timer">
+                                            <h5 class="hours">{{ match.remHours }}</h5>
+                                            <span>Hrs</span>
+                                        </div>
+                                        <div class="col-3 timer">
+                                            <h5 class="minutes">{{ match.remMin }}</h5>
+                                            <span>Mins</span>
+                                        </div>
+                                        <div class="col-3 timer">
+                                            <h5 class="seconds">{{ match.remSec }}</h5>
+                                            <span>Secs</span>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="matchBezig(match)" class="row no-gutters count-down">
+                                        <h3 class="text-center">Match bezig! Geen inzet meer mogelijk!</h3>
+                                    </div>
+
+                                    <div class="row no-gutters coming-match">
+                                        <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                                            <div class="team-1-box">
+                                                <div class="image-holder">
+                                                    <img [src]="match.homeclub.logo" alt="team1">
+                                                </div>
+                                                <h6>{{ match.homeclub.name }}</h6>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12 col-md-12 col-lg-4 text-center up-coming-verser">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <input type="number" class="score-input"
+                                                        placeholder="{{ match.homescore }}"
+                                                        [(ngModel)]="match.homescore">
+                                                    <span class="verse-text">- VS -</span>
+                                                    <input type="number" class="score-input"
+                                                        placeholder="{{ match.awayscore }}"
+                                                        [(ngModel)]="match.awayscore">
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>{{ match.leaguename }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                                            <div class="team-1-box">
+                                                <div class="image-holder">
+                                                    <img [src]="match.awayclub.logo" alt="team1">
+                                                </div>
+                                                <h6>{{ match.awayclub.name }}</h6>
+                                            </div>
+                                        </div>
+                                        <button [disabled]="matchBezig(match)" (click)="placeBet(match)"
+                                            class="col-12 centerbutton">Dien in</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ongespeelde matchen -->
+                    <div class="col-12 mb-2 mt-2" *ngFor="let day of nextDayMatches">
+                        <div class="heading-box" (click)="toggleExpansion(day)">
+                            <h4>{{ day.expanded ? '▼' : '►' }} {{ day.date }}</h4>
+                        </div>
+
+                        <div *ngIf="day.expanded">
+                            <div class="match-box" *ngFor="let match of day.matches">
+                                <div class="header-box" (click)="toggleMatchExpansion(match)">
+                                    <h5>{{ match.expanded ? '▼' : '►' }} {{ match.startdate | date:'shortTime' }}: {{
+                                        match.homeclub.name }} vs {{ match.awayclub.name }}</h5>
+                                </div>
+
+                                <div *ngIf="match.expanded">
+                                    <div *ngIf="!matchBezig(match)" class="row no-gutters count-down">
+                                        <div class="col-3 timer">
+                                            <h5 class="days">{{ match.remDays }}</h5>
+                                            <span>Days</span>
+                                        </div>
+                                        <div class="col-3 timer">
+                                            <h5 class="hours">{{ match.remHours }}</h5>
+                                            <span>Hrs</span>
+                                        </div>
+                                        <div class="col-3 timer">
+                                            <h5 class="minutes">{{ match.remMin }}</h5>
+                                            <span>Mins</span>
+                                        </div>
+                                        <div class="col-3 timer">
+                                            <h5 class="seconds">{{ match.remSec }}</h5>
+                                            <span>Secs</span>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="matchBezig(match)" class="row no-gutters count-down">
+                                        <h3 class="text-center">Match bezig! Geen inzet meer mogelijk!</h3>
+                                    </div>
+
+                                    <div class="row no-gutters coming-match">
+                                        <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                                            <div class="team-1-box">
+                                                <div class="image-holder">
+                                                    <img [src]="match.homeclub.logo" alt="team1">
+                                                </div>
+                                                <h6>{{ match.homeclub.name }}</h6>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12 col-md-12 col-lg-4 text-center up-coming-verser">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <input type="number" class="score-input"
+                                                        placeholder="{{ match.homescore }}"
+                                                        [(ngModel)]="match.homescore">
+                                                    <span class="verse-text">- VS -</span>
+                                                    <input type="number" class="score-input"
+                                                        placeholder="{{ match.awayscore }}"
+                                                        [(ngModel)]="match.awayscore">
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>{{ match.leaguename }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                                            <div class="team-1-box">
+                                                <div class="image-holder">
+                                                    <img [src]="match.awayclub.logo" alt="team1">
+                                                </div>
+                                                <h6>{{ match.awayclub.name }}</h6>
+                                            </div>
+                                        </div>
+                                        <button [disabled]="matchBezig(match)" (click)="placeBet(match)"
+                                            class="col-12 centerbutton">Dien in</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!--<div class="col-sm-12 col-md-12 col-lg-8 mb-2 mt-2">
+
+                    <div class="heading-box">
+                        <h4>NEXT MATCH</h4>
+                    </div>
+
+                    <div *ngIf="!matchBezig()" class="row no-gutters count-down">
+                        <div class="col-3 timer">
+                            <h5 class="days">{{days}}</h5>
+                            <span>Days</span>
+                        </div>
+                        <div class="col-3 timer">
+                            <h5 class="hours">{{hours}}</h5>
+                            <span>Hrs</span>
+                        </div>
+                        <div class="col-3 timer">
+                            <h5 class="minutes">{{minutes}}</h5>
+                            <span>Mins</span>
+                        </div>
+                        <div class="col-3 timer">
+                            <h5 class="seconds">{{seconds}}</h5>
+                            <span>Secs</span>
+                        </div>
+                    </div>
+                    <div *ngIf="matchBezig()" class="row no-gutters count-down">
+                        <h3 class="text-center">Match bezig! Geen inzet meer mogelijk! </h3>
+                    </div>
+
+                    <div class="row no-gutters coming-match">
+                        <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                            <div class="team-1-box">
+                                <div class="image-holder">
+                                    <img src="{{nextMatch.homeclub.logo}}" alt="team1">
+                                </div>
+                                <h6>{{nextMatch.homeclub.name}}</h6>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12 col-lg-4 text-center up-coming-verser">
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="number" class="score-input" id="team1-score" placeholder="{{homescore}}" [(ngModel)]="homescore">
+                                    <span class="verse-text">- VS -</span>
+                                    <input type="number" class="score-input" id="team2-score" placeholder="{{awayscore}}" [(ngModel)]="awayscore">
+                                </div>
+                                <div class="col-12">
+                                    <p>{{nextMatch.leaguename}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                            <div class="team-1-box">
+                                <div class="image-holder">
+                                    <img src="{{nextMatch.awayclub.logo}}" alt="team1">
+                                </div>
+                                <h6>{{nextMatch.awayclub.name}}</h6>
+                            </div>
+                        </div>
+                        <button [disabled]="matchBezig()" (click)="placeBet()" class="col-12 centerbutton">Dien in</button>
+                    </div>
+                </div>-->
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        <div class="heading-box manage-spacing-small">
+                            <h4>LEADERBOARD</h4>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table point-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">TEAM</th>
+                                            <th scope="col">3W</th>
+                                            <th scope="col">W</th>
+                                            <th scope="col">L</th>
+                                            <th scope="col">PTS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let partuser of users; let i = index">
+                                            <th scope="row">{{ i + 1 }}</th>
+                                            <td>{{partuser.username}}</td>
+                                            <td>{{partuser.matchFullJuist}}</td>
+                                            <td>{{partuser.matchHalfJuist}}</td>
+                                            <td>{{partuser.matchFullFout}}</td>
+                                            <td>{{partuser.totalPoints}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!isLoggedIn()">
+            <h3 class="text-center wrong p-2">Als je wilt meedoen aan de ek voorspelling, moet je een account hebben!
+            </h3>
+        </div>
+    </div>

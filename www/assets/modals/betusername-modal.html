@@ -1,0 +1,15 @@
+<div>
+    <div class="model-window-body">
+        <div class="close-window">
+            <i (click)="onNoClick()" class="lni-close"></i>
+        </div>
+        <div class="container model-content">
+            <h2>Geef een ek voorspellingsusername in: </h2>
+            <div class="form-group">
+                <label for="username" class="d-block">username: </label>
+                <input class="form-control" type="text" id="username" [(ngModel)]="betusername">
+            </div>
+            <button (click)="changeBetUsername()">Bevestig deelname</button>
+        </div>
+    </div>
+</div>

@@ -12,6 +12,8 @@ export class User {
     money: number;
     points: number;
     country: string;
+    ekVoorspellingsPoints: number;
+    betUsername: string;
     city: string
     street: string;
     houseNr: string;
@@ -23,9 +25,11 @@ export class User {
     roles: string[];
     
     // constructor of the table class
-    constructor(id: number,surname: string,name: string, password: string,email:string,birthdate:Date,money: number,points: number,country: string, postalCode: string, city: string,street: string, houseNr: string, streetDescr: string, roles: string[], clubs: Club[], cheatTokens: number, changeTokens: number) {
+    constructor(id: number,surname: string,name: string, password: string,email:string,birthdate:Date,money: number,points: number,country: string, postalCode: string, city: string,street: string, houseNr: string, streetDescr: string, roles: string[], clubs: Club[], cheatTokens: number, changeTokens: number, ekVoorspellingsPoints: number, betUsername: string) {
        this.id=id;
        this.surname = surname;
+       this.betUsername = betUsername;
+       this.ekVoorspellingsPoints = ekVoorspellingsPoints;
        this.name=name;
        this.email=email;
        this.changeTokens=changeTokens;
