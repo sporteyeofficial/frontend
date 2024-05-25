@@ -1826,9 +1826,9 @@ mat-dialog-content {
 .close-window-adres {
     position: absolute;
     right: 0%;
-    bottom: -100%;
+    bottom: 0%;
     cursor: pointer;
-    z-index: 16;
+    z-index: 100;
 }
 
 .close-window i {

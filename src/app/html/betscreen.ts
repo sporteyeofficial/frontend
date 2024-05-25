@@ -52,10 +52,27 @@ import { ToastrService } from 'ngx-toastr';
             }
               
           });
+          this.BetscreenService.getLastBet().subscribe({
+            next: data => {
+              if (data.homescore != 5000) {
+                this.homescore = data.homescore
+                this.awayscore = data.awayscore
+              } else {
+                this.betPlaced = false;
+              }
+              this.aantalBets = data.numberOfBets
+              this.aantalWins = data.numberOfCorrectBets
+              console.log(data)
+            },
+            error: err => {
+              console.log(err)
+            }
+              
+          });
         } else {
           this.BetscreenService.getLastMatch().subscribe({
             next: data => {
-              this.lastMatch = new Match(data.home, data.away, data.startdate,data.homescore, data.awayscore, ' ', data.leaguename, data.fixture_id)
+              this.lastMatch = new Match(data.homeclub, data.awayclub, data.startdate, data.homescore, data.awayscore, ' ', data.leaguename, data.fixture_id)
               console.log(data)
             },
             error: err => {
@@ -64,25 +81,6 @@ import { ToastrService } from 'ngx-toastr';
               
           });
         }
-      this.BetscreenService.getLastBet().subscribe({
-          next: data => {
-            if (data.homescore != 5000) {
-              this.homescore = data.homescore
-              this.awayscore = data.awayscore
-            } else {
-              this.betPlaced = false;
-            }
-            this.aantalBets = data.numberOfBets
-            this.aantalWins = data.numberOfCorrectBets
-            console.log(data)
-          },
-          error: err => {
-            console.log(err)
-          }
-            
-      });
-
-
       }
 
       placeBet() {

@@ -48,6 +48,24 @@ interface GroupedMatches {
       }
 
       constructor(private router: Router, private dialog: MatDialog, private BetscreenService: BetscreenService, private ekvoorspellingService: ekvoorspellingService, private userService: UserServiceService, private storageService: StorageService, private toastr: ToastrService) {
+        if (this.isLoggedIn()) {
+          this.ekvoorspellingService.getpreviousAndNewMatchesUser().subscribe({
+            next: data => {
+              this.lastMatches = data.playedMatches;
+              this.lastDayMatches = this.groupMatchesByDate(this.lastMatches);
+              this.nextMatches = data.unplayedMatches;
+              this.nextDayMatches = this.groupMatchesByDate(this.nextMatches);
+              console.log(data);
+              this.users = data.top10Users;
+
+              this.userPlace = data.userPlace;
+            },
+            error: err => {
+              console.log(err)
+            }
+              
+          });
+        } else {
           this.ekvoorspellingService.getpreviousAndNewMatches().subscribe({
             next: data => {
               this.lastMatches = data.playedMatches;
@@ -64,6 +82,7 @@ interface GroupedMatches {
             }
               
           });
+        }
       }
 
       isLoggedIn() {

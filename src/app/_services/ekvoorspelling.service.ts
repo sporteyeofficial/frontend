@@ -17,8 +17,12 @@ const httpOptions = {
 
     constructor(private http: HttpClient) { }
 
-    getpreviousAndNewMatches() : Observable<any> {
+    getpreviousAndNewMatchesUser() : Observable<any> {
       return this.http.get(`${this.apiUrl}/user/ek/matches/user`, httpOptions);
+    }
+
+    getpreviousAndNewMatches() : Observable<any> {
+      return this.http.get(`${this.apiUrl}/user/ek/matches`, httpOptions);
     }
 
     changeBetUsername(betUsername: String) : Observable<any> {

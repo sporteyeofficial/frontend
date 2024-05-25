@@ -38,15 +38,15 @@
 
                                 <div class="col-md-12 col-sm-12 col-12">
                                     <div class="form-group bottom35">
-                                        <label for="registerPostBox" class="d-block">Adres (geef straat en nummer om het adres te vinden): </label>
+                                        <label for="registerPostBox" class="d-block">Adres (geef straat en nummer om het adres te beginnen zoeken): </label>
                                         <input class="form-control" type="text" id="registerPostBox" name="adres" formControlName="adres">
                                         <a class="d-block wrong" *ngIf="adres.touched && adres.hasError('required')">Adres is required, vergeet niet op de knop hieronder de duwen om het adres te vinden</a>
-                                        <p class="d-block wrong" *ngIf="!adresAdded">Druk op zoek om adres te vinden</p>
+                                        <p class="d-block wrong" *ngIf="!adresAdded">Druk op zoek om adres te vinden (vul meer info aan indien het juiste adres er niet bijstaat)</p>
                                         <button class="btn" (click)="toggleDropdown()">Zoek juiste adres</button>
                                     </div>
                                     <div *ngIf="showDropdown" class="dropdown-menuA show">
                                         <a class="dropdown-itemA" href="javascript:void(0)" *ngFor="let adres of choices" (click)="selectChoice(adres)">{{adres.formatted}}</a>
-                                        <button class="close-window-adres" (click)="closeDropdown()">Close</button>
+                                        <button class="dropdown-itemA centerbutton" (click)="closeDropdown()">Close</button>
                                         
                                     </div>
                                 </div>

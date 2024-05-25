@@ -3,8 +3,12 @@
         <video src="../assets/ektrailer_highres.mp4" oncanplay="this.muted=true"loop autoplay muted></video>
     </div>
     <h2 class="text-center fs-6">Doe mee aan de ek voorspelling en win leuke prijzen</h2>
-    <button *ngIf="emptyUsername()" class="deelnamebutton" (click)="bevestigDeelname()">Klik hier om in te schrijven</button>
-    <div *ngIf="isLoggedIn()" class="leaderboard" id="leaderboard">
+    <div *ngIf="!isLoggedIn()">
+        <h3 class="text-center wrong p-2">Als je wilt meedoen aan de ek voorspelling, moet je een account hebben!
+        </h3>
+    </div>
+    <button *ngIf="isLoggedIn() && emptyUsername()" class="deelnamebutton" (click)="bevestigDeelname()">Klik hier om in te schrijven</button>
+    <div class="leaderboard" id="leaderboard">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-8">
@@ -249,7 +253,7 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let partuser of users; let i = index">
-                                            <th scope="row">{{ i + 1 }}</th>
+                                            <th scope="row">{{ userPlace == 0 ? i + 1 : i + 1 > 10 ? userPlace : i + 1  }} </th>
                                             <td>{{partuser.username}}</td>
                                             <td>{{partuser.matchFullJuist}}</td>
                                             <td>{{partuser.matchHalfJuist}}</td>
@@ -264,9 +268,5 @@
 
                 </div>
             </div>
-        </div>
-        <div *ngIf="!isLoggedIn()">
-            <h3 class="text-center wrong p-2">Als je wilt meedoen aan de ek voorspelling, moet je een account hebben!
-            </h3>
         </div>
     </div>
