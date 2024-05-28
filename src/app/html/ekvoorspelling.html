@@ -1,13 +1,14 @@
 <div class="container-bet">
     <div class="homepvid">
-        <video src="../assets/ektrailer_highres.mp4" oncanplay="this.muted=true"loop autoplay muted></video>
+        <video src="../assets/ektrailer_highres.mp4" oncanplay="this.muted=true" loop autoplay muted></video>
     </div>
     <h2 class="text-center fs-6">Doe mee aan de ek voorspelling en win leuke prijzen</h2>
     <div *ngIf="!isLoggedIn()">
         <h3 class="text-center wrong p-2">Als je wilt meedoen aan de ek voorspelling, moet je een account hebben!
         </h3>
     </div>
-    <button *ngIf="isLoggedIn() && emptyUsername()" class="deelnamebutton" (click)="bevestigDeelname()">Klik hier om in te schrijven</button>
+    <button *ngIf="isLoggedIn() && emptyUsername()" class="deelnamebutton" (click)="bevestigDeelname()">Klik hier om in
+        te schrijven</button>
     <div class="leaderboard" id="leaderboard">
         <div class="container">
             <div class="row">
@@ -61,11 +62,11 @@
                                         <div class="col-sm-12 col-md-12 col-lg-4 text-center up-coming-verser">
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <input type="number" class="score-input"
+                                                    <input type="number" class="score-input-2"
                                                         placeholder="{{ match.homescore }}"
                                                         [(ngModel)]="match.homescore">
                                                     <span class="verse-text">- VS -</span>
-                                                    <input type="number" class="score-input"
+                                                    <input type="number" class="score-input-2"
                                                         placeholder="{{ match.awayscore }}"
                                                         [(ngModel)]="match.awayscore">
                                                 </div>
@@ -105,21 +106,22 @@
                                 </div>
 
                                 <div *ngIf="match.expanded">
-                                    <div *ngIf="!matchBezig(match)" class="row no-gutters count-down">
-                                        <div class="col-3 timer">
-                                            <h5 class="days">{{ match.remDays }}</h5>
+                                    <div *ngIf="!matchBezig(match)"
+                                        class="row no-gutters count-down justify-content-center">
+                                        <div class="col-2 timer">
+                                            <h5>{{ match.remDays }}</h5>
                                             <span>Days</span>
                                         </div>
                                         <div class="col-3 timer">
-                                            <h5 class="hours">{{ match.remHours }}</h5>
+                                            <h5>{{ match.remHours }}</h5>
                                             <span>Hrs</span>
                                         </div>
                                         <div class="col-3 timer">
-                                            <h5 class="minutes">{{ match.remMin }}</h5>
+                                            <h5>{{ match.remMin }}</h5>
                                             <span>Mins</span>
                                         </div>
-                                        <div class="col-3 timer">
-                                            <h5 class="seconds">{{ match.remSec }}</h5>
+                                        <div class="col-2 timer">
+                                            <h5>{{ match.remSec }}</h5>
                                             <span>Secs</span>
                                         </div>
                                     </div>
@@ -140,13 +142,18 @@
                                         <div class="col-sm-12 col-md-12 col-lg-4 text-center up-coming-verser">
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <input type="number" class="score-input"
-                                                        placeholder="{{ match.homescore }}"
-                                                        [(ngModel)]="match.homescore">
-                                                    <span class="verse-text">- VS -</span>
-                                                    <input type="number" class="score-input"
-                                                        placeholder="{{ match.awayscore }}"
-                                                        [(ngModel)]="match.awayscore">
+                                                    <div class="row m-1">
+                                                        <div class="col-4">
+                                                            <input type="number" class="score-input-2"
+                                                                placeholder="{{ match.homescore }}"
+                                                                [(ngModel)]="match.homescore">
+                                                        </div>
+                                                        <div class="col-4"><span class="verse-text">- VS -</span></div>
+                                                        <div class="col-4"><input type="number" class="score-input-2"
+                                                                placeholder="{{ match.awayscore }}"
+                                                                [(ngModel)]="match.awayscore">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <p>{{ match.leaguename }}</p>
@@ -169,104 +176,43 @@
                             </div>
                         </div>
                     </div>
-                    </div>
-
-                    <!--<div class="col-sm-12 col-md-12 col-lg-8 mb-2 mt-2">
-
-                    <div class="heading-box">
-                        <h4>NEXT MATCH</h4>
-                    </div>
-
-                    <div *ngIf="!matchBezig()" class="row no-gutters count-down">
-                        <div class="col-3 timer">
-                            <h5 class="days">{{days}}</h5>
-                            <span>Days</span>
-                        </div>
-                        <div class="col-3 timer">
-                            <h5 class="hours">{{hours}}</h5>
-                            <span>Hrs</span>
-                        </div>
-                        <div class="col-3 timer">
-                            <h5 class="minutes">{{minutes}}</h5>
-                            <span>Mins</span>
-                        </div>
-                        <div class="col-3 timer">
-                            <h5 class="seconds">{{seconds}}</h5>
-                            <span>Secs</span>
-                        </div>
-                    </div>
-                    <div *ngIf="matchBezig()" class="row no-gutters count-down">
-                        <h3 class="text-center">Match bezig! Geen inzet meer mogelijk! </h3>
-                    </div>
-
-                    <div class="row no-gutters coming-match">
-                        <div class="col-sm-12 col-md-12 col-lg-4 text-center">
-                            <div class="team-1-box">
-                                <div class="image-holder">
-                                    <img src="{{nextMatch.homeclub.logo}}" alt="team1">
-                                </div>
-                                <h6>{{nextMatch.homeclub.name}}</h6>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-12 col-md-12 col-lg-4 text-center up-coming-verser">
-                            <div class="row">
-                                <div class="col-12">
-                                    <input type="number" class="score-input" id="team1-score" placeholder="{{homescore}}" [(ngModel)]="homescore">
-                                    <span class="verse-text">- VS -</span>
-                                    <input type="number" class="score-input" id="team2-score" placeholder="{{awayscore}}" [(ngModel)]="awayscore">
-                                </div>
-                                <div class="col-12">
-                                    <p>{{nextMatch.leaguename}}</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-12 col-md-12 col-lg-4 text-center">
-                            <div class="team-1-box">
-                                <div class="image-holder">
-                                    <img src="{{nextMatch.awayclub.logo}}" alt="team1">
-                                </div>
-                                <h6>{{nextMatch.awayclub.name}}</h6>
-                            </div>
-                        </div>
-                        <button [disabled]="matchBezig()" (click)="placeBet()" class="col-12 centerbutton">Dien in</button>
-                    </div>
-                </div>-->
-                    <div class="col-sm-12 col-md-12 col-lg-4">
-                        <div class="heading-box manage-spacing-small">
-                            <h4>LEADERBOARD</h4>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-12">
-                                <table class="table point-table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">TEAM</th>
-                                            <th scope="col">3W</th>
-                                            <th scope="col">W</th>
-                                            <th scope="col">L</th>
-                                            <th scope="col">PTS</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let partuser of users; let i = index">
-                                            <th scope="row">{{ userPlace == 0 ? i + 1 : i + 1 > 10 ? userPlace : i + 1  }} </th>
-                                            <td>{{partuser.username}}</td>
-                                            <td>{{partuser.matchFullJuist}}</td>
-                                            <td>{{partuser.matchHalfJuist}}</td>
-                                            <td>{{partuser.matchFullFout}}</td>
-                                            <td>{{partuser.totalPoints}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="heading-box manage-spacing-small">
+                        <h4>LEADERBOARD</h4>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table point-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">TEAM</th>
+                                        <th scope="col">3W</th>
+                                        <th scope="col">W</th>
+                                        <th scope="col">L</th>
+                                        <th scope="col">PTS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let partuser of users; let i = index">
+                                        <th scope="row">{{ userPlace == 0 ? i + 1 : i + 1 > 10 ? userPlace : i + 1 }}
+                                        </th>
+                                        <td>{{partuser.username}}</td>
+                                        <td>{{partuser.matchFullJuist}}</td>
+                                        <td>{{partuser.matchHalfJuist}}</td>
+                                        <td>{{partuser.matchFullFout}}</td>
+                                        <td>{{partuser.totalPoints}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
+</div>

@@ -133,6 +133,7 @@ interface GroupedMatches {
           },
           error: err => {
             console.log(err)
+            this.toastr.error("Bet niet geplaatst.");
           }
             
       });
