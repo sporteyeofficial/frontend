@@ -8,6 +8,7 @@ import { UserRangschikking } from "../model/UserRangschikking";
 import { UserServiceService } from "../_services/user-service.service";
 import { StorageService } from "../_services/storage.service";
 import { WindowBetusernameComponent } from "../betusernamewindow";
+import { WindowEKPosterComponent } from "../ekposterwindow";
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from "@angular/material/dialog";
 
@@ -83,6 +84,20 @@ interface GroupedMatches {
               
           });
         }
+      }
+
+      openPoster() {
+        console.log("open dialog");
+        const dialogRef = this.dialog.open(WindowEKPosterComponent, {
+          height: 'max-content',
+          panelClass: 'dialogclass',
+          data: {}
+        });
+        console.log("dialog is opened");
+
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+        });
       }
 
       isLoggedIn() {

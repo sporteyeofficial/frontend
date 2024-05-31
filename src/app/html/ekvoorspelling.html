@@ -2,7 +2,7 @@
     <div class="homepvid">
         <video src="../assets/ektrailer_highres.mp4" oncanplay="this.muted=true" loop autoplay muted></video>
     </div>
-    <h2 class="text-center fs-6">Doe mee aan de ek voorspelling en win leuke prijzen</h2>
+    <h2 class="text-center fs-6">Doe mee aan de ek voorspelling en win leuke prijzen <i class="ml-3 fa fa-info-circle modalbutton_poster" (click)="openPoster()"></i></h2>
     <div *ngIf="!isLoggedIn()">
         <h3 class="text-center wrong p-2">Als je wilt meedoen aan de ek voorspelling, moet je een account hebben!
         </h3>
@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-8">
-                    <!-- Gespeelde matchen -->
+                    <!-- Gespeelde matchen 
                     <div class="col-12 mt-1" *ngFor="let day of lastDayMatches">
                         <div class="header-box" (click)="toggleExpansion(day)">
                             <h4>{{ day.expanded ? '▼' : '►' }} {{ day.date }}</h4>
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                     </div>
-
+                -->
                     <!-- Ongespeelde matchen -->
                     <div class="col-12 mb-2 mt-2" *ngFor="let day of nextDayMatches">
                         <div class="heading-box" (click)="toggleExpansion(day)">
@@ -139,17 +139,17 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-12 col-md-12 col-lg-4 text-center up-coming-verser">
+                                        <div class="col-sm-12 col-md-12 col-lg-4 justify-content-center up-coming-verser">
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="row m-1">
-                                                        <div class="col-4">
-                                                            <input type="number" class="score-input-2"
-                                                                placeholder="{{ match.homescore }}"
+                                                        <div class="col-5">
+                                                            <input type="number" class="score-input"
+                                                                placeholder="{{ match.homescore }}" min="0"
                                                                 [(ngModel)]="match.homescore">
                                                         </div>
-                                                        <div class="col-4"><span class="verse-text">- VS -</span></div>
-                                                        <div class="col-4"><input type="number" class="score-input-2"
+                                                        <div class="col-2"><span class="verse-text-2">VS </span></div>
+                                                        <div class="col-5"><input type="number" min="0" class="score-input"
                                                                 placeholder="{{ match.awayscore }}"
                                                                 [(ngModel)]="match.awayscore">
                                                         </div>

@@ -21,6 +21,7 @@ import { OrderComponent } from './html/order.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { WijzigProfielComponent } from './wijzigProfielModal';
 import { WindowBetusernameComponent } from './betusernamewindow';
+import { WindowEKPosterComponent } from './ekposterwindow';
 import { VeranderWachtwoordComponent } from './veranderWachtwoordModal';
 import { PasswordComponent } from './html/password';
 import { BetScreenComponent } from './html/betscreen';
@@ -64,6 +65,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     OrderComponent,
     WijzigProfielComponent,
     WindowBetusernameComponent,
+    WindowEKPosterComponent,
     VeranderWachtwoordComponent,
     BetScreenComponent,
     EkVoorspellingComponent,

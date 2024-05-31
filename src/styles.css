@@ -4688,6 +4688,11 @@ form.findus textarea {
     padding: 20px;
 }
 
+h2 .modalbutton_poster {
+    position: relative;
+}
+
+
 /* Buttons */
 .deelnamebutton {
     display: block;
@@ -4828,6 +4833,17 @@ form.findus textarea {
         width: 80px;
         height: 80px;
     }
+}
+
+.verse-text-2{
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: -35%;
+    margin-bottom: 10%;
+    -webkit-text-stroke: 1px #3d8623;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
 }
 
 /* end ek voorspelling */
