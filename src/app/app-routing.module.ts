@@ -13,12 +13,12 @@ import { ShopcartComponent } from './html/shop-cart';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 
-const routes: Routes = [{ path: '',   redirectTo: '/home', pathMatch: 'full' }, {path: 'home', component: HomeComponent},{path: 'about', component: AboutUsComponent},
+const routes: Routes = [{ path: '',   redirectTo: 'index.html', pathMatch: 'full' }, {path: 'home', component: HomeComponent},{path: 'about', component: AboutUsComponent},
 {path: 'register', component: RegisterComponent},{path: 'login', component: LoginComponent}, {path: 'check/:groupid/order/:id', component: OrderComponent}, {path: 'passwordChange', component: PasswordComponent}, {path: 'policy', component: AlgVoorwaardenComponent}, {path: 'shopCart', component: ShopcartComponent}, {path: 'betscreen', component: BetScreenComponent}, {path: 'ekvoorspelling', component: EkVoorspellingComponent} 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: false })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
