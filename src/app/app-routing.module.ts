@@ -10,6 +10,7 @@ import { OrderComponent } from './html/order.component';
 import { PasswordComponent } from './html/password';
 import { AlgVoorwaardenComponent } from './html/algvoorwaarden';
 import { ShopcartComponent } from './html/shop-cart';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 
 const routes: Routes = [{ path: '',   redirectTo: '/home', pathMatch: 'full' }, {path: 'home', component: HomeComponent},{path: 'about', component: AboutUsComponent},
@@ -17,8 +18,10 @@ const routes: Routes = [{ path: '',   redirectTo: '/home', pathMatch: 'full' }, 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes, { useHash: false })],
   exports: [RouterModule],
-
+  providers: [
+    { provide: LocationStrategy, useClass: PathLocationStrategy }
+  ]
 })
 export class AppRoutingModule { }

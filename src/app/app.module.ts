@@ -90,7 +90,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     BrowserAnimationsModule,
     NgxPaginationModule
   ],
-  providers: [httpInterceptorProviders, { provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

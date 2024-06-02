@@ -23,6 +23,7 @@
     "@angular/platform-browser": "^17.2.3",
     "@angular/platform-browser-dynamic": "^17.2.3",
     "@angular/router": "^17.2.3",
+    "@nguniversal/express-engine": "^7.0.2",
     "@types/howler": "^2.2.9",
     "cookieconsent": "^3.1.1",
     "cors": "^2.8.5",
