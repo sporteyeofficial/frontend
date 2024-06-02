@@ -20,8 +20,5 @@ const routes: Routes = [{ path: '',   redirectTo: '/home', pathMatch: 'full' }, 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: false })],
   exports: [RouterModule],
-  providers: [
-    { provide: LocationStrategy, useClass: PathLocationStrategy }
-  ]
 })
 export class AppRoutingModule { }
