@@ -4692,6 +4692,49 @@ h2 .modalbutton_poster {
     position: relative;
 }
 
+/* ek voorspelling homepage */
+
+.promo-container {
+    border: 2px dashed #4CAF50;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 2%;
+    text-align: center;
+    background-color: #fff8e1;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    0%, 100% { border-color: #4CAF50; }
+    50% { border-color: #FF6347; }
+}
+.promo-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.promo-description {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+.promo-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+.promo-button:hover {
+    background-color: #4CAF50;
+}
+
 
 /* Buttons */
 .deelnamebutton {

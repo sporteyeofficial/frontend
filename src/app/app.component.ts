@@ -136,6 +136,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
+  goToEk() {
+    this.router.navigate(['ekvoorspelling']).then(() => {
+      window.location.reload();
+    });
+  }
+
   openVideo() {
       const dialogRef = this.dialog.open(WindowVideoComponent, {
         panelClass: 'dialogclass',
