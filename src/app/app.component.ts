@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   errorMessage = '';
   message = '';
   currentUser: any;
+  public ekproduct!: Product;
   //keep refs to subscriptions to be able to unsubscribe later
   private popupOpenSubscription!: Subscription;
   private popupCloseSubscription!: Subscription;
@@ -165,8 +166,12 @@ export class HomeComponent implements OnInit, OnDestroy {
               this.productService.getSizes(data[d].id).subscribe((result) => {
                 let product = new Product(data[d].id, data[d].categorie, data[d].name, data[d].price, data[d].description, data[d].imageLoc, data[d].numberOfShirts, data[d].productType, result.sort());
                 this.storageService.addProduct(product);
-                this.products.push(product);
-                this.products.sort((a: Product, b: Product) => b.price - a.price);
+                if (product.id == 5) {
+                  this.ekproduct = product
+                } else {
+                  this.products.push(product);
+                  this.products.sort((a: Product, b: Product) => b.price - a.price);
+                }
               })
           } 
         },
@@ -177,9 +182,18 @@ export class HomeComponent implements OnInit, OnDestroy {
       });
     } else {
       this.products = this.storageService.getProducts();
-      this.products.sort((a: Product, b: Product) => b.price - a.price);
+      let products: Product[] = [];
+      for (let product of this.products) {
+        if (product.id == 5) {
+              this.ekproduct = product
+        } else {
+              products.push(product);
+              products.sort((a: Product, b: Product) => b.price - a.price);
+        }
+      }
+      this.products = products;
     }
-    
-
   }
+
+  
 }

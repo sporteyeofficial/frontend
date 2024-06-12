@@ -94,10 +94,10 @@
                                                     <div class="plus"><i class="lni-plus"></i></div>
                                                 </div>
                                             </a>
-                                            <p class="text-center fs-6">{{product.name}} <i
+                                            <p class="text-center fs-6" >{{product.name}} <i
                                                     (click)="openInfoModal(product)" class="fa fa-info-circle info"></i>
                                             </p>
-                                            <p class="text-center fs-6">€ {{product.price}}</p>
+                                            <p class="text-center fs-6 ">€ {{product.price}}</p>
                                         </div>
 
                                     </div>
@@ -107,9 +107,30 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="promo-container">
-                                                <div class="promo-title">Doe nu gratis mee met de Sports-Eye EK Voorspelling!</div>
-                                                <div class="promo-description">Laat je sportieve kennis zien en win Sports-eye producten. </div>
-                                                <a (click)="goToEk()" class="promo-button">Ga naar de voorspellingspagina</a>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="promo-title">Doe nu gratis mee met de Sports-Eye EK Voorspelling!</div>
+                                                        <div class="promo-description">Laat je sportieve kennis zien en win Sports-eye producten. </div>
+                                                        <a (click)="goToEk()" class="promo-button">Ga naar de voorspellingspagina</a>
+                                                    </div>
+                                                    <div class="col-6 featured_items">
+                                                        <a (click)="openDialog(ekproduct)">
+                                                            <div class="img-holder mx-auto d-block">
+                                                                <img src={{ekproduct.imageLoc}} alt="items">
+                                                                <div class="hover-content">
+                                                                    <!-- Inhoud die getoond wordt bij hover, bijv. extra informatie -->
+                                                                    <p>{{ekproduct.description}}</p>
+                                                                </div>
+                                                                <div class="plus"><i class="lni-plus"></i></div>
+                                                            </div>
+                                                        </a>
+                                                        <p class="text-center fs-6" style="color: #4CAF50">{{ekproduct.name}} <i
+                                                                (click)="openInfoModal(ekproduct)" class="fa fa-info-circle info"></i>
+                                                        </p>
+                                                        <p class="text-center fs-6" style="color: #4CAF50">€ {{ekproduct.price}}</p>
+                                                    </div>
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                         <div class="col-12 text-center text-lg-left">
