@@ -13,5 +13,5 @@ export const domain = {
 }
 
 export const frontend = {
-    url: "https://sports-eye.be/api"
+    url: "https://testapi.sports-eye.be/api"
 }
