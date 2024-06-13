@@ -11,7 +11,3 @@ export const domain = {
     testonl: 'testing3.sports-eye.be',
     test: 'localhost'
 }
-
-export const frontend = {
-    url: "https://testapi.sports-eye.be/api"
-}
