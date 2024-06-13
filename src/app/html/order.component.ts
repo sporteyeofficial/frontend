@@ -212,14 +212,12 @@ export class OrderComponent implements OnInit {
 
   geefError(message: string){
     const dialogRef = this.dialog.open(WindowerrorComponent, {
-      width: '',
       data: { s: message }
     });
   }
 
   changeShirt(mysterieShirt: MysterieShirt, groepId: number) {
     const dialogRef = this.dialog.open(Window3Component, {
-      width: '',
       data: { ms: mysterieShirt, g: groepId, s: "change", sId: -1, order: this.order, o: this.id }
     });
     console.log("dialog is opened");

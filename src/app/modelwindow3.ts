@@ -28,6 +28,8 @@ import { ToastrService } from 'ngx-toastr';
         this.mysterieShirt = data.ms;
         this.groepId = data.g;
         this.soort = data.s;
+        console.log(this.soort);
+        console.log(data.order);
         this.id = data.o;
         this.order = data.order;
         this.shirtId = data.sId;

@@ -108,14 +108,25 @@
                                         <div class="col-12">
                                             <div class="promo-container">
                                                 <div class="row">
-                                                    <div class="col-6">
+                                                    <div class="col-5">
                                                         <div class="promo-title">Doe nu gratis mee met de Sports-Eye EK Voorspelling</div>
                                                         <div class="promo-description">Laat je sportieve kennis zien en win Sports-eye producten. </div>
                                                         <a (click)="goToEk()" class="promo-button">Ga naar de voorspellingspagina</a>
                                                     </div>
-                                                    <div class="col-6 featured_items">
-                                                        <a (click)="openDialog(ekproduct)">
-                                                            <div class="img-holder mx-auto d-block">
+                                                    <div class="col-3 d-flex align-items-center justify-content-center" style="border: 1px solid #ccc; padding: 10px;">
+                                                        <div style="text-align: center;">
+                                                            <div class="blinking-title">Koop nu tijdelijk onze EK-box</div>
+                                                            <div style="margin-top: 10px;">
+                                                                <a href="/" style="text-decoration: none; color: #4CAF50; font-weight: bold;">
+                                                                    <p style="color: black">Klik op de afbeelding rechts om een maat te kiezen!</p>
+                                                                    <i class="fa fa-arrow-right" style="margin-left: 5px;"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4 featured_items" style="padding-top: 0%; margin-top: 0%;">
+                                                        <a (click)="openDialog(ekproduct)" >
+                                                            <div class="img-holder mx-auto d-block ">
                                                                 <img src={{ekproduct.imageLoc}} alt="items">
                                                                 <div class="hover-content">
                                                                     <!-- Inhoud die getoond wordt bij hover, bijv. extra informatie -->
