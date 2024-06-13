@@ -6,8 +6,8 @@ export const backend = {
 }
 
 export const domain = {
-    url: 'testing3.sports-eye.be',
+    url: 'sports-eye.be',
     prod: 'Sports-Eye.be',
-    testonl: 'testing3.sports-eye.be',
+    testonl: 'sports-eye.be',
     test: 'localhost'
 }
